@@ -29,4 +29,5 @@ $('#modal-close').click(function() {
     $('#modal').css('display', 'none');
     $('#modal-img').css('display', 'none');
     $('#modal-vid').css('display', 'none');
+    $('#modal-vid').get(0).pause();
 });
