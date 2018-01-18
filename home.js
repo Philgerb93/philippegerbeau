@@ -68,17 +68,18 @@ $(window).resize(setProjectLength);
 function setProjectLength() {
     $('.content-wrapper').each(function() {
         var $first = $(this).children().eq(0);
+        var $second = $(this).children().eq(1);
 
-        if ($first.hasClass('project-card')) {
-            var $second = $(this).children().eq(1);
+        if ($first.hasClass('project-card') && $second != undefined) {
+            $first.find('.project-info').css('margin-bottom', 0);
+            $second.find('.project-info').css('margin-bottom', 0);
 
             if ($first.height() > $second.height()) {
                 var diff = $first.height() - $second.height();
-                $second.height($first.height());
+                console.log(diff);
                 $second.find('.project-info').css('margin-bottom', diff);
-            } else {
+            } else if ($first.height() < $second.height()) {
                 var diff = $second.height() - $first.height();
-                $first.height($second.height());
                 $first.find('.project-info').css('margin-bottom', diff);
             }
         }
