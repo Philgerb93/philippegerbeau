@@ -31,3 +31,32 @@ $('#modal-close').click(function() {
     $('#modal-vid').css('display', 'none');
     $('#modal-vid').get(0).pause();
 });
+
+// Progress bar animations
+checkAnimation();
+
+$(window).scroll(function() {
+    checkAnimation();
+})
+
+function checkAnimation() {
+    $('.progress-bar').each(function() {
+        var $this = $(this);
+
+        if (!$this.hasClass('filled') && elemInViewport($this)) {
+            console.log('YUP');
+            $this.addClass('filled');
+        }
+    });
+}
+
+function elemInViewport(elem) {
+    var $elem = $(elem);
+
+    var top_of_element = $elem.offset().top;
+    var bottom_of_element = $elem.offset().top + $elem.outerHeight();
+    var bottom_of_screen = $(window).scrollTop() + window.innerHeight;
+    var top_of_screen = $(window).scrollTop();
+
+    return (bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element);
+}
