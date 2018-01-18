@@ -44,7 +44,6 @@ function checkAnimation() {
         var $this = $(this);
 
         if (!$this.hasClass('filled') && elemInViewport($this)) {
-            console.log('YUP');
             $this.addClass('filled');
         }
     });
@@ -59,4 +58,29 @@ function elemInViewport(elem) {
     var top_of_screen = $(window).scrollTop();
 
     return (bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element);
+}
+
+// Equal project length
+setProjectLength();
+
+$(window).resize(setProjectLength);
+
+function setProjectLength() {
+    $('.content-wrapper').each(function() {
+        var $first = $(this).children().eq(0);
+
+        if ($first.hasClass('project-card')) {
+            var $second = $(this).children().eq(1);
+
+            if ($first.height() > $second.height()) {
+                var diff = $first.height() - $second.height();
+                $second.height($first.height());
+                $second.find('.project-info').css('margin-bottom', diff);
+            } else {
+                var diff = $second.height() - $first.height();
+                $first.height($second.height());
+                $first.find('.project-info').css('margin-bottom', diff);
+            }
+        }
+    });
 }
