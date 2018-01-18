@@ -92,7 +92,7 @@ header {
 	left: 0;
 	width: 100%;
 	min-width: 720px;
-	line-height: 100px;
+	line-height: 80px;
 	text-transform: uppercase;
 	background-color: #FAFAFA;
 	z-index: 10;
@@ -202,7 +202,7 @@ header a:hover:before {
 /* MAIN CONTENT */
 #main {
 	box-shadow: 0 0 50px rgba(0,0,0,0.2), 0 4px 40px rgba(0,0,0,0.1);
-	margin-top: 100px;
+	margin-top: 80px;
 	margin-bottom: 560px;
 	background-color: #F2F2F2;
 	overflow: hidden;

@@ -1,4 +1,4 @@
-1// Smooth anchor scrolling
+// Smooth anchor scrolling
 $(document).on('click', 'header a', function(event){
     event.preventDefault();
 
