@@ -1,3 +1,3 @@
 # philippegerbeau.com
 
-[My personal website!](https://www.philippegerbeau.com "philippegerbeau.com")
+[My personal website!](http://www.philippegerbeau.com "philippegerbeau.com")
