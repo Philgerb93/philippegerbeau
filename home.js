@@ -1,10 +1,12 @@
 // Smooth anchor scrolling
-$(document).on('click', 'header a', function(event){
+$(document).on('click', 'nav a', function(event){
     event.preventDefault();
+    var navHeight = Math.floor($('nav').height());
+    var speed = 500;
 
-    $('html, body').animate({
-        scrollTop: $( $.attr(this, 'href') ).offset().top - 100
-    }, 500);
+    $('html, body').animate({ 
+        scrollTop: $( $.attr(this, 'href') ).offset().top - navHeight
+    }, speed);
 });
 
 // Modal
