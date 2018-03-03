@@ -269,34 +269,6 @@ header p {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	margin: 0 auto 40px auto;
 }
-@media only screen and (min-width: 820px) {
-	.project-card {
-		width: 45%;
-		max-width: 550px;
-		margin: 0 0 40px 0;
-		display: inline-block;
-	}
-	.project-card:nth-child(odd) {
-		float: left;
-	}
-	.project-card:nth-child(even) {
-		float: right;
-	}
-
-	.content-wrapper {
-		width: 60%;
-		min-width: 800px;
-		max-width: 1200px;
-	}
-	.language {
-		width: 33.3%;
-		float: left;
-		margin: 0;
-	}
-	div#languages>div:not(:first-child):not(:last-child) {
-		margin: 80px auto;
-	}
-}
 
 .project-info {
 	padding: 20px;
@@ -390,7 +362,7 @@ div.project-card img.mobile {
 #modal-img, #modal-vid {
     margin: auto;
     display: none;
-    max-width: 80%;
+    max-width: 70%;
     max-height: 80%;
     position: relative;
   	top: 50%;
@@ -408,12 +380,13 @@ div.project-card img.mobile {
 /* Modal Close Button */
 #modal-close {
     position: absolute;
-    top: 15px;
-    right: 35px;
+    top: 0.5%;
+    right: 2%;
     color: #f1f1f1;
-    font-size: 60px;
+    font-size: 40px;
     font-weight: bold;
     transition: 0.3s;
+    padding: 16px;
 }
 #modal-close:hover,
 #modal-close:focus {
@@ -430,10 +403,10 @@ div.project-card img.mobile {
 	top: 50%;
 	width: auto;
 	padding: 16px;
-	margin: -50px 100px 0 100px;
+	margin: -50px 2% 0 2%;
 	color: white;
 	font-weight: bold;
-	font-size: 40px;
+	font-size: 30px;
 	transition: 0.6s ease;
 	border-radius: 0 3px 3px 0;
 	user-select: none;
@@ -499,4 +472,47 @@ div#upper-footer p {
 #subfooter p {
 	font-size: 16px;
 	margin-top: 20.5px;
+}
+
+@media only screen and (min-width: 820px) {
+	.project-card {
+		width: 45%;
+		max-width: 550px;
+		margin: 0 0 40px 0;
+		display: inline-block;
+	}
+	.project-card:nth-child(odd) {
+		float: left;
+	}
+	.project-card:nth-child(even) {
+		float: right;
+	}
+
+	.content-wrapper {
+		width: 60%;
+		min-width: 800px;
+		max-width: 1200px;
+	}
+	.language {
+		width: 33.3%;
+		float: left;
+		margin: 0;
+	}
+	div#languages>div:not(:first-child):not(:last-child) {
+		margin: 80px auto;
+	}
+
+	#modal-prev,
+	#modal-next {
+		margin: -50px 1.25% 0 5%;
+		font-size: 45px;
+	}
+	#modal-close {
+		font-size: 60px;
+		top: 5%;
+    	right: 5%;
+	}
+	#modal-img, #modal-vid {
+		max-width: 80%;
+	}
 }
