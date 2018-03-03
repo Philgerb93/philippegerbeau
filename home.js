@@ -1,47 +1,58 @@
-// Smooth anchor scrolling
-$(document).on('click', 'nav a', function(event){
-    event.preventDefault();
-    var navHeight = Math.floor($('nav').height());
-    var speed = 500;
+$(window).on('load', function() {
+    progressBarAnimation();
+    setProjectLength();
+    scrollFooter();
 
-    $('html, body').animate({ 
-        scrollTop: $( $.attr(this, 'href') ).offset().top - navHeight
-    }, speed);
+    setClickListeners();
+
+    $(window).resize(setProjectLength);
+
+    $(window).scroll(function() {
+        progressBarAnimation();
+        scrollFooter();
+    });
 });
 
-// Modal
-$('div#main img:not(.thumbnail)').click(function() {
-    $('#modal').css('display', 'block');
-    $('#modal-img').css('display', 'block');
+function setClickListeners() {
+    // Smooth anchor scrolling
+    $(document).on('click', 'nav a', function(event){
+        event.preventDefault();
+        var navHeight = Math.floor($('nav').height());
+        var speed = 500;
 
-    $('#modal-img').attr('src', $(this).attr('src'));
-});
+        $('html, body').animate({ 
+            scrollTop: $( $.attr(this, 'href') ).offset().top - navHeight
+        }, speed);
+    });
 
-$('div#main img.thumbnail').click(function() {
-    $('#modal').css('display', 'block');
-    $('#modal-vid').css('display', 'block');
+    // Modal
+    $('div#main img:not(.thumbnail)').click(function() {
+        $('#modal').css('display', 'block');
+        $('#modal-img').css('display', 'block');
 
-    $("#modal-vid").get(0).pause();
-    $('#modal-vid source').attr('src', $(this).attr('id'));
-    $('#modal-vid').get(0).load();
-    $('#modal-vid').get(0).play();
-});
+        $('#modal-img').attr('src', $(this).attr('src'));
+    });
 
-$('#modal-close').click(function() {
-    $('#modal').css('display', 'none');
-    $('#modal-img').css('display', 'none');
-    $('#modal-vid').css('display', 'none');
-    $('#modal-vid').get(0).pause();
-});
+    $('div#main img.thumbnail').click(function() {
+        $('#modal').css('display', 'block');
+        $('#modal-vid').css('display', 'block');
 
-// Progress bar animations
-checkAnimation();
+        $("#modal-vid").get(0).pause();
+        $('#modal-vid source').attr('src', $(this).attr('id'));
+        $('#modal-vid').get(0).load();
+        $('#modal-vid').get(0).play();
+    });
 
-$(window).scroll(function() {
-    checkAnimation();
-});
+    $('#modal-close').click(function() {
+        $('#modal').css('display', 'none');
+        $('#modal-img').css('display', 'none');
+        $('#modal-vid').css('display', 'none');
+        $('#modal-vid').get(0).pause();
+    });
+}
 
-function checkAnimation() {
+// Decides when to trigger the progress bar animations
+function progressBarAnimation() {
     $('.progress-bar').each(function() {
         var $this = $(this);
 
@@ -51,6 +62,7 @@ function checkAnimation() {
     });
 }
 
+// Checks if an element is in view of the user
 function elemInViewport(elem) {
     var $elem = $(elem);
     var navBarHeight = $('nav').height();
@@ -63,11 +75,19 @@ function elemInViewport(elem) {
     return (bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element);
 }
 
-// Equal project length
-setProjectLength();
+// Changes the footer's visibility depending on scroll position
+function scrollFooter() {
+    var headerHeight = $('header').height();
+    var footerHeight = $('footer').height();
 
-$(window).resize(setProjectLength);
+    if(window.scrollY >= headerHeight) {
+        $('footer').css('bottom', 0);
+    } else {
+        $('footer').css('bottom', '-' + footerHeight + 'px');
+    }
+}
 
+// Adjust length of side by side projects
 function setProjectLength() {
     $('.content-wrapper').each(function() {
         var $first = $(this).children().eq(0);
@@ -86,29 +106,4 @@ function setProjectLength() {
             }
         }
     });
-}
-
-// Parallax
-$(window).on('load', function() {
-    scrollFooter();
-});
-
-$(window).scroll(function() {
-    var windowHeight = $(window).height();
-    var heightDocument = (windowHeight) + ($('.content').height()) + ($('footer').height()) - 20;
-    
-    $('header').css('background-position-y', 50 - (window.scrollY * 100 / heightDocument) + '%');
-
-    scrollFooter();
-});
-
-function scrollFooter() {
-    var headerHeight = $('header').height();
-    var footerHeight = $('footer').height();
-
-    if(window.scrollY >= headerHeight) {
-        $('footer').css('bottom', 0);
-    } else {
-        $('footer').css('bottom', '-' + footerHeight + 'px');
-    }
 }
