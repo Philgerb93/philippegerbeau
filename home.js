@@ -53,11 +53,12 @@ function checkAnimation() {
 
 function elemInViewport(elem) {
     var $elem = $(elem);
+    var navBarHeight = $('nav').height();
 
     var top_of_element = $elem.offset().top;
     var bottom_of_element = $elem.offset().top + $elem.outerHeight();
     var bottom_of_screen = $(window).scrollTop() + window.innerHeight;
-    var top_of_screen = $(window).scrollTop();
+    var top_of_screen = $(window).scrollTop() + navBarHeight;
 
     return (bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element);
 }
