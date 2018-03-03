@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>Philippe Gerbeau</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta charset="utf-8">
 		<meta name="author" content="Philippe Gerbeau">
 		<link rel="icon" type="image/png" href="res/favicon-32x32.png" sizes="32x32" />
@@ -38,6 +39,8 @@
 				<img id="modal-img">
 			</div>
 
+			<span id="modal-prev">&#10094;</span>
+    		<span id="modal-next">&#10095;</span>
 			<span id="modal-close">&times;</span>
 		</div>
 
@@ -51,80 +54,82 @@
 			</div>
 		</header>
 
-		<div id="test">
+		<div>
 			<div id="start-of-page"></div>
 			<div id="main">
 				<!-- LANGUAGES -->
 				<h1 id="language-header">Langages</h1>
-				<div class="content-wrapper">
-					<div class="language left">
-						<h4>Java</h4>
-						<div class="progress-bar-bg">
-  							<div class="progress-bar" style="width:60%"></div>
+				<div id="languages">
+					<div class="content-wrapper">
+						<div class="language">
+							<h4>Java</h4>
+							<div class="progress-bar-bg">
+	  							<div class="progress-bar" style="width:60%"></div>
+							</div>
+							<p>Compétent</p>
 						</div>
-						<p>Compétent</p>
-					</div>
-					<div class="language left">
-						<h4>Python</h4>
-						<div class="progress-bar-bg">
-  							<div class="progress-bar" style="width:40%"></div>
+						<div class="language">
+							<h4>Python</h4>
+							<div class="progress-bar-bg">
+	  							<div class="progress-bar" style="width:40%"></div>
+							</div>
+							<p>Familié</p>
 						</div>
-						<p>Familié</p>
-					</div>
-					<div class="language left">
-						<h4>Html, CSS</h4>
-						<div class="progress-bar-bg">
-  							<div class="progress-bar" style="width:40%"></div>
+						<div class="language">
+							<h4>Html, CSS</h4>
+							<div class="progress-bar-bg">
+	  							<div class="progress-bar" style="width:40%"></div>
+							</div>
+							<p>Familié</p>
 						</div>
-						<p>Familié</p>
 					</div>
-				</div>
 
-				<div class="content-wrapper">
-					<div class="language left center">
-						<h4>C, C++</h4>
-						<div class="progress-bar-bg">
-  							<div class="progress-bar" style="width:40%"></div>
+					<div class="content-wrapper">
+						<div class="language">
+							<h4>C, C++</h4>
+							<div class="progress-bar-bg">
+	  							<div class="progress-bar" style="width:40%"></div>
+							</div>
+							<p>Familié</p>
 						</div>
-						<p>Familié</p>
-					</div>
-					<div class="language left center">
-						<h4>C#</h4>
-						<div class="progress-bar-bg">
-  							<div class="progress-bar" style="width:20%"></div>
+						<div class="language">
+							<h4>C#</h4>
+							<div class="progress-bar-bg">
+	  							<div class="progress-bar" style="width:20%"></div>
+							</div>
+							<p>Débutant</p>
 						</div>
-						<p>Débutant</p>
-					</div>
-					<div class="language left center">
-						<h4>Javascript</h4>
-						<div class="progress-bar-bg">
-  							<div class="progress-bar" style="width:20%"></div>
+						<div class="language">
+							<h4>Javascript</h4>
+							<div class="progress-bar-bg">
+	  							<div class="progress-bar" style="width:20%"></div>
+							</div>
+							<p>Débutant</p>
 						</div>
-						<p>Débutant</p>
 					</div>
-				</div>
 
-				<div class="content-wrapper">
-					<div class="language left">
-						<h4>Prolog</h4>
-						<div class="progress-bar-bg">
-  							<div class="progress-bar" style="width:20%"></div>
+					<div class="content-wrapper">
+						<div class="language">
+							<h4>Prolog</h4>
+							<div class="progress-bar-bg">
+	  							<div class="progress-bar" style="width:20%"></div>
+							</div>
+							<p>Débutant</p>
 						</div>
-						<p>Débutant</p>
-					</div>
-					<div class="language left">
-						<h4>Haskell</h4>
-						<div class="progress-bar-bg">
-  							<div class="progress-bar" style="width:20%"></div>
+						<div class="language">
+							<h4>Haskell</h4>
+							<div class="progress-bar-bg">
+	  							<div class="progress-bar" style="width:20%"></div>
+							</div>
+							<p>Débutant</p>
 						</div>
-						<p>Débutant</p>
-					</div>
-					<div class="language left">
-						<h4>SQL, PL/SQL</h4> 
-						<div class="progress-bar-bg">
-  							<div class="progress-bar" style="width:20%"></div>
+						<div class="language">
+							<h4>SQL, PL/SQL</h4> 
+							<div class="progress-bar-bg">
+	  							<div class="progress-bar" style="width:20%"></div>
+							</div>
+							<p>Débutant</p>
 						</div>
-						<p>Débutant</p>
 					</div>
 				</div>
 
@@ -133,7 +138,7 @@
 				<div class="content-wrapper">
 
 					<!-- POCKET CAMPING -->
-					<div class="project-card left">
+					<div class="project-card">
 						<h2>Pocket Camping</h2>
 						<div class="project-info">
 							<p>Application Android facilitant la préparation d'un séjour de camping en permettant aux participants d'effectuer un suivi des objets à emporter.
@@ -166,7 +171,7 @@
 					</div>
 
 					<!-- TOONY ARENA -->
-					<div class="project-card right">
+					<div class="project-card">
 						<h2>Toony Arena</h2>
 						<div class="project-info">
 							<p>Jeu de stratégie mobile en trois dimensions où le joueur doit contrôler plusieurs personnages uniques dans une arêne.
@@ -196,7 +201,7 @@
 
 				<div class="content-wrapper">
 					<!-- SPACEFIGHT -->
-					<div class="project-card left">
+					<div class="project-card">
 						<h2>SpaceFight</h2>
 						<div class="project-info">
 							<p>Jeu à l'ordinateur en deux dimensions où l'on contrôle un vaisseau tentant de survivre à plusieurs vagues d'ennemis et d'astéroides.
@@ -223,7 +228,7 @@
 					</div>
 
 					<!-- TERM HACKER -->
-					<div class="project-card right">
+					<div class="project-card">
 						<h2>Term Hacker</h2>
 						<div class="project-info">
 							<p>Jeu de logique joué à la console ayant comme objectif de trouver le bon mot de passe parmis 15 possibilitées.

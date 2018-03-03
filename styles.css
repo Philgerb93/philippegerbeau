@@ -1,4 +1,5 @@
 body {
+	min-width: 445px;
 	margin: 0;
 	font-family: 'Roboto', sans-serif;
 	color: #333;
@@ -213,21 +214,18 @@ header p {
 }
 
 .content-wrapper {
-	width: 60%;
-	max-width: 1200px;
-	min-width: 800px;
+	width: 80%;
 	margin: auto;
 	overflow: hidden;
 }
 
 /* LANGUAGES */
 .language {
-	width: 33.3%;
+	width: 100%;
+	max-width: 460px;
 	text-align: center;
-}
-
-.language.center {
-	margin: 100px 0;
+	margin: 0 auto 80px auto;
+	padding-bottom: 24px;
 }
 
 .progress-bar-bg {
@@ -265,13 +263,41 @@ header p {
 
 /* PROJECTS */
 .project-card {
-	width: 45%;
-	max-width: 550px;
+	width: 100%;
 	background-color: white;
 	overflow: hidden;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	margin-bottom: 40px;
+	margin: 0 auto 40px auto;
 }
+@media only screen and (min-width: 820px) {
+	.project-card {
+		width: 45%;
+		max-width: 550px;
+		margin: 0 0 40px 0;
+		display: inline-block;
+	}
+	.project-card:nth-child(odd) {
+		float: left;
+	}
+	.project-card:nth-child(even) {
+		float: right;
+	}
+
+	.content-wrapper {
+		width: 60%;
+		min-width: 800px;
+		max-width: 1200px;
+	}
+	.language {
+		width: 33.3%;
+		float: left;
+		margin: 0;
+	}
+	div#languages>div:not(:first-child):not(:last-child) {
+		margin: 80px auto;
+	}
+}
+
 .project-info {
 	padding: 20px;
 }
@@ -354,7 +380,6 @@ div.project-card img.mobile {
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
-
 #modal-content-holder {
 	position: fixed;
 	width: 100%;
@@ -362,7 +387,6 @@ div.project-card img.mobile {
   	animation-name: zoom;
     animation-duration: 0.5s;
 }
-
 #modal-img, #modal-vid {
     margin: auto;
     display: none;
@@ -372,7 +396,6 @@ div.project-card img.mobile {
   	top: 50%;
   	transform: perspective(1px) translateY(-50%);
 }
-
 @keyframes zoom {
     from {
     	transform: scale(0);
@@ -398,12 +421,28 @@ div.project-card img.mobile {
     text-decoration: none;
     cursor: pointer;
 }
-
-/* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px){
-    .modal-content {
-        width: 100%;
-    }
+/* Next & previous buttons */
+#modal-prev,
+#modal-next {
+	display: none;
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	width: auto;
+	padding: 16px;
+	margin: -50px 100px 0 100px;
+	color: white;
+	font-weight: bold;
+	font-size: 40px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+	-webkit-user-select: none;
+}
+/* Position the "next button" to the right */
+#modal-next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
 }
 
 /* CONTACT ME */
