@@ -126,26 +126,28 @@ nav a:hover:before {
 	-webkit-transform: scaleX(1);
 	transform: scaleX(1);
 }
-
 #nav-wrapper {
 	max-width: 80%;
 	margin: auto;
 }
 
-/* INTRO */
-#presentation {
+/* HEADER */
+header {
 	width: 100%;
 	height: 500px;
+	position: fixed;
+	top: 80px;
 	background-image: url('res/bg.jpg');
+	z-index: -1;
 }
 
-#presentation-foreground {
+#header-foreground {
 	width: 100%;
 	height: 100%;
 	background-color: rgba(30,139,195,0.749);
 }
 
-#presentation p {
+header p {
     font-family: 'PT Mono';
     font-size: 25px;
     color: white;
@@ -196,14 +198,22 @@ nav a:hover:before {
 }
 
 /* MAIN CONTENT */
+#start-of-page {
+	margin-top: 80px;
+	height: 500px;
+
+}
 #main {
 	box-shadow: 0 0 50px rgba(0,0,0,0.2), 0 4px 40px rgba(0,0,0,0.1);
-	margin-top: 80px;
 	margin-bottom: 560px;
 	background-color: #F2F2F2;
 	overflow: hidden;
 	position: relative;
-	z-index: 0;
+	z-index: 1;
+}
+
+#test {
+	position: relative;
 }
 
 .content-wrapper {
@@ -406,8 +416,8 @@ footer {
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	z-index: -10;
 	background-color: #E8E8E8;
+	z-index: -1;
 }
 
 footer a {

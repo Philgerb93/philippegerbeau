@@ -39,7 +39,7 @@ checkAnimation();
 
 $(window).scroll(function() {
     checkAnimation();
-})
+});
 
 function checkAnimation() {
     $('.progress-bar').each(function() {
@@ -78,7 +78,6 @@ function setProjectLength() {
 
             if ($first.height() > $second.height()) {
                 var diff = $first.height() - $second.height();
-                console.log(diff);
                 $second.find('.project-info').css('margin-bottom', diff);
             } else if ($first.height() < $second.height()) {
                 var diff = $second.height() - $first.height();
@@ -86,4 +85,29 @@ function setProjectLength() {
             }
         }
     });
+}
+
+// Parallax
+$(window).on('load', function() {
+    scrollFooter();
+});
+
+$(window).scroll(function() {
+    var windowHeight = $(window).height();
+    var heightDocument = (windowHeight) + ($('.content').height()) + ($('footer').height()) - 20;
+    
+    $('header').css('background-position-y', 50 - (window.scrollY * 100 / heightDocument) + '%');
+
+    scrollFooter();
+});
+
+function scrollFooter() {
+    var headerHeight = $('header').height();
+    var footerHeight = $('footer').height();
+
+    if(window.scrollY >= headerHeight) {
+        $('footer').css('bottom', 0);
+    } else {
+        $('footer').css('bottom', '-' + footerHeight + 'px');
+    }
 }
