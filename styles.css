@@ -223,9 +223,11 @@ header p {
 .language {
 	width: 100%;
 	max-width: 460px;
+	min-width: 240px;
 	text-align: center;
 	margin: 0 auto 80px auto;
 	padding-bottom: 24px;
+	float: left;
 }
 
 .progress-bar-bg {
@@ -474,6 +476,12 @@ div#upper-footer p {
 	margin-top: 20.5px;
 }
 
+@media only screen and (min-width: 620px) {
+	.language {
+		width: 50%;
+	}
+}
+
 @media only screen and (min-width: 820px) {
 	.project-card {
 		width: 45%;
@@ -497,9 +505,6 @@ div#upper-footer p {
 		width: 33.3%;
 		float: left;
 		margin: 0;
-	}
-	div#languages>div:not(:first-child):not(:last-child) {
-		margin: 80px auto;
 	}
 
 	#modal-prev,
