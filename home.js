@@ -19,15 +19,41 @@ function setClickListeners() {
         event.preventDefault();
         var navHeight = Math.floor($('nav').height());
         var speed = 500;
+        var mobileModif = 0;
+
+        if ($(this).parent().attr('id') == 'mobile-nav') {
+            mobileModif = 80;
+        }
 
         $('html, body').animate({ 
-            scrollTop: $( $.attr(this, 'href') ).offset().top - navHeight
+            scrollTop: $( $.attr(this, 'href') ).offset().top - navHeight + mobileModif
         }, speed);
+    });
+
+    // Mobile navigation
+    $('#navicon').on('click', function() {
+        var $nav = $('#mobile-nav');
+
+        if ($(this).text() == '☰') {
+            $(this).html('&times;');
+            $(this).css('font-size', '46px');
+            
+        } else {
+            $(this).html('&#9776;');
+            $(this).css('font-size', '30px');
+        }
+        $nav.toggleClass('open');
+    });
+
+    $('.mobile-nav-btn').on('click', function() {
+        if ($('#mobile-nav').css('max-height') == '80px') {
+            $('#navicon').trigger('click');
+        }
     });
 
     // Modal
     // Images
-    $('div#main img:not(.thumbnail)').click(function() {
+    $('div#main img:not(.thumbnail)').on('click', function() {
         if ($(this).parent().children().length > 1) {
             $('#modal-prev').css('display', 'block');
             $('#modal-next').css('display', 'block');
@@ -40,7 +66,7 @@ function setClickListeners() {
     });
 
     // Videos
-    $('div#main img.thumbnail').click(function() {
+    $('div#main img.thumbnail').on('click', function() {
         $('#modal').css('display', 'block');
         $('#modal-vid').css('display', 'block');
 
@@ -50,7 +76,7 @@ function setClickListeners() {
         $('#modal-vid').get(0).play();
     });
 
-    $('#modal-close').click(function() {
+    $('#modal-close').on('click', function() {
         $('#modal').css('display', 'none');
         $('#modal-img').css('display', 'none');
         $('#modal-vid').css('display', 'none');
@@ -59,7 +85,7 @@ function setClickListeners() {
         $('#modal-next').css('display', 'none');
     });
 
-    $('#modal-next').click(function() {
+    $('#modal-next').on('click', function() {
         var src = $('#modal-img').attr('src');
         var $currentImg = $("div.img-holder>img[src='" + src + "']");
         var $otherImgs = $currentImg.parent().children('img');
@@ -106,12 +132,12 @@ function elemInViewport(elem) {
     var $elem = $(elem);
     var navBarHeight = $('nav').height();
 
-    var top_of_element = $elem.offset().top;
-    var bottom_of_element = $elem.offset().top + $elem.outerHeight();
-    var bottom_of_screen = $(window).scrollTop() + window.innerHeight;
-    var top_of_screen = $(window).scrollTop() + navBarHeight;
+    var topOfElement = $elem.offset().top;
+    var bottomOfElement = $elem.offset().top + $elem.outerHeight();
+    var bottomOfScreen = $(window).scrollTop() + window.innerHeight;
+    var topOfScreen = $(window).scrollTop() + navBarHeight;
 
-    return (bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element);
+    return (bottomOfScreen > topOfElement) && (topOfScreen < bottomOfElement);
 }
 
 // Changes the footer's visibility depending on scroll position
@@ -120,15 +146,17 @@ function scrollFooter() {
     var footerHeight = $('footer').height();
 
     if(window.scrollY >= headerHeight) {
-        $('footer').css('bottom', 0);
+        $('footer').css('display', 'block');
+        $('#header-bg').css('display', 'none');
     } else {
-        $('footer').css('bottom', '-' + footerHeight + 'px');
+        $('footer').css('display', 'none');
+        $('#header-bg').css('display', 'block');
     }
 }
 
 // Adjust length of side by side projects
 function setProjectLength() {
-    $('.content-wrapper').each(function() {
+    $('.project-wrapper').each(function() {
         var $first = $(this).children().eq(0);
         var $second = $(this).children().eq(1);
 

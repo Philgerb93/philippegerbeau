@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="home.js"></script>
 		<title>Philippe Gerbeau</title>
 		<meta name="viewport" content="width=device-width">
 		<meta charset="utf-8">
@@ -12,54 +14,48 @@
 		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="styles.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	</head>
 	<body>
+		<div id="background-color"></div>
+
 		<!-- NAVIGATION BAR -->
 		<nav>
 			<div id="nav-wrapper">
-				<a href="#start-of-page">Philippe Gerbeau</a>
+				<a href="#start-of-page" class="mobile-nav-btn">Philippe Gerbeau</a>
 
-				<div class="right">
+				<span id="navicon">&#9776;</span>
+
+				<div id="browser-nav" class="right">
 					<a href="#language-header">Langages</a>
 					<a href="#project-header">Projets</a>
 					<a href="#end-of-page">Contact</a>
 				</div>
-
 				<div style="clear: both"></div>
+			</div>
+
+			<div id="mobile-nav">
+				<a href="#language-header" class="mobile-nav-btn">Langages</a>
+				<a href="#project-header" class="mobile-nav-btn">Projets</a>
+				<a href="#end-of-page" class="mobile-nav-btn">Contact</a>
 			</div>
 		</nav>
 
-		<!-- MODAL -->
-		<div id="modal">
-			<div id="modal-content-holder">
-				<video id="modal-vid" controls>
- 					<source type="video/mp4">
-				</video>
-				<img id="modal-img">
-			</div>
-
-			<span id="modal-prev">&#10094;</span>
-    		<span id="modal-next">&#10095;</span>
-			<span id="modal-close">&times;</span>
-		</div>
-
 		<!-- HEADER -->
-		<header>
-			<div id="header-foreground">
+		<div id="header-bg">
+			<header>
 				<p><span class="typed" id="name">Philippe Gerbeau</p>
 				<p><span class="typed" style="animation-delay: 0.8s;opacity: 0">Programmeur</span></p>
 				<p class="fade-in" style="animation-delay: 1.3s">Étudiant à l'UQAM</p>
 				<p class="fade-in" style="animation-delay: 1.3s">Baccalauréat en informatique et génie logiciel</p>
-			</div>
-		</header>
+			</header>
+		</div>
 
 		<div>
 			<div id="start-of-page"></div>
 			<div id="main">
 				<!-- LANGUAGES -->
 				<h1 id="language-header">Langages</h1>
-				<div id="languages" class="content-wrapper">
+				<div id="languages" class="language-wrapper">
 					<div class="language">
 						<h4>Java</h4>
 						<div class="progress-bar-bg">
@@ -129,7 +125,7 @@
 
 				<!-- PROJETS -->
 				<h1 id="project-header">Projets personnels</h1>
-				<div class="content-wrapper">
+				<div class="project-wrapper">
 
 					<!-- POCKET CAMPING -->
 					<div class="project-card">
@@ -193,7 +189,7 @@
 					</div>
 				</div>
 
-				<div class="content-wrapper">
+				<div class="project-wrapper">
 					<!-- SPACEFIGHT -->
 					<div class="project-card">
 						<h2>SpaceFight</h2>
@@ -271,6 +267,18 @@
 			</div>
 		</footer>
 
-		<script src="home.js"></script>
+		<!-- MODAL -->
+		<div id="modal">
+			<div id="modal-content-holder">
+				<video id="modal-vid" controls>
+ 					<source type="video/mp4">
+				</video>
+				<img id="modal-img">
+			</div>
+
+			<span id="modal-prev">&#10094;</span>
+    		<span id="modal-next">&#10095;</span>
+			<span id="modal-close">&times;</span>
+		</div>
 	</body>
 </html>
