@@ -34,7 +34,7 @@ a {
 h1 {
 	text-align: center;
 	line-height: 200px;
-	font-size: 40px;
+	font-size: 28px;
 	margin: 0;
 	font-weight: normal;
 }
@@ -45,7 +45,7 @@ h1:before {
     height: 3px;
     content: " ";
     background-color: #999;
-    width: 8%;
+    width: 50px;
 }
 
 h1:after {
@@ -54,7 +54,7 @@ h1:after {
     height: 3px;
     content: " ";
     background-color: #999;
-    width: 8%;
+    width: 50px;
 }
 
 h2 {
@@ -319,6 +319,7 @@ header p {
 .language p {
 	margin: 10px;
 	font-size: 16px;
+	color: #666;
 }
 
 @keyframes progression {
@@ -551,6 +552,17 @@ div#upper-footer p {
 		width: 85%;
 		min-width: 580px;
 	}
+
+	h1 {
+		font-size: 34px;
+	}
+	h1:before {
+	    width: 80px;
+	}
+
+	h1:after {
+	    width: 80px;
+	}
 }
 
 @media only screen and (min-width: 820px) {
@@ -584,7 +596,7 @@ div#upper-footer p {
 	#modal-img, #modal-vid {
 		max-width: 80%;
 	}
-	
+
 	#navicon {
 		display: none;
 	}
@@ -595,5 +607,16 @@ div#upper-footer p {
 	.language-wrapper, .project-wrapper {
 		width: 80%;
 		max-width: 1500px;
+	}
+
+	h1 {
+		font-size: 40px;
+	}
+	h1:before {
+	    width: 150px;
+	}
+
+	h1:after {
+	    width: 150px;
 	}
 }
