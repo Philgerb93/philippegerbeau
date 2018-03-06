@@ -313,8 +313,8 @@ header p {
 }
 
 .filled {
-	-webkit-animation: progression 2s forwards;
-    animation: progression 2s forwards;
+	-webkit-animation: progression 1.5s forwards;
+    animation: progression 1.5s forwards;
 }
 
 .language p {
@@ -346,8 +346,8 @@ header p {
 }
 
 .slided {
-	-webkit-animation: slideIn 2s ease 1 forwards;
-	animation: slideIn 2s ease 1 forwards;
+	-webkit-animation: slideIn 1s forwards;
+	animation: slideIn 1s forwards;
 }
 
 @keyframes slideIn {

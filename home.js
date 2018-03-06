@@ -137,10 +137,10 @@ function progressBarAnimation() {
 
 // Decides when to trigger the image animations
 function imgSlideIn() {
-        $('.project-imgs').each(function() {
+    $('.project-imgs').each(function() {
         var $this = $(this);
 
-        if (!$this.hasClass('slided') && elemInViewport($this)) {
+        if (!$this.hasClass('slided') && elemInViewport($this.children('div').eq(0))) {
             $this.addClass('slided');
         }
     });
