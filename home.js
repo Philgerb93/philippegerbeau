@@ -1,5 +1,6 @@
 $(window).on('load', function() {
     progressBarAnimation();
+    imgSlideIn();
     setProjectLength();
     scrollFooter();
 
@@ -7,9 +8,16 @@ $(window).on('load', function() {
 
     $(window).resize(setProjectLength);
 
-    $(window).scroll(function() {
+    $(window).on('scroll', function() {
         progressBarAnimation();
+        imgSlideIn();
         scrollFooter();
+    });
+
+    $(document.body).on('touchmove', function() {
+        progressBarAnimation();
+        imgSlideIn();
+        scrollFooter();      
     });
 });
 
@@ -127,6 +135,18 @@ function progressBarAnimation() {
     });
 }
 
+// Decides when to trigger the image animations
+function imgSlideIn() {
+        $('.project-imgs').each(function() {
+        var $this = $(this);
+
+        if (!$this.hasClass('slided') && elemInViewport($this)) {
+            $this.addClass('slided');
+        }
+    });
+}
+
+
 // Checks if an element is in view of the user
 function elemInViewport(elem) {
     var $elem = $(elem);
@@ -137,7 +157,7 @@ function elemInViewport(elem) {
     var bottomOfScreen = $(window).scrollTop() + window.innerHeight;
     var topOfScreen = $(window).scrollTop() + navBarHeight;
 
-    return (bottomOfScreen > topOfElement) && (topOfScreen < bottomOfElement);
+    return (bottomOfScreen > bottomOfElement) && (topOfScreen < topOfElement);
 }
 
 // Changes the footer's visibility depending on scroll position
@@ -156,21 +176,19 @@ function scrollFooter() {
 
 // Adjust length of side by side projects
 function setProjectLength() {
-    $('.project-wrapper').each(function() {
-        var $first = $(this).children().eq(0);
-        var $second = $(this).children().eq(1);
+    var $infos = $('.project-info');
+    var $imgs = $('.project-imgs');
 
-        if ($first.hasClass('project-card') && $second != undefined) {
-            $first.find('.project-info').css('margin-bottom', 0);
-            $second.find('.project-info').css('margin-bottom', 0);
+    if ($(window).width() > 1001) {
+        var $infos = $('.project-info');
+        var $imgs = $('.project-imgs');
 
-            if ($first.height() > $second.height()) {
-                var diff = $first.height() - $second.height();
-                $second.find('.project-info').css('margin-bottom', diff);
-            } else if ($first.height() < $second.height()) {
-                var diff = $second.height() - $first.height();
-                $first.find('.project-info').css('margin-bottom', diff);
-            }
+        for (i = 0; i < $infos.length; i++) {
+            $imgs.eq(i).css('height', $infos.eq(i).css('height'));
         }
-    });
+    } else {
+        for (i = 0; i < $imgs.length; i++) {
+            $imgs.eq(i).removeAttr('height');
+        }
+    }
 }
