@@ -131,6 +131,7 @@ function progressBarAnimation() {
 
         if (!$this.hasClass('filled') && elemInViewport($this)) {
             $this.addClass('filled');
+            $this.css('width', $(this).data('progression'));
         }
     });
 }
@@ -184,11 +185,11 @@ function setProjectLength() {
         var $imgs = $('.project-imgs');
 
         for (i = 0; i < $infos.length; i++) {
-            $imgs.eq(i).css('height', $infos.eq(i).css('height'));
+            $imgs.eq(i).css('min-height', $infos.eq(i).css('height'));
         }
     } else {
         for (i = 0; i < $imgs.length; i++) {
-            $imgs.eq(i).removeAttr('height');
+            $imgs.eq(i).css('min-height', '0px');
         }
     }
 }

@@ -81,11 +81,11 @@ li {
 }
 
 hr {
-	margin-top: 40px;
-	margin-bottom: 20px;
+    width: 80%;
+    margin: 75px auto 40px auto;
 	border: 0;
 	height: 1px;
-	background-image: -webkit-linear-gradient(left, #F0F0F0, rgba(30,139,195,0.749), #F0F0F0);
+	background-color: #CCC;
 }
 
 /* NAVIGATION MENU */
@@ -258,6 +258,7 @@ header p {
 #main {
 	box-shadow: 0 0 50px rgba(0,0,0,0.2), 0 4px 40px rgba(0,0,0,0.1);
 	margin-bottom: 560px;
+    padding-bottom: 60px;
 	background-color: #FDFDFD;
 	overflow: hidden;
 	position: relative;
@@ -291,9 +292,9 @@ header p {
 	padding: 16px 0 40px 0;
 }
 .language:hover {
-	-webkit-transform: translateY(-6px); 
-    -moz-transform: translateY(-6px); 
-    transform: translateY(-6px); 
+	-webkit-transform: translateY(-6px);
+    -moz-transform: translateY(-6px);
+    transform: translateY(-6px);
 }
 
 .progress-bar-bg {
@@ -305,6 +306,7 @@ header p {
 }
 
 .progress-bar {
+    width: 0%;
 	margin-right: auto;
 	background-color: rgba(30,139,195,0.749);
 	border-radius: 4px;
@@ -333,21 +335,20 @@ header p {
 /* PROJECTS */
 .project-info {
 	width: 100%;
-	margin: 8% 0;
 }
 .project-info h3 {
 	padding-top: 20px;
 }
 .project-imgs {
 	opacity: 0;
-	width: 80%;
-	margin: 30px auto 160px auto;
+	width: 90%;
+	margin: 16px auto 0 auto;
 	transition: height .3s ease-out;
 }
 
 .slided {
-	-webkit-animation: slideIn 1s forwards;
-	animation: slideIn 1s forwards;
+	-webkit-animation: slideIn .6s forwards;
+	animation: slideIn .6s forwards;
 }
 
 @keyframes slideIn {
@@ -397,7 +398,8 @@ div.project-imgs img:hover {
 
 .thumbnail-holder {
 	position: relative;
-	width: 80%;
+	width: 100%;
+    max-width: 500px;
 	margin: auto;
 	background-color: #FFF;
 }
@@ -625,13 +627,12 @@ div#upper-footer p {
 	}
 	.project-info {
 		width: 50%;
-		margin: 60px 8% 60px 0;
 		float: left;
 	}
 	.project-imgs {
-		width: 34%;
+		width: 40%;
 		height: 400px;
-		margin: 60px 0 60px 8%;
+        max-width: 420px;
 		float: right;
 	}
 	.thumbnail-holder {
@@ -644,5 +645,9 @@ div#upper-footer p {
 		position: relative;
 		top: 50%;
 		transform: perspective(1px) translateY(-50%);
+        margin: 0 auto;
 	}
+    hr {
+        margin: 65px auto 40px auto;
+    }
 }
