@@ -1,12 +1,12 @@
 $(window).on('load', function() {
     progressBarAnimation();
     imgSlideIn();
-    setProjectLength();
+    setProjectImgHeight();
     scrollFooter();
 
     setClickListeners();
 
-    $(window).resize(setProjectLength);
+    $(window).resize(setProjectImgHeight);
 
     $(window).on('scroll', function() {
         progressBarAnimation();
@@ -44,11 +44,11 @@ function setClickListeners() {
 
         if ($(this).text() == '☰') {
             $(this).html('&times;');
-            $(this).css('font-size', '46px');
+            $(this).css('font-size', '34px');
             
         } else {
             $(this).html('&#9776;');
-            $(this).css('font-size', '30px');
+            $(this).css('font-size', '20px');
         }
         $nav.toggleClass('open');
     });
@@ -163,7 +163,7 @@ function elemInViewport(elem) {
 
 // Changes the footer's visibility depending on scroll position
 function scrollFooter() {
-    var headerHeight = $('header').height();
+    var headerHeight = $('#start-of-page').height();
     var footerHeight = $('footer').height();
 
     if(window.scrollY >= headerHeight) {
@@ -175,8 +175,8 @@ function scrollFooter() {
     }
 }
 
-// Adjust length of side by side projects
-function setProjectLength() {
+// Adjust height of project images
+function setProjectImgHeight() {
     var $infos = $('.project-info');
     var $imgs = $('.project-imgs');
 
