@@ -1,25 +1,31 @@
-$(window).on('load', function() {
+$(document).ready(function() {
     progressBarAnimation();
     imgSlideIn();
+    setHeaderBg();
     setProjectImgHeight();
-    scrollFooter();
+    scrollHeaderFooter();
 
     setClickListeners();
 
-    $(window).resize(setProjectImgHeight);
+    $(window).resize(function() {
+        setProjectImgHeight();
+        setHeaderBg();
+    });
 
     $(window).on('scroll', function() {
         progressBarAnimation();
         imgSlideIn();
-        scrollFooter();
-    });
-
-    $(document.body).on('touchmove', function() {
-        progressBarAnimation();
-        imgSlideIn();
-        scrollFooter();      
+        scrollHeaderFooter();
     });
 });
+
+function setHeaderBg() {
+    if ($(window).width() <= 580) {
+        $('#header-bg').text('P');
+    } else {
+        $('#header-bg').text('PG');
+    }
+}
 
 function setClickListeners() {
     // Smooth anchor scrolling
@@ -162,16 +168,16 @@ function elemInViewport(elem) {
 }
 
 // Changes header and footer visibility depending on scroll position
-function scrollFooter() {
+function scrollHeaderFooter() {
     var headerHeight = $('#start-of-page').height();
     var footerHeight = $('footer').height();
 
     if($(window).scrollTop() >= headerHeight) {
         $('footer').css('display', 'block');
-        $('#header-bg').css('display', 'none');
+        $('header').css('display', 'none');
     } else {
         $('footer').css('display', 'none');
-        $('#header-bg').css('display', 'block');
+        $('header').css('display', 'block');
 
         var opacity = 1 - ($(window).scrollTop() / headerHeight);
         $('#header-bg, header div').css('opacity', opacity);

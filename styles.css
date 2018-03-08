@@ -177,7 +177,7 @@ nav a:hover:before {
 /* HEADER */
 header {
 	width: 100%;
-	height: 800px;
+	height: 70vh;
 	position: fixed;
 	z-index: -1;
 	background-color: #0288d1;
@@ -186,22 +186,25 @@ header div {
 	position: relative;
 	top: 50%;
 	transform: perspective(1px) translateY(-50%);
+    max-width: 90%;
+    margin: auto;
 }
 header div p {
 	font-family: 'Montserrat';
     color: white;
     text-align: center;
     margin: 0;
-    font-size: 25px;
+    font-size: 16px;
     font-weight: bold;
 }
 header div p:nth-child(1){
-	font-size: 65px;
+	font-size: 35px;
+    margin-bottom: 20px;
 	text-transform: uppercase;
 	letter-spacing: .2em;
 }
 header div p:nth-child(2){
-	font-size: 50px;
+	font-size: 25px;
 	margin-bottom: 60px;
 }
 #header-bg {
@@ -209,21 +212,19 @@ header div p:nth-child(2){
 	top:0;
 	left:0;
 	width: 100%;
-	line-height: 800px;
+	line-height: 70vh;
+    font-size: 400px;
 	text-align: center;
-}
-#header-bg {
 	margin: 0;
-	font-size: 600px;
 	font-weight: bold;
 	color: rgba(0,0,0,.05);
 	text-transform: uppercase;
-	letter-spacing: .05em;
+	letter-spacing: .5rem;
 }
 
 /* MAIN CONTENT */
 #start-of-page {
-	height: 800px;
+	height: 70vh;
 
 }
 #main {
@@ -364,7 +365,7 @@ div.project-imgs img:hover {
 	padding: 20px 0;
 }
 .tag {
-	background-color: #555;
+	background-color: #0288d1; /*555*/
 	padding: 3px;
 	border-radius: 5%;
 	color: #FFF;
@@ -548,6 +549,18 @@ div#upper-footer p {
 	h1:after {
 	    width: 80px;
 	}
+
+    header div p {
+        font-size: 20px;
+    }
+    header div p:nth-child(1){
+	    font-size: 40px;
+	    letter-spacing: .15em;
+    }
+    header div p:nth-child(2){
+	    font-size: 28px;
+	    margin-bottom: 60px;
+    }
 }
 
 @media only screen and (min-width: 820px) {
@@ -592,6 +605,22 @@ div#upper-footer p {
 	h1:after {
 	    width: 150px;
 	}
+
+    header div p {
+        font-size: 20px;
+    }
+    header div p:nth-child(1){
+	    font-size: 50px;
+	    letter-spacing: .18em;
+    }
+    header div p:nth-child(2){
+	    font-size: 35px;
+	    margin-bottom: 60px;
+    }
+    #header-bg {
+        font-size: 500px;
+        letter-spacing: .4rem;
+    }
 }
 
 @media only screen and (min-width: 1020px) {
@@ -623,5 +652,21 @@ div#upper-footer p {
 	}
     hr {
         margin: 65px auto 40px auto;
+    }
+
+    header div p {
+        font-size: 25px;
+    }
+    header div p:nth-child(1){
+	    font-size: 65px;
+	    letter-spacing: .2em;
+    }
+    header div p:nth-child(2){
+	    font-size: 50px;
+	    margin-bottom: 60px;
+    }
+    #header-bg {
+        font-size: 600px;
+        letter-spacing: .5rem;
     }
 }
