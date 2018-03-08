@@ -161,17 +161,20 @@ function elemInViewport(elem) {
     return (bottomOfScreen > bottomOfElement) && (topOfScreen < topOfElement);
 }
 
-// Changes the footer's visibility depending on scroll position
+// Changes header and footer visibility depending on scroll position
 function scrollFooter() {
     var headerHeight = $('#start-of-page').height();
     var footerHeight = $('footer').height();
 
-    if(window.scrollY >= headerHeight) {
+    if($(window).scrollTop() >= headerHeight) {
         $('footer').css('display', 'block');
         $('#header-bg').css('display', 'none');
     } else {
         $('footer').css('display', 'none');
         $('#header-bg').css('display', 'block');
+
+        var opacity = 1 - ($(window).scrollTop() / headerHeight);
+        $('#header-bg, header div').css('opacity', opacity);
     }
 }
 

@@ -22,15 +22,6 @@ a {
 	text-decoration: none;
 }
 
-.left {
-	float: left;
-	display: inline-block;
-}
-.right {
-	float: right;
-	display: inline-block;
-}
-
 h1 {
 	text-align: center;
 	line-height: 150px;
@@ -97,7 +88,7 @@ nav {
 	width: 100%;
 	line-height: 70px;
 	text-transform: uppercase;
-	background-color: #007ac9;
+	background-color: #0288d1;
 	z-index: 10;
 }
 #nav-wrapper {
@@ -105,16 +96,15 @@ nav {
 	margin: auto;
 }
 nav a {
+	position: relative;
     font-size: 13px;
     letter-spacing: 0.08em;
     color: #FFF;
+    font-weight: bold;
 }
 nav a#name {
-    display: inline-block;
-    float: left;
 	font-size: 15px;
 	letter-spacing: 0.2em;
-    font-weight: bold;
 }
 #browser-nav {
 	display: none;
@@ -187,30 +177,53 @@ nav a:hover:before {
 /* HEADER */
 header {
 	width: 100%;
-	height: 500px;
+	height: 800px;
 	position: fixed;
-	top: 80px;
 	z-index: -1;
+	background-color: #0288d1;
 }
-#header-bg {
-	width: 100%;
-	height: 100%;
-	position: fixed;
-	z-index: -8;
-	background-color: #007ac9;
+header div {
+	position: relative;
+	top: 50%;
+	transform: perspective(1px) translateY(-50%);
 }
-header p {
-    font-family: 'PT Mono';
-    font-size: 25px;
+header div p {
+	font-family: 'Montserrat';
     color: white;
     text-align: center;
     margin: 0;
+    font-size: 25px;
+    font-weight: bold;
+}
+header div p:nth-child(1){
+	font-size: 65px;
+	text-transform: uppercase;
+	letter-spacing: .2em;
+}
+header div p:nth-child(2){
+	font-size: 50px;
+	margin-bottom: 60px;
+}
+#header-bg {
+	position: absolute;
+	top:0;
+	left:0;
+	width: 100%;
+	line-height: 800px;
+	text-align: center;
+}
+#header-bg {
+	margin: 0;
+	font-size: 600px;
+	font-weight: bold;
+	color: rgba(0,0,0,.05);
+	text-transform: uppercase;
+	letter-spacing: .05em;
 }
 
 /* MAIN CONTENT */
 #start-of-page {
-	/*margin-top: 80px;*/
-	height: 100vh;
+	height: 800px;
 
 }
 #main {
@@ -266,7 +279,7 @@ header p {
 .progress-bar {
     width: 0%;
 	margin-right: auto;
-	background-color: #007ac9;
+	background-color: #0288d1;
 	border-radius: 4px;
 	padding: 0.01em;
 	height: 10px;
