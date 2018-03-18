@@ -1,140 +1,147 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Philippe Gerbeau</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Portfolio | Philippe Gerbeau</title>
 		<meta charset="utf-8">
-		<meta http-equiv="cache-control" content="public">
-		<meta http-equiv="content-language" content="fr">
-		<meta name="robots" content="all">
+		<meta name="description" content="Portfolio regroupant mon expérience, mes connaissances et 
+		mes projets personnels dans le domaine de la programmation.">
+		<meta name="keywords" content="programmation, programmeur, software development, web development, 
+		développement logiciel, développement web, projets personnels, portfolio">
 		<meta name="author" content="Philippe Gerbeau">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="robots" content="all">
+		<meta http-equiv="content-language" content="fr">
+		<meta http-equiv="cache-control" content="public">
 		<link rel="icon" type="image/png" href="res/favicon-32x32.png" sizes="32x32" />
 		<link rel="icon" type="image/png" href="res/favicon-16x16.png" sizes="16x16" />
-		<link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Montserrat:300,400|Roboto:300,400|PT+Sans" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="styles.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="home.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Montserrat:300,400|Roboto:300,400|PT+Sans" rel="stylesheet">
 	</head>
 	<body>
 		<!-- NAVIGATION BAR -->
-		<nav>
-			<div id="nav-wrapper">
-				<a href="#start-of-page" id="name" class="mobile-nav-btn">Philippe Gerbeau</a>
+		<nav class="nav">
+			<div class="nav-wrapper">
+				<a href="#start-of-page" id="nav-name" class="mobile">Philippe Gerbeau</a>
 
-				<span id="navicon">&#9776;</span>
+				<span class="nav-navicon">&#9776;</span>
 
-				<div id="browser-nav">
-					<a href="#language-header">Langages</a>
-					<a href="#project-header">Projets</a>
-					<a href="#end-of-page">Contact</a>
-				</div>
+				<ul class="nav-items">
+					<li><a href="#language-header">Langages</a></li>
+					<li><a href="#project-header">Projets</a></li>
+					<li><a href="#end-of-page">Contact</a></li>
+				</ul>
 			</div>
 
-			<div style="clear: both"></div>
-			<div id="mobile-nav">
-				<a href="#language-header" class="mobile-nav-btn">Langages</a>
-				<a href="#project-header" class="mobile-nav-btn">Projets</a>
-				<a href="#end-of-page" class="mobile-nav-btn">Contact</a>
-			</div>
+			<ul class="nav-mobile-items">
+				<li><a href="#language-header" class="mobile">Langages</a></li>
+				<li><a href="#project-header" class="mobile">Projets</a></li>
+				<li><a href="#end-of-page" class="mobile">Contact</a></li>
+			</ul>
 		</nav>
 
 		<!-- HEADER -->
-		<header>
-			<p id="header-bg">PG</p>
-			<div>
-				<p>Philippe Gerbeau</p>
-            	<p>Programmeur</p>
-				<p>Étudiant à l'UQAM</p>
-				<p>Baccalauréat en informatique et génie logiciel</p>
-			</div>
+		<header class="header">
+			<p class="header-bg">PG</p>
+			<h1 class="header-text">
+				<span class="header-name">Philippe Gerbeau</span>
+            	<span class="header-profession">Programmeur</span>
+				<span>Étudiant à l'UQAM</span>
+				<span>Baccalauréat en informatique et génie logiciel</span>
+			</h1>
 		</header>
 
 		<div>
 			<div id="start-of-page"></div>
-			<div id="main">
+			<div class="main-content">
+				
 				<!-- LANGUAGES -->
-				<h1 id="language-header">Langages</h1>
-				<div id="languages" class="language-wrapper">
-					<div class="language">
+				<h2 id="language-header">Langages</h2>
+				<section id="languages" class="language-wrapper clearfix">
+					<div class="language-box">
 						<h4>Java</h4>
-						<div class="progress-bar-bg">
-  							<div class="progress-bar" data-progression="60%"></div>
+						<div class="language-progress-bg">
+  							<div class="language-progress-bar" data-progression="60%"></div>
 						</div>
 						<p>Compétent</p>
 					</div>
-					<div class="language">
+
+					<div class="language-box">
 						<h4>Python</h4>
-						<div class="progress-bar-bg">
-  							<div class="progress-bar" data-progression="40%"></div>
+						<div class="language-progress-bg">
+  							<div class="language-progress-bar" data-progression="40%"></div>
 						</div>
 						<p>Familier</p>
 					</div>
-					<div class="language">
+
+					<div class="language-box">
 						<h4>Html, CSS</h4>
-						<div class="progress-bar-bg">
-  							<div class="progress-bar" data-progression="40%"></div>
+						<div class="language-progress-bg">
+  							<div class="language-progress-bar" data-progression="40%"></div>
 						</div>
 						<p>Familier</p>
 					</div>
 
-					<div class="language">
+					<div class="language-box">
 						<h4>C, C++</h4>
-						<div class="progress-bar-bg">
-  							<div class="progress-bar" data-progression="40%"></div>
+						<div class="language-progress-bg">
+  							<div class="language-progress-bar" data-progression="40%"></div>
 						</div>
 						<p>Familier</p>
 					</div>
-					<div class="language">
+
+					<div class="language-box">
 						<h4>C#</h4>
-						<div class="progress-bar-bg">
-  							<div class="progress-bar" data-progression="20%"></div>
-						</div>
-						<p>Débutant</p>
-					</div>
-					<div class="language">
-						<h4>Javascript</h4>
-						<div class="progress-bar-bg">
-  							<div class="progress-bar" data-progression="20%"></div>
+						<div class="language-progress-bg">
+  							<div class="language-progress-bar" data-progression="20%"></div>
 						</div>
 						<p>Débutant</p>
 					</div>
 
-					<div class="language">
+					<div class="language-box">
+						<h4>Javascript</h4>
+						<div class="language-progress-bg">
+  							<div class="language-progress-bar" data-progression="20%"></div>
+						</div>
+						<p>Débutant</p>
+					</div>
+
+					<div class="language-box">
 						<h4>Prolog</h4>
-						<div class="progress-bar-bg">
-  							<div class="progress-bar" data-progression="20%"></div>
+						<div class="language-progress-bg">
+  							<div class="language-progress-bar" data-progression="20%"></div>
 						</div>
 						<p>Débutant</p>
 					</div>
-					<div class="language">
+
+					<div class="language-box">
 						<h4>Haskell</h4>
-						<div class="progress-bar-bg">
-  							<div class="progress-bar" data-progression="20%"></div>
+						<div class="language-progress-bg">
+  							<div class="language-progress-bar" data-progression="20%"></div>
 						</div>
 						<p>Débutant</p>
 					</div>
-					<div class="language">
+
+					<div class="language-box">
 						<h4>SQL, PL/SQL</h4> 
-						<div class="progress-bar-bg">
-  							<div class="progress-bar" data-progression="20%"></div>
+						<div class="language-progress-bg">
+  							<div class="language-progress-bar" data-progression="20%"></div>
 						</div>
 						<p>Débutant</p>
 					</div>
-				</div>
-				<div style="clear: both"></div>
+				</section>
 
 				<!-- PROJETS -->
-				<h1 id="project-header">Projets personnels</h1>
-				<div class="project-wrapper">
+				<h2 id="project-header">Projets personnels</h2>
+				<section class="project-wrapper">
 
 					<!-- POCKET CAMPING -->
 					<div class="project-info">
-						<h2>Pocket Camping</h2>
-						<p>Application Android facilitant la préparation d'un séjour de camping en permettant aux participants d'effectuer un suivi des objets à emporter.
+						<h3>Pocket Camping</h3>
+						<p class="project-summary">Application Android facilitant la préparation d'un séjour de camping en permettant aux participants d'effectuer un suivi des objets à emporter.
 
-						<h3>Points clés :</h3>
-						<ul>
+						<h5>Points clés :</h5>
+						<ul class="project-key-points">
 							<li>Création de compte et demande d'authentication</li>
 							<li>Sauvegarde et importation de préréglages d'objets à emporter</li>
 							<li>Modifications des paramètres de séjour affichées en temps réel à tous les participants</li>
@@ -142,7 +149,7 @@
 							<li>Profil d'utilisateur avec gestion d'amis et historique de séjours</li>
 						</ul>
 
-						<div class="tag-container">
+						<div class="project-tags clearfix">
 							<span class="tag">Java</span>
 							<span class="tag">XML</span>
 							<span class="tag">Android Studio</span>
@@ -150,112 +157,109 @@
 						</div>
 					</div>
 
-					<div class="project-imgs">
-						<div class="img-holder" style="box-shadow: 0 20px 100px rgba(0,0,0,.1);">
+					<div class="project-media">
+						<div class="project-imgs clearfix">
 							<img src="res/pc-home.png" alt="Home interface of Pocket Camping application">
 							<img src="res/pc-objects.png", alt="Objects interface of Pocket Camping application">
 							<img src="res/pc-log.png", alt="Log interface of Pocket Camping application">
 							<img src="res/pc-profile.png", alt="Profile interface of Pocket Camping application">
-							<div style="clear: both"></div>
 						</div>
 					</div>
-					<div style="clear: both"></div>
 
+					<div style="clear: both"></div>
                     <hr>
 
 					<!-- TOONY ARENA -->
 					<div class="project-info">
-						<h2>Toony Arena</h2>
-						<p>Jeu de stratégie mobile en trois dimensions où le joueur doit contrôler plusieurs personnages uniques dans une arêne.
+						<h3>Toony Arena</h3>
+						<p class="project-summary">Jeu de stratégie mobile en trois dimensions où le joueur doit contrôler plusieurs personnages uniques dans une arêne.
 
-						<h3>Points clés :</h3>
-						<ul>
+						<h5>Points clés :</h5>
+						<ul class="project-key-points">
 							<li>En développement</li>
 							<li>Jeu au tour par tour où toutes les actions choisies sont exécutées simultanéments</li>
 							<li>Héros possédant des pouvoirs uniques de dégâts, d'évasion ou de support</li>
 							<li>Chaque action dispose d'une animation et d'un son unique</li>
 						</ul>
 
-						<div class="tag-container">
+						<div class="project-tags clearfix">
 							<span class="tag">C#</span>
 							<span class="tag">Unity</span>
 						</div>
 					</div>
 
-
-					<div class="project-imgs">
-						<div class="thumbnail-holder">
-							<img src="res/ta_thumbnail.jpg" class="thumbnail" id="res/ta.mp4", alt="Thumbnail of Toony Arena video">
+					<div class="project-media">
+						<div class="project-thumbnail">
+							<img src="res/ta_thumbnail.jpg" id="res/ta.mp4", alt="Thumbnail of Toony Arena video">
 							<img src="res/play_btn.png" class="play-btn", alt="Play button">
 						</div>
 					</div>
-					<div style="clear: both"></div>
 
+					<div style="clear: both"></div>
                     <hr>
 
 					<!-- SPACEFIGHT -->
 					<div class="project-info">
-						<h2>SpaceFight</h2>
-						<p>Jeu à l'ordinateur en deux dimensions où l'on contrôle un vaisseau tentant de survivre à plusieurs vagues d'ennemis et d'astéroides.
+						<h3>SpaceFight</h3>
+						<p class="project-summary">Jeu à l'ordinateur en deux dimensions où l'on contrôle un vaisseau tentant de survivre à plusieurs vagues d'ennemis et d'astéroides.
 
-						<h3>Points clés :</h3>
-						<ul>
+						<h5>Points clés :</h5>
+						<ul class="project-key-points">
 							<li>Multiples ennemis avec différents modes de tir</li>
 							<li>Deux types de niveau: Vaisseaux ennemis et astéroïdes</li>
 							<li>Intelligence artificielle permettant aux vaisseaux ennemis d'éviter les projectiles</li>
 							<li>Musique progressant au fur et à mesure que la partie avance</li>
 						</ul>
 
-						<div class="tag-container">
+						<div class="project-tags clearfix">
 							<span class="tag">Python</span>
 							<span class="tag">Pygame</span>
 						</div>
 					</div>
 
-					<div class="project-imgs">
-						<div class="thumbnail-holder">
+					<div class="project-media">
+						<div class="project-thumbnail">
 							<img src="res/sf_thumbnail.jpg" class="thumbnail" id="res/sf.mp4", alt="Thumbnail of SpaceFight video">
 							<img src="res/play_btn.png" class="play-btn", alt="Play button">
 						</div>
 					</div>
-					<div style="clear: both"></div>
 
+					<div style="clear: both"></div>
                     <hr>
 
 					<!-- TERM HACKER -->
 					<div class="project-info">
-						<h2>Term Hacker</h2>
-						<p>Jeu de logique joué à la console ayant comme objectif de trouver le bon mot de passe parmis 15 possibilitées.
+						<h3>Term Hacker</h3>
+						<p class="project-summary">Jeu de logique joué à la console ayant comme objectif de trouver le bon mot de passe parmis 15 possibilitées.
 
-						<h3>Points clés :</h3>
-						<ul>
+						<h5>Points clés :</h5>
+						<ul class="project-key-points">
 							<li>Animation d'introduction au début de chaque partie</li>
 							<li>Configuration aléatoire en sélectionnant des options parmis une liste de près de 10000 mots</li>
 							<li>Affiche le nombre de caractères différents entre le mot sélectionné et la réponse lors d'un essai invalide</li>
 						</ul>
 
-						<div class="tag-container">
+						<div class="project-tags clearfix">
 							<span class="tag">Python</span>
 						</div>
 					</div>
 
-					<div class="project-imgs">
-						<div class="thumbnail-holder">
+					<div class="project-media">
+						<div class="project-thumbnail">
 							<img src="res/th_thumbnail.png" class="thumbnail" id="res/th.mp4", alt="Thumbnail of Term Hacker video">
 							<img src="res/play_btn.png" class="play-btn", alt="Play button">
 						</div>
 					</div>
-				</div>
+				</section>
 			</div>
-			<div style="clear: both"></div>
 
 			<div id="end-of-page"></div>
 		</div>
 
 		<!-- CONTACT ME -->
-		<footer>
-			<div id="upper-footer">
-				<h1>Me contacter</h1>
+		<footer class="footer">
+			<div class="footer-wrapper">
+				<h2>Me contacter</h2>
 				<p>Courriel personnel</p>
 				<a href="mailto:philippe.gerbeau.93@gmail.com" class="email">philippe<span>.</span>gerbeau<span>.</span>93@gmail<span>.</span>com</a>
 				<br>
@@ -265,23 +269,28 @@
 				<a href="https://github.com/philgerb93"><i class="fa fa-github"> GitHub</i></a>
 				<a href="https://www.linkedin.com/in/philippe-gerbeau-b8b57b141"><i class="fa fa-linkedin-square"> LinkedIn</i></a>
 			</div>
-			<div id="subfooter">
+
+			<div class="footer-sub">
 				<p><i class="fa fa-globe"></i> Beloeil, QC, Canada</p>
 			</div>
 		</footer>
 
 		<!-- MODAL -->
-		<div id="modal">
-			<div id="modal-content-holder">
-				<video id="modal-vid" controls>
+		<div class="modal">
+			<div class="modal-content-holder">
+				<video class="modal-vid" controls>
  					<source type="video/mp4">
 				</video>
-				<img id="modal-img">
+				<img class="modal-img">
 			</div>
 
-			<span id="modal-prev">&#10094;</span>
-    		<span id="modal-next">&#10095;</span>
-			<span id="modal-close">&times;</span>
+			<span class="modal-prev">&#10094;</span>
+    		<span class="modal-next">&#10095;</span>
+			<span class="modal-close">&times;</span>
 		</div>
+
+		<!-- SCRIPTS -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="home.js"></script>
 	</body>
 </html>
