@@ -45,7 +45,6 @@ a {
 	font-weight: normal;
 	text-decoration: none;
 	transition: .2s ease-in-out;
-	-webkit-transition: .2s ease-in-out;
 }
 
 div:not(.nav-wrapper) a:hover {
@@ -62,8 +61,6 @@ hr {
 
 span {
 	user-select: none;
-	-moz-user-select: none;
-	-webkit-user-select: none;
 	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
@@ -173,16 +170,13 @@ h5 {
 	left: 0;
 	position: absolute;
 	transform: scaleX(0);
-	-webkit-transform: scaleX(0);
 	transition: all .2s ease-in-out 0s;
-	-webkit-transition: all .2s ease-in-out 0s;
 	visibility: hidden;
 	width: 100%;
 }
 
 .nav a:hover:before {
 	transform: scaleX(1);
-	-webkit-transform: scaleX(1);
 	visibility: visible;
 }
 
@@ -232,12 +226,10 @@ h5 {
 	overflow: hidden;
 	text-align: center;
 	transition: max-height .15s ease-out;
-	-webkit-transition: max-height .15s ease-out;
 }
 .nav-mobile-items.open {
 	max-height: 160px;
 	transition: max-height .25s ease-out;
-	-webkit-transition: max-height .25s ease-out;
 }
 
 .nav-mobile-items a {
@@ -450,14 +442,11 @@ h5 {
 	padding-bottom: 3rem;
 	text-align: center;
 	transition: box-shadow .3s ease-in-out, transform .3s ease-in-out;
-	-webkit-transition: box-shadow .3s ease-in-out, transform .3s ease-in-out;
 	width: 98%;
 }
 
 .language-box:hover {
 	transform: translateY(-6px);
-	-moz-transform: translateY(-6px);
-	-webkit-transform: translateY(-6px);
 	box-shadow: 0 10px 20px rgba(0,0,0,.03);
 }
 
@@ -486,7 +475,6 @@ h5 {
 
 .filled {
 	animation: progression 1.5s forwards;
-	-webkit-animation: progression 1.5s forwards;
 }
 
 .lighter {
@@ -611,8 +599,6 @@ h5 {
 	float: left;
 	width: .6rem;
 	height: .6rem;
-	-moz-border-radius: .2rem;
-	-webkit-border-radius: .2rem;
 	border-radius: .2rem;
 	background: #FDFDFD;
 }
@@ -639,13 +625,11 @@ h5 {
 
 .slided {
 	animation: slideIn .6s forwards;
-	-webkit-animation: slideIn .6s forwards;
 }
 
 .project-media img:not(.play-btn) {
 	cursor: pointer;
 	transition: opacity .3s ease-in-out;
-	-webkit-transition: opacity .3s ease-in-out;
 }
 
 .project-media img:not(.play-btn):hover {
@@ -873,7 +857,6 @@ a.email span {
 	top: 50%;
 	transition: .6s ease;
 	user-select: none;
-	-webkit-user-select: none;
 	width: auto;
 }
 
