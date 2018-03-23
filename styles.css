@@ -3,7 +3,7 @@ COLOR PALETTE
 
 Primary-color: #0288d1
 Primary-light-color: #09a7fd
-Primary-dark-color: #0278b8
+Primary-dark-color: #02679e
 Accent-color: #EB9532
 Black-text-color: #333
 White-text-color: #FFF
@@ -653,7 +653,6 @@ Separator-color: #CCC
    
    .project-media {
 	   margin: 4rem auto 6rem auto;
-	   opacity: 0;
 	   position: relative;
 	   -webkit-transition: height .3s ease-out;
 	   -o-transition: height .3s ease-out;
@@ -661,10 +660,15 @@ Separator-color: #CCC
 	   width: 90%;
    }
    
-   .slided {
-	   -webkit-animation: slideIn .6s forwards;
-			   animation: slideIn .6s forwards;
+   .slidedLeft {
+	   -webkit-animation: slideInLeft 1s forwards;
+			   animation: slideInLeft 1s forwards;
    }
+
+   .slidedRight {
+	-webkit-animation: slideInRight 1s forwards;
+			animation: slideInRight 1s forwards;
+}
    
    .project-media img:not(.play-btn) {
 	   cursor: pointer;
@@ -726,11 +730,11 @@ Separator-color: #CCC
    /* Project animations
 	  ========================================================================== */
    
-   @-webkit-keyframes slideIn {
+   @-webkit-keyframes slideInLeft {
 	   from {
 		   opacity: 0;
-		   -webkit-transform: translateX(-20px);
-				   transform: translateX(-20px);
+		   -webkit-transform: translateX(20px);
+				   transform: translateX(20px);
 	   }
 	   to {
 		   opacity: 1;
@@ -739,11 +743,11 @@ Separator-color: #CCC
 	   }
    }
    
-   @keyframes slideIn {
+   @keyframes slideInLeft {
 	   from {
 		   opacity: 0;
-		   -webkit-transform: translateX(-20px);
-				   transform: translateX(-20px);
+		   -webkit-transform: translateX(20px);
+				   transform: translateX(20px);
 	   }
 	   to {
 		   opacity: 1;
@@ -751,6 +755,32 @@ Separator-color: #CCC
 				   transform: translateX(0);
 	   }
    }
+
+   @-webkit-keyframes slideInRight {
+	from {
+		opacity: 0;
+		-webkit-transform: translateX(-20px);
+				transform: translateX(-20px);
+	}
+	to {
+		opacity: 1;
+		-webkit-transform: translateX(0);
+				transform: translateX(0);
+	}
+}
+
+@keyframes slideInRight {
+	from {
+		opacity: 0;
+		-webkit-transform: translateX(-20px);
+				transform: translateX(-20px);
+	}
+	to {
+		opacity: 1;
+		-webkit-transform: translateX(0);
+				transform: translateX(0);
+	}
+}
    
    @-webkit-keyframes zoom {
 	   from {
@@ -786,12 +816,14 @@ Separator-color: #CCC
    
 	   .project-info {
 		   float: left;
+		   opacity: 0;
 		   width: 46%;
 	   }
 	   
 	   .project-media {
 		   float: right;
 		   margin: 0;
+		   opacity: 0;
 		   width: 48%;
 	   }
    

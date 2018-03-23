@@ -2,7 +2,7 @@ $(document).ready(function() {
     headerBackground();
     progressBarAnim();
     projectMediaHeight();
-    projectMediaAnim();
+    projectAnim();
     scrollHeaderFooter();
     
     setListeners();
@@ -15,7 +15,7 @@ $(document).ready(function() {
     
     $(window).on('scroll', function() {
         progressBarAnim();
-        projectMediaAnim();
+        projectAnim();
         scrollHeaderFooter();
     });
 });
@@ -54,14 +54,23 @@ function projectMediaHeight() {
     }
 }
 
-function projectMediaAnim() {
-    $('.project-media').each(function() {
-        var $this = $(this);
+function projectAnim() {
+    if ($(window).width() >= 1180) {
+        $('.project-media').each(function() {
+            var $this = $(this);
 
-        if (!$this.hasClass('slided') && elemInViewport($this)) {
-            $this.addClass('slided');
-        }
-    });
+            if (!$this.hasClass('slidedLeft') && elemInViewport($this)) {
+                $this.addClass('slidedLeft');
+            }
+        });
+        $('.project-info').each(function() {
+            var $this = $(this);
+
+            if (!$this.hasClass('slidedRight') && elemInViewport($this)) {
+                $this.addClass('slidedRight');
+            }
+        });
+    }
 }
 
 function scrollHeaderFooter() {
@@ -90,7 +99,8 @@ function elemInViewport(elem) {
     var bottomOfScreen = $(window).scrollTop() + window.innerHeight;
     var topOfScreen = $(window).scrollTop() + navBarHeight;
 
-    return (bottomOfScreen > bottomOfElement) && (topOfScreen < topOfElement);
+    return (bottomOfScreen > bottomOfElement - $elem.height() / 2) && (topOfScreen < topOfElement)
+        || (bottomOfScreen > bottomOfElement && (topOfScreen < topOfElement + $elem.height() / 2));
 }
 
 function setListeners() {
