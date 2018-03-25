@@ -133,7 +133,8 @@ function setListeners() {
     $('.mobile').on('click', function() {
         var navHeight = Math.floor($('.nav').height());
 
-        if ($('.nav-mobile-items').css('max-height') != 0) {
+        if ($('.nav-mobile-items').css('max-height') != '0px') {
+            console.log($('.nav-mobile-items').css('max-height'));
             $('.nav-navicon').trigger('click');
         }
     });
