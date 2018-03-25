@@ -74,7 +74,7 @@ function projectAnim() {
 }
 
 function scrollHeaderFooter() {
-    var headerHeight = $('#start-of-page').height();
+    var headerHeight = $('.header').height();
     var footerHeight = $('.footer').height();
 
     if($(window).scrollTop() >= headerHeight) {
@@ -105,7 +105,7 @@ function elemInViewport(elem) {
 
 function setListeners() {
     // Smooth anchor scrolling
-    $(document).on('click', '.nav a', function(event){
+    $(document).on('click', '.nav a, a.header-arrow', function(event){
         event.preventDefault();
         var navHeight = Math.floor($('.nav-wrapper').height());
         var speed = 500;
