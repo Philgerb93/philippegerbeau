@@ -1,0 +1,99 @@
+$color-primary: #0288D1;
+$color-primary-light: #09A7fD;
+$color-primary-dark: #02679E;
+$color-accent: #EB9532;
+
+$color-text-black: #333;
+$color-text-hint: #666;
+$color-text-white: #FFF;
+
+$color-background: #FDFDFD;
+$color-footer: #F0F0F0;
+$color-subfooter: #F5F5F5;
+
+$color-grey: #DDD;
+$color-grey-light: #EEE;
+$color-grey-dark: #BBB;
+
+@mixin clearfix {
+    &::after {
+        clear: both;
+        content: '';
+        display: table;
+    }
+}
+
+@mixin absCenter {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: perspective(1px) translateX(-50%) translateY(-50%);
+}
+
+@mixin media-width($breakpoint) {
+    @media only screen and (min-width: ($breakpoint/16) * 1em) { @content };
+}
+
+@mixin media-height($breakpoint) {
+    @media only screen and (min-height: ($breakpoint/16) * 1em) { @content };
+}
+
+@keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {
+		transform: perspective(1px) translateX(-50%) translateY(0);
+	}
+	40% {
+		transform: perspective(1px) translateX(-50%) translateY(-30px);
+	}
+	60% {
+		transform: perspective(1px) translateX(-50%) translateY(-15px);
+	}
+}
+
+@keyframes progression {
+	from {
+		opacity: 0;
+		width: 0;
+	}
+}
+
+@keyframes slideInLeft {
+	from {
+		opacity: 0;
+		transform: translateX(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideInRight {
+	from {
+		opacity: 0;
+		transform: translateX(-20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes zoom {
+	from {
+		transform: scale(0);
+	}
+	to {
+		transform: scale(1);
+	}
+}
+
+@keyframes sk-cubeGridScaleDelay {
+	0%, 70%, 100% {
+		-webkit-transform: scale3D(1, 1, 1);
+				transform: scale3D(1, 1, 1);
+	} 35% {
+		-webkit-transform: scale3D(0, 0, 1);
+				transform: scale3D(0, 0, 1);
+	} 
+}
