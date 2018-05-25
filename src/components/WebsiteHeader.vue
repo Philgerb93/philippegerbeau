@@ -1,6 +1,8 @@
 <template>
     <header id="website-header" class="header">
-        <p class="header-bg">P</p>
+        <p v-if="singleLetterBG" class="header-bg">P</p>
+        <p v-else class="header-bg">PG</p>
+
         <h1 class="header-text">
             <span class="header-name">Philippe Gerbeau</span>
             <span class="header-profession">Programmeur</span>
@@ -13,6 +15,12 @@
 
 <script>
     export default {
+        data() {
+            return {
+                singleLetterBG: true
+            }
+        },
+
         mounted() {
             this.headerResize();
             window.addEventListener('resize', this.headerResize);
@@ -28,11 +36,7 @@
 
         methods: {
             headerResize() {
-                if (window.innerHeight <= 580) {
-                    document.querySelector('.header-bg').textContent='P';
-                } else {
-                    document.querySelector('.header-bg').textContent='PG';
-                }
+                this.singleLetterBG =  window.innerWidth <= 580;
             },
             headerScroll() {
                 var header = document.querySelector('.header');

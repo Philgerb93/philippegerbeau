@@ -1,11 +1,9 @@
 <template>
     <div id="projects">
-        <h2 id="project-header">Projets personnels</h2>
+        <h2 id="projects-header">Projets personnels</h2>
         <section id="projects-section" class="project-wrapper">
             <div class="project" v-for="(project, index) in projects"
             v-bind:key="project.id">
-                <hr v-if="index !== 0">		
-
                 <project-info v-bind:project="project"></project-info>
                 <project-media v-bind:project="project" v-bind:pos="index"
                 v-on:MediaReady="loadingProjects()"></project-media>
@@ -37,6 +35,7 @@
                 snapshot.forEach(function(doc) {
                     $this.projects.push(doc.data());
                 });
+                $this.projects.sort($this.compare).reverse();
             })
             .catch(function (error) {
                 console.log(error);
@@ -85,6 +84,13 @@
                 if (this.readyProjects == this.projects.length) {
                     this.$emit('DBReady');
                 }
+            },
+            compare(a, b) {
+                if (a.priority > b.priority)
+                    return 1;
+                if (a.priority < b.priority)
+                    return -1;
+                return 0;
             }
         }, 
         
@@ -103,6 +109,12 @@
         @include media-width(1200) {
             max-width: 1500px;
             width: 80%;
+        }
+    }
+
+    .project {
+        @include media-width(1200) {
+            margin-bottom: 10rem;
         }
     }
 </style>

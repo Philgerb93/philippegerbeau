@@ -1,7 +1,7 @@
 <template>
     <div class="project-media">
         <div class="project-media-thumbnail" v-if="project.video">
-            <img v-bind:src="thumbnail" class="thumbnail"
+            <img v-bind:src="thumbnail" class="project-media-thumbnail"
             v-bind:alt="'Vignette pour la vidéo de ' + project.name"
             v-on:click="vidClick()">
         </div>
@@ -40,8 +40,6 @@
 
                 promises.push(imgRef.getDownloadURL()
                 .then(function(url) {
-                    // var img = $this.$el.querySelector('.thumbnail');
-                    // img.src = url;
                     $this.thumbnail = url;
                 })
                 .catch(function(error) {
@@ -103,7 +101,7 @@
 
 <style lang="scss">
     .project-media {
-        margin: 4rem auto 6rem auto;
+        margin: 3rem auto 6rem auto;
         position: relative;
         transition: height .3s ease-out;
         width: 90%;
@@ -154,7 +152,6 @@
 
         &-thumbnail {
             margin: auto;
-            max-height: 300px;
             max-width: 420px;
             position: relative;
             width: 100%;
@@ -169,11 +166,14 @@
             
             & img {
                 box-shadow: 0 20px 100px rgba(0,0,0,.1);
-                height: 100%;
-                max-height: 300px;
+                max-height: 180px;
                 object-fit: cover;
                 padding: 2%;
                 width: 100%;
+
+                @include media-width(1200) {
+                    max-height: 260px;
+                }
             }
         
             &:after {
@@ -183,7 +183,7 @@
                 display: block;
                 height: 20%;
                 pointer-events: none;
-                width: 14%;
+                width: 11%;
                 z-index: 2;
         
                 @include absCenter;

@@ -4,14 +4,15 @@
 		<nav-bar></nav-bar>
 		<website-header></website-header>
 		<div id="start-of-page"></div>
-		<div class="main-content">
+		<div class="main-content" v-bind:style="{marginBottom: footerHeight + 'px'}">
+			<jobs v-on:DBReady="DBLoading('jobs')"></jobs>
 			<languages v-on:DBReady="DBLoading('languages')"></languages>
 			<projects v-on:DBReady="DBLoading('projects')"
 			v-on:OpenImgModal="openImgModal"
 			v-on:OpenVidModal="openVidModal"></projects>
 		</div>
 		<div id="end-of-page"></div>
-		<website-footer></website-footer>
+		<website-footer v-on:SendHeight="getFooterHeight"></website-footer>
         <modal v-if="modalIndex >= 0" v-bind:video="modalVideo"
             v-bind:images="modalImages" v-bind:startingIndex="modalIndex"
             v-on:Close="modalIndex = -1"></modal>
@@ -22,6 +23,7 @@
 	import LoadingScreen from './components/LoadingScreen'
 	import NavBar from './components/NavBar'
 	import WebsiteHeader from './components/WebsiteHeader'
+	import Jobs from './components/jobs/Jobs'
 	import Languages from './components/languages/Languages'
 	import Projects from './components/projects/Projects'
 	import WebsiteFooter from './components/WebsiteFooter'
@@ -31,12 +33,14 @@
 		data: function() {
 			return {
 				loadingProgress: {
+					'jobs': false,
 					'projects': false,
 					'languages': false
 				},
 				modalIndex: -1,
 				modalImages: [],
-				modalVideo: null
+				modalVideo: null,
+				footerHeight: 0
 			}
 		},
 
@@ -59,6 +63,9 @@
 				this.modalImages = [];
 				this.modalVideo = video;
 				this.modalIndex = 0;
+			},
+			getFooterHeight(height) {
+				this.footerHeight = height;
 			}
 		},
 
@@ -66,6 +73,7 @@
 			LoadingScreen,
 			NavBar,
 			WebsiteHeader,
+			Jobs,
 			Languages,
 			Projects,
 			WebsiteFooter,
@@ -91,7 +99,8 @@
 		background-color: $color-footer;
 		box-sizing: border-box;
 		color: $color-text-black;
-		font-family: 'Roboto', sans-serif;
+		// font-family: 'Roboto', sans-serif;
+		font-family: 'Source Sans Pro', sans-serif;
 		font-size: 1.6rem;
 		font-weight: lighter;
 	}
@@ -135,13 +144,9 @@
 		text-align: center;
 		text-transform: uppercase;
 
-		@include media-width(560) {
-			font-size: 3.2rem;
-		}
-
-		@include media-width(1200) {
-			font-size: 4rem;
-		}
+		// @include media-width(1200) {
+		// 	font-size: 4rem;
+		// }
 
 		&:before,
 		&:after {
@@ -155,30 +160,24 @@
 	}
 
 	h3 {
-		font-size: 2.7rem;
+		font-size: 2.2rem;
 		line-height: 2.4em;
 		margin: 0;
 		text-align: left;
-
-		@include media-width(560) {
-			font-size: 3.4rem;
-		}
-
-		@include media-width(1200) {
-			font-size: 4rem;
-		}
+		margin-bottom: .8em;
+		border-bottom: 1px solid $color-grey;
 	}
 
 	h4 {
 		font-size: 2.6rem;
 		font-weight: lighter;
-		letter-spacing: .05em;
+		letter-spacing: .15em;
 		text-transform: uppercase;
-		margin: 1em 0;
+		margin: .2em 0;
 	}
 
 	h5 {
-		font-size: 1.8rem;
+		font-size: 1.6rem;
 		margin: .8em 0;
 	}
 
@@ -186,7 +185,7 @@
 		background-color: $color-background;
 		box-shadow: 0 0 50px rgba(0,0,0,.2), 0 4px 40px rgba(0,0,0,.1);
 		margin-top: 99vh;
-		margin-bottom: 46rem;
+		margin-bottom: 24rem;
 		overflow: hidden;
 		padding-bottom: 6rem;
 		position: relative;

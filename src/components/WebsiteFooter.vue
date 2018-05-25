@@ -2,19 +2,16 @@
     <footer id="website-footer" class="footer">
         <div class="footer-wrapper">
             <h2>Me contacter</h2>
-            <p>Courriel personnel</p>
+            <p>Courrier électronique</p>
             <a href="mailto:philippe.gerbeau.93@gmail.com" class="email">philippe<span>.</span>gerbeau<span>.</span>93@gmail<span>.</span>com</a>
             <br>
-            <p>Courriel universitaire</p>
-            <a href="mailto:gerbeau.philippe_antoine@courrier.uqam.ca" class="email">gerbeau<span>.</span>philippe_antoine@courrier<span>.</span>uqam<span>.</span>ca</a>
-            <br>
-            <a href="https://github.com/philgerb93"><i class="fa fa-github"> GitHub</i></a>
-            <a href="https://www.linkedin.com/in/philippe-gerbeau-b8b57b141"><i class="fa fa-linkedin-square"> LinkedIn</i></a>
+            <a href="https://github.com/philgerb93"><i class="fa fa-github network"> GitHub</i></a>
+            <a href="https://www.linkedin.com/in/philippe-gerbeau-b8b57b141"><i class="fa fa-linkedin-square network"> LinkedIn</i></a>
         </div>
 
-        <div class="footer-sub">
+        <!-- <div class="footer-sub">
             <p><i class="fa fa-globe"></i> Beloeil, QC, Canada</p>
-        </div>
+        </div> -->
     </footer>
 </template>
 
@@ -23,10 +20,14 @@ export default {
     mounted: function() {
         this.footerScroll();
         window.addEventListener('scroll', this.footerScroll);
+
+        this.sendHeight();
+        window.addEventListener('resize', this.sendHeight);
     },
 
     destroyed: function() {
         window.removeEventListener('scroll', this.footerScroll);
+        window.removeEventListener('resize', this.sendHeight);
     },
 
     methods: {
@@ -35,7 +36,15 @@ export default {
             var footer = document.querySelector('.footer');
             var windowTop = window.pageYOffset || document.documentElement.scrollTop;
 
-            footer.style.display = windowTop >= header.offsetHeight ? 'block' : 'none';
+            if (windowTop >= header.offsetHeight) {
+                footer.style.display = 'block';
+                this.$emit('SendHeight', this.$el.offsetHeight);    
+            } else {
+                footer.style.display = 'none';
+            }
+        },
+        sendHeight() {
+            this.$emit('SendHeight', this.$el.offsetHeight);
         }
     }
 }
@@ -43,33 +52,59 @@ export default {
 
 <style lang="scss">
     .footer {
+        color: $color-grey-light;
         bottom: 0;
         position: fixed;
         left: 0;
         width: 100%;
         z-index: 1;
 
+        & h2:before,
+        & h2:after {
+            background-color: $color-grey-light;
+        }
+
         & a {
-           color: $color-text-black;
+           color: $color-grey-light;
            
            &:hover {
-               color: $color-accent;
+               color: #FFF;
            }
         }
 
+        & .network {
+            color: $color-footer;
+            font-size: 1.6rem;
+            background-color: $color-grey;
+            padding: .4em .6em;
+            border-radius: 2em;
+            transition: all .2s;
+            position: relative;
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0,0,0,.2);
+                background-color: #FFF;
+            }
+
+            &:active {
+                transform: translateY(-1px);
+                box-shadow: 0 2px 4px rgba(0,0,0,.2);
+            }
+        }
+
         &-wrapper {
-            font-size: 2rem;
+            font-size: 1.6rem;
             margin: auto;
-            padding-bottom: 4em;
+            padding-bottom: 2em;
             position: relative;
             text-align: center;
             width: 95%;
         }
 
         &-sub {
-            background-color: $color-subfooter;
             border-top: 1px solid $color-grey;
-            line-height: 6rem;
+            line-height: 4rem;
             text-align: center;
             vertical-align: middle;
         }
@@ -81,12 +116,16 @@ export default {
 
     a.email {
         display: inline-block;
-        font-size: 1.6rem;
-        letter-spacing: 1px;
-        margin-bottom: 30px;
+        font-size: 1.4rem;
+        letter-spacing: .08em;
+        margin-bottom: 2em;
     }
 
     a.email span {
         font-size: 2.2rem;
+    }
+
+    a.email:hover {
+        transform: scale(1.05);
     }
 </style>

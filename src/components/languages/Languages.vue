@@ -1,6 +1,6 @@
 <template>
     <div id="languages">
-        <h2 id="language-header">Langages</h2>
+        <h2 id="languages-header">Langages</h2>
         <section id="languages-section" class="languages-wrapper">
             <language-box 
             v-for="language in languages" 

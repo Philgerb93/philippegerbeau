@@ -16,6 +16,7 @@
 
 <style lang="scss">
     .loading-screen {
+		// display: none; // TODO: Remove
         background-color: #FFF;
         z-index: 20;
         position: fixed;
@@ -31,8 +32,8 @@
 	}
 
     .sk-cube-grid {
-    width: 80px;
-	height: 80px;
+		width: 80px;
+		height: 80px;
         
         @include media-width(560) {
 			width: 100px;

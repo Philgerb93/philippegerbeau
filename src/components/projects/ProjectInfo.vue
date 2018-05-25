@@ -1,15 +1,15 @@
 <template>
     <div class="project-info">
         <h3>{{project.name}}</h3>
-        <p class="project-summary">{{project.summary}}</p>
+        <p class="project-info-summary">{{project.summary}}</p>
 
         <h5>Points clés :</h5>
-        <ul class="project-key-points">
+        <ul class="project-info-keypoints">
             <li v-for="keypoint in project.keypoints"
             v-bind:key="keypoint.id">{{keypoint}}</li>
         </ul>
 
-        <div class="project-tags clearfix">
+        <div class="project-info-tags clearfix">
             <tag v-for="tag in project.tags" v-bind:key="tag.id" v-bind:name="tag"></tag>
         </div>
     </div>
@@ -42,12 +42,13 @@
         }
         
         &-summary {
-            font-size: 2rem;
-            margin-bottom: 2em;
+            font-size: 1.6rem;
+            line-height: 1.4em;
+            margin-bottom: 1.6em;
         }
         
-        &-list {
-            padding-left: 4rem;
+        &-keypoints {
+            margin-left: 2em;
 
             & li {
                 margin: .5rem 0;
@@ -55,7 +56,7 @@
         }
         
         &-tags {
-            margin: 3em 0 0 0;
+            margin: 1.4em 0 0 0;
         
             @include clearfix;
         }
