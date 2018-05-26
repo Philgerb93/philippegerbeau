@@ -20,7 +20,7 @@
         margin: .3em .5em;
         padding: .45em 1em;
         position: relative;
-        transition: all .3s;
+        transition: all .15s;
         
         &:hover {
             color: $color-primary-light;

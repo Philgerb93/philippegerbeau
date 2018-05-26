@@ -6,21 +6,21 @@
             <label class="nav-btn" v-on:click="togglePopup"><span class="nav-icon"  v-bind:class="{open : showPopup}"></span></label>
 
             <ul class="nav-items">
-                <li><a href="#jobs-header">Expérience</a></li>
-                <li><a href="#languages-header">Connaissances</a></li>
-                <li><a href="#projects-header">Projets</a></li>
-                <li><a href="#end-of-page">Contact</a></li>
+                <li><a class="nav-link" href="#jobs-header">Expérience</a></li>
+                <li><a class="nav-link" href="#languages-header">Connaissances</a></li>
+                <li><a class="nav-link" href="#projects-header">Projets</a></li>
+                <li><a class="nav-link" href="#end-of-page">Contact</a></li>
             </ul>
         </div>
 
         <div class="nav-popup-bg" v-bind:class="{open : showPopup}"></div>
         <nav class="nav-popup" v-bind:class="{open : showPopup}">
             <ul class="nav-popup-list">
-                <li class="nav-popup-item"><a href="#start-of-page" class="nav-popup-link">Présentation</a></li>
-                <li class="nav-popup-item"><a href="#jobs-header" class="nav-popup-link">Expérience</a></li>
-                <li class="nav-popup-item"><a href="#languages-header" class="nav-popup-link">Connaissances</a></li>
-                <li class="nav-popup-item"><a href="#projects-header" class="nav-popup-link">Projets</a></li>
-                <li class="nav-popup-item"><a href="#end-of-page" class="nav-popup-link">Contact</a></li>
+                <li class="nav-popup-item"><a href="#start-of-page" class="nav-popup-link" v-on:click="togglePopup">Présentation</a></li>
+                <li class="nav-popup-item"><a href="#jobs-header" class="nav-popup-link" v-on:click="togglePopup">Expérience</a></li>
+                <li class="nav-popup-item"><a href="#languages-header" class="nav-popup-link" v-on:click="togglePopup">Connaissances</a></li>
+                <li class="nav-popup-item"><a href="#projects-header" class="nav-popup-link" v-on:click="togglePopup">Projets</a></li>
+                <li class="nav-popup-item"><a href="#end-of-page" class="nav-popup-link" v-on:click="togglePopup">Contact</a></li>
             </ul>
         </nav>
     </nav>
@@ -60,6 +60,7 @@
                 this.showName = topOfDiv <= 100;
             },
             togglePopup() {
+                console.log('ALLO?');
                 this.showPopup = !this.showPopup;
             }
         }
@@ -81,20 +82,24 @@
 
         & a {
             color: $color-text-white;
-            font-size: 1rem;
+        }
+
+        &-name {
+            font-size: 1.4rem;
+            letter-spacing: .2em;
             font-weight: bold;
+
+            &.hidden {
+                opacity: 0;
+                cursor: default;
+            }
+        }
+
+        &-link {
             letter-spacing: .08em;
             position: relative;
-
-            &.nav-name {
-                font-size: 1.4rem;
-                letter-spacing: .2em;
-
-                &.hidden {
-                    opacity: 0;
-                    cursor: default;
-                }
-            }
+            font-size: 1rem;
+            font-weight: bold;
 
             &:before {
                 background-color: $color-text-white;
@@ -180,7 +185,7 @@
 
                 &-link {
                     display: block;
-                    font-size: 3rem;
+                    font-size: 2rem;
                     font-weight: 300;
                     padding: .4rem rem;
                     color: #FFF;

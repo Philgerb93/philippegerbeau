@@ -4,11 +4,7 @@
         <section id="jobs-section" class="jobs-wrapper">
             <job
             v-for="job in jobs" 
-            v-bind:name="job.name" 
-            v-bind:title="job.title"
-            v-bind:startDate="job.startDate"
-            v-bind:endDate="job.endDate"
-            v-bind:logo="job.logo"
+            v-bind:job="job"
             v-bind:key="job.id"
             v-on:JobReady="loadingJobs()">
             </job>
@@ -40,18 +36,18 @@
                 
                 $this.jobs.sort($this.compare);
 
-                // for (var job in $this.jobs) {
-                //     const date = new Date(0).setSeconds(job.startDate.seconds); 
-                //     let startYear = (date.getFullYear().toString());
+                for (var job of $this.jobs) {
+                    const date = new Date(0);
+                    date.setSeconds(job.startDate.seconds); 
+                    let startYear = (date.getFullYear());
 
-                //     if (this.timelineYears.indexOf(startYear) > -1) {
-                //         job.firstOfYear = false;
-                //     } else {
-                //         job.firstOfYear = true;
-                //         this.timelineYears.push(startYear);
-                //     }
-
-                // }
+                    if ($this.timelineYears.indexOf(startYear) > -1) {
+                        job.firstOfYear = false;
+                    } else {
+                        job.firstOfYear = true;
+                        $this.timelineYears.push(startYear);
+                    }
+                }
             })
             .catch(function (error) {
                 console.log(error);

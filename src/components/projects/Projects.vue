@@ -2,14 +2,16 @@
     <div id="projects">
         <h2 id="projects-header">Projets personnels</h2>
         <section id="projects-section" class="project-wrapper">
-            <div class="project" v-for="(project, index) in projects"
+            <div class="project" v-for="project in projects"
             v-bind:key="project.id">
                 <project-info v-bind:project="project"></project-info>
-                <project-media v-bind:project="project" v-bind:pos="index"
+                <project-media v-bind:project="project"
                 v-on:MediaReady="loadingProjects()"></project-media>
 
                 <div style="clear: both"></div>
             </div>
+
+            <!-- <text-button></text-button> -->
         </section>
     </div>
 </template>
@@ -17,6 +19,7 @@
 <script>
     import ProjectInfo from './ProjectInfo'
     import ProjectMedia from './ProjectMedia'
+    import TextButton from '../shared/TextButton'
 
     export default {
         data: function() {
@@ -96,7 +99,8 @@
         
         components: {
             ProjectInfo,
-            ProjectMedia
+            ProjectMedia,
+            TextButton
         }
     }
 </script>
@@ -115,6 +119,8 @@
     .project {
         @include media-width(1200) {
             margin-bottom: 10rem;
+            display: flex;
+            justify-content: space-between;
         }
     }
 </style>

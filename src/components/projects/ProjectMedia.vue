@@ -1,9 +1,9 @@
 <template>
     <div class="project-media">
-        <div class="project-media-thumbnail" v-if="project.video">
-            <img v-bind:src="thumbnail" class="project-media-thumbnail"
-            v-bind:alt="'Vignette pour la vidéo de ' + project.name"
-            v-on:click="vidClick()">
+        <div class="thumbnail" v-if="project.video" v-on:click="vidClick()">
+            <img v-bind:src="thumbnail" class="thumbnail-img"
+            v-bind:alt="'Vignette pour la vidéo de ' + project.name">
+            <img class="thumbnail-play-icon" src="../../assets/play_btn.png" alt="Icône de lecture">
         </div>
 
         <div class="project-media-imgs" v-else>
@@ -18,7 +18,7 @@
 
 <script>
     export default {
-        props: ['project', 'pos'],
+        props: ['project'],
 
         data: function() {
             return {
@@ -70,25 +70,9 @@
                     $this.$emit('MediaReady')
                 }, 200);
             });
-
-            this.projectMediaHeight();
-            window.addEventListener('resize', this.projectMediaHeight);
-        },
-
-        destroyed() {
-            window.removeEventListener('resize', this.projectMediaHeight);            
         },
 
         methods: {
-            projectMediaHeight: function() {
-                if (window.innerWidth >= 1200) {
-                    var matchingProject = this.$parent.$el.querySelectorAll('.project')[this.pos];
-                    var matchingInfo = matchingProject.querySelector('.project-info');
-                    this.$el.style.minHeight = matchingInfo.clientHeight + 'px';
-                } else {
-                    this.$el.style.minHeight = '0px';
-                }
-            },
             imgClick(index) {
                 this.$parent.$emit('OpenImgModal', this.images, index)
             },
@@ -101,16 +85,15 @@
 
 <style lang="scss">
     .project-media {
-        margin: 3rem auto 6rem auto;
         position: relative;
         transition: height .3s ease-out;
-        width: 90%;
+        flex: 1;
+        margin: 3rem auto 6rem;
         
         @include media-width(1200) {
-            float: right;
-            margin: 0;
             opacity: 0;
-            width: 48%;
+            flex-basis: 48%;
+            margin: 0;
         }
 
         &.slidedLeft {
@@ -149,45 +132,41 @@
                 max-height: 260px;
             }
         }
+    }
 
-        &-thumbnail {
-            margin: auto;
-            max-width: 420px;
-            position: relative;
+    .thumbnail {
+        margin: auto;
+        max-width: 420px;
+        position: relative;
+        width: 100%;
+    
+        @include media-width(1200) {
+            left: 100%;
+            position: absolute;
+            top: 50%;
+            transform: perspective(1px) translateX(-100%) translateY(-50%);
+            width: 80%;
+        }
+        
+        &-img {
+            box-shadow: 0 20px 100px rgba(0,0,0,.1);
+            max-height: 180px;
+            object-fit: cover;
+            padding: 2%;
             width: 100%;
-        
-            @include media-width(1200) {
-                left: 100%;
-                position: absolute;
-                top: 50%;
-                transform: perspective(1px) translateX(-100%) translateY(-50%);
-                width: 80%;
-            }
-            
-            & img {
-                box-shadow: 0 20px 100px rgba(0,0,0,.1);
-                max-height: 180px;
-                object-fit: cover;
-                padding: 2%;
-                width: 100%;
 
-                @include media-width(1200) {
-                    max-height: 260px;
-                }
+            @include media-width(1200) {
+                max-height: 260px;
             }
-        
-            &:after {
-                content: "";
-                background-image: url('../../assets/play_btn.png');
-                background-size: cover;
-                display: block;
-                height: 20%;
-                pointer-events: none;
-                width: 11%;
-                z-index: 2;
-        
-                @include absCenter;
-            }
+        }
+
+        &-play-icon {
+            z-index: 2;
+            height: 20%;
+            position: absolute;
+            pointer-events: none;
+    
+            @include absCenter;
         }
     }
 </style>

@@ -9,14 +9,14 @@
             v-bind:key="keypoint.id">{{keypoint}}</li>
         </ul>
 
-        <div class="project-info-tags clearfix">
+        <div class="project-info-tags">
             <tag v-for="tag in project.tags" v-bind:key="tag.id" v-bind:name="tag"></tag>
         </div>
     </div>
 </template>
 
 <script>
-    import Tag from './../Tag'
+    import Tag from './../shared/Tag'
 
     export default {
         props: ['project'],
@@ -29,12 +29,11 @@
 
 <style lang="scss">
     .project-info {
-        width: 100%;
+        flex: 1;
 
         @include media-width(1200) {
-            float: left;
             opacity: 0;
-            width: 46%;
+            flex-basis: 46%;
         }
 
         &.slidedRight {

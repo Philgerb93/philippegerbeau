@@ -9,7 +9,7 @@
             <span>Étudiant à l'UQAM</span>
             <span>Baccalauréat en informatique et génie logiciel</span>
         </h1>
-        <a href="#language-header" class="header-arrow"><img src="./../assets/arrow.png" alt="Down arrow"></a>
+        <a href="#language-header" class="header-arrow"><img src="./../assets/arrow.png" alt="Flèche vers le bas"></a>
     </header>
 </template>
 

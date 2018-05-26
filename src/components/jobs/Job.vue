@@ -1,13 +1,19 @@
 <template>
 	<div class="job">
-        <div class="job-bg"></div>
-        <img class="job-img" v-bind:src="logoPath" v-bind:alt="'Logo de ' + name"></img>
-        <div class="job-info">
-            <h4>{{name}}</h4>
-            <p>{{title}}</p>
+        <div class="job-first-row">
+            <div class="job-img">
+                <img v-bind:src="logoPath" v-bind:alt="'Logo de ' + job.name">            
+            </div>
+            <div class="job-info">
+                <h4>{{job.name}}</h4>
+                <p class="job-info-title">{{job.title}}</p>
+                <p class="job-info-duration">{{formattedStartDate}} - {{formattedEndDate}}</p>
+            </div>
         </div>
 
-        <p class="job-duration">{{formattedStartDate}} - {{formattedEndDate}}</p>
+        <div class="job-tags">
+            <tag v-for="tag in job.tags" v-bind:key="tag.id" v-bind:name="tag"></tag>
+        </div>
 
         <!-- <div class="job-timeline"></div>
         <div v-if="firstOfYear" class="job-timeline-circle"></div>
@@ -16,8 +22,10 @@
 </template>
 
 <script>
+    import Tag from '../shared/Tag'
+
 	export default {
-        props: ['name', 'title', 'startDate', 'endDate', 'logo'],
+        props: ['job'],
 
         data() {
             return {
@@ -33,7 +41,7 @@
 
         mounted() {
             const storage = this.$firebase.storage().ref();
-            var imgRef = storage.child('logos').child(this.logo);
+            var imgRef = storage.child('logos').child(this.job.logo);
             const $this = this;
             
             imgRef.getDownloadURL()
@@ -49,11 +57,11 @@
         computed: {
             formattedStartDate() {
                 var date = new Date(0);
-                date.setSeconds(this.startDate.seconds);
+                date.setSeconds(this.job.startDate.seconds);
                 return this.monthNames[date.getMonth()] + ' ' + date.getFullYear().toString();
             },
             formattedEndDate() {
-                var date = this.endDate ? new Date(0).setSeconds(this.endDate.seconds) : null;
+                var date = this.job.endDate ? new Date(0).setSeconds(this.job.endDate.seconds) : null;
                 var now = new Date();
 
                 if (date && date >= now) {
@@ -64,9 +72,13 @@
             },
             formattedTimelineDate() {
                 var date = new Date(0);
-                date.setSeconds(this.startDate.seconds);
+                date.setSeconds(this.job.startDate.seconds);
                 return date.getFullYear().toString();
             }
+        },
+
+        components: {
+            Tag
         }
 	}
 </script>
@@ -77,61 +89,77 @@
 		border: 1px solid $color-grey-light;
 		box-shadow: 0 5px 10px rgba(0,0,0,.03);
 		margin: 2% auto;
-        min-width: 450px;
-        max-width: 500px;
 		transition: box-shadow .3s ease-in-out, transform .3s ease-in-out;
-        width: 60%;
-        height: 130px;
-        position: relative;
+        width: 95%;
+
+        @include media-width(500) {
+            width: 60%;
+            max-width: 500px;
+            min-width: 450px;
+        }
 
 		&:hover {
 			transform: translateY(-6px);
 			box-shadow: 0 10px 20px rgba(0,0,0,.03);
 		}
+
+        &-first-row {
+            display: flex;
+        }
         
-        &-bg {
-            background-color: $color-primary;
-            width: 30%;
-            height: 100%;
-            float: left;
-            clip-path: polygon(0 0, 20% 0, 90% 100%, 0 100%);
-        }
-
         &-img {
-            width: 110px;
-            height: 110px;
-            background-color: #FFF;
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            z-index: 1;
-            border: 2px solid $color-primary;
-            padding: 16px;
+            width: 150px;
+            height: 131px;
+            background-color: $color-primary;
+            clip-path: polygon(0 0, 19% 0, 26% 7%, 81% 7%, 81% 80%, 96% 100%, 0 100%);
+
+            & img {
+                width: 110px;
+                height: 110px;
+                background-color: #FFF;
+                padding: 12%;
+                margin: 7%;
+                z-index: 1;
+                border: 2px solid $color-primary;
+            }
         }
 
-        &-duration {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            margin: .2em .4em;
-            color: $color-text-hint;
-            font-size: 1.6rem;
-            word-spacing: .2em;
-            letter-spacing: .05em;
+        &-info {
+            position: relative;
+            padding-left: 2rem;
+            flex: 1;
+
+            &-title {
+                font-size: 1.6rem;
+                letter-spacing: .05em;
+            }
+
+            &-duration {
+                margin: .2em .4em;
+                color: $color-text-hint;
+                font-size: 1.4rem;
+                word-spacing: .2em;
+                letter-spacing: .05em;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
         }
 
-        &-title {
-            font-size: 1.8rem;
-            letter-spacing: .2em;
+        &-tags {
+            grid-column: 1/3;
+            border-top: 1px solid $color-grey-light;
+            padding: .5rem 0;
         }
+
 
         &-timeline {
             position:absolute;
-            top: 0;
+            top: -10px;
             left: -100px;
             background-color: $color-grey-dark;
             width: 4px;
-            height: 147px;
+            height: 156px;
         }
 
         &-timeline-circle {
