@@ -73,6 +73,11 @@
             height: 70vh;
         }
 
+        & p,
+        & span {
+            user-select: none;
+        }
+
         &-bg {
             color: rgba($color-text-black, .05);
             font-size: 40rem;

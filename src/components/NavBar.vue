@@ -92,6 +92,7 @@
 
                 &.hidden {
                     opacity: 0;
+                    cursor: default;
                 }
             }
 
