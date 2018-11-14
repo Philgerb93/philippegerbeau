@@ -60,10 +60,14 @@
                 return this.monthNames[date.getMonth()] + ' ' + date.getFullYear().toString();
             },
             formattedEndDate() {
-                var date = this.job.endDate ? new Date(0).setSeconds(this.job.endDate.seconds) : null;
                 var now = new Date();
+                var date = this.job.endDate ? new Date(0) : null;
+                
+                if (this.job.endDate) {
+                    date.setSeconds(this.job.endDate.seconds);
+                }
 
-                if (date && date >= now) {
+                if (date && date <= now) {
                     return this.monthNames[date.getMonth()] + ' ' + date.getFullYear().toString();
                 } else {
                     return 'Présent';
