@@ -42,12 +42,11 @@
         mounted() {
             const storage = this.$firebase.storage().ref();
             var imgRef = storage.child('logos').child(this.job.logo);
-            const $this = this;
             
             imgRef.getDownloadURL()
-            .then(function(url) {
-                $this.logoPath = url;
-                $this.$emit('JobReady')
+            .then(url => {
+                this.logoPath = url;
+                this.$emit('JobReady')
             })
             .catch(function(error) {
                 console.log(error);

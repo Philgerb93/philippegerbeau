@@ -1,13 +1,12 @@
 <template>
 	<div id="app">
-		<loading-screen></loading-screen>
 		<nav-bar></nav-bar>
 		<website-header></website-header>
 		<div id="start-of-page"></div>
 		<div class="main-content" v-bind:style="{marginBottom: footerHeight + 'px'}">
-			<jobs v-on:DBReady="DBLoading('jobs')"></jobs>
-			<languages v-on:DBReady="DBLoading('languages')"></languages>
-			<projects v-on:DBReady="DBLoading('projects')"
+			<jobs></jobs>
+			<languages></languages>
+			<projects
 			v-on:OpenImgModal="openImgModal"
 			v-on:OpenVidModal="openVidModal"></projects>
 		</div>
@@ -20,7 +19,6 @@
 </template>
 
 <script>
-	import LoadingScreen from './components/LoadingScreen'
 	import NavBar from './components/NavBar'
 	import WebsiteHeader from './components/WebsiteHeader'
 	import Jobs from './components/jobs/Jobs'
@@ -32,11 +30,6 @@
 	export default {
 		data: function() {
 			return {
-				loadingProgress: {
-					'jobs': false,
-					'projects': false,
-					'languages': false
-				},
 				modalIndex: -1,
 				modalImages: [],
 				modalVideo: null,
@@ -45,15 +38,6 @@
 		},
 
 		methods: {
-			DBLoading(category) {
-				this.loadingProgress[category] = true;
-
-				if (Object.keys(this.loadingProgress).every(key => this.loadingProgress[key])) {
-					document.querySelector('.loading-screen').classList.add('fade-out');
-					document.querySelectorAll('.sk-cube').forEach(c => c.classList.add('zoom-out'));
-					document.querySelector('.loading-screen').style.display = 'none';
-				}
-			},
 			openImgModal(images, index) {
 				this.modalVideo = null;
 				this.modalImages = images;
@@ -70,7 +54,6 @@
 		},
 
 		components: {
-			LoadingScreen,
 			NavBar,
 			WebsiteHeader,
 			Jobs,

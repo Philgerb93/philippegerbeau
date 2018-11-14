@@ -1,7 +1,7 @@
 <template>
     <div id="languages">
         <h2 id="languages-header">Langages</h2>
-        <section id="languages-section" class="languages-wrapper">
+        <section v-if="DBLoaded" id="languages-section" class="languages-wrapper">
             <language-box 
             v-for="language in languages" 
             v-bind:name="language.name" 
@@ -9,30 +9,32 @@
             v-bind:key="language.id">
             </language-box>
         </section>
+        <spinner v-else></spinner>
     </div>
 </template>
 
 <script>
     import LanguageBox from './LanguageBox'
+    import Spinner from '../Spinner'
 
     export default {
         data: function() {
             return {
-                languages: []
+                languages: [],
+                DBLoaded: false
             }
         },
 
         created() {
             const db = this.$firebase.firestore();
-            var $this = this;
 
             db.collection("languages").get()
-            .then(function (snapshot) {
-                snapshot.forEach(function(doc) {
-                    $this.languages.push(doc.data());
+            .then(snapshot => {
+                snapshot.forEach(doc => {
+                    this.languages.push(doc.data());
                 });
-                $this.languages.sort($this.compare).reverse();
-                $this.$emit('DBReady');
+                this.languages.sort(this.compare).reverse();
+                this.DBLoaded = true;
             })
             .catch(function (error) {
                 console.log(error);
@@ -56,7 +58,8 @@
         },
         
         components: {
-            LanguageBox
+            LanguageBox,
+            Spinner
         }
     }
 </script>

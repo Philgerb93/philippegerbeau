@@ -1,24 +1,26 @@
 <template>
     <div id="projects">
         <h2 id="projects-header">Projets personnels</h2>
-        <section id="projects-section" class="project-wrapper">
+        <section v-show="readyProjects === projects.length" id="projects-section" class="project-wrapper">
             <div class="project" v-for="project in projects"
             v-bind:key="project.id">
                 <project-info v-bind:project="project"></project-info>
                 <project-media v-bind:project="project"
-                v-on:MediaReady="loadingProjects()"></project-media>
+                v-on:MediaReady="readyProjects++"></project-media>
 
                 <div style="clear: both"></div>
             </div>
 
             <!-- <text-button></text-button> -->
         </section>
+        <spinner v-if="readyProjects !== projects.length"></spinner>
     </div>
 </template>
 
 <script>
     import ProjectInfo from './ProjectInfo'
     import ProjectMedia from './ProjectMedia'
+    import Spinner from '../Spinner'
     import TextButton from '../shared/TextButton'
 
     export default {
@@ -31,14 +33,13 @@
 
         created: function() {
             const db = this.$firebase.firestore();
-            var $this = this;
 
             db.collection("projects").get()
-            .then(function (snapshot) {
-                snapshot.forEach(function(doc) {
-                    $this.projects.push(doc.data());
+            .then(snapshot => {
+                snapshot.forEach(doc => {
+                    this.projects.push(doc.data());
                 });
-                $this.projects.sort($this.compare).reverse();
+                this.projects.sort(this.compare).reverse();
             })
             .catch(function (error) {
                 console.log(error);
@@ -58,16 +59,15 @@
             projectAnim: function() {
                 var infos = document.querySelectorAll('.project-info');
                 var media = document.querySelectorAll('.project-media');
-                const $this = this;
                 
                 if (window.innerWidth >= 1200) {
-                    infos.forEach(function(element) {
-                        if (!element.classList.contains('slidedRight') && $this.elemInViewport(element)) {
+                    infos.forEach(element => {
+                        if (!element.classList.contains('slidedRight') && this.elemInViewport(element)) {
                             element.classList.add('slidedRight');
                         }
                     });
-                    media.forEach(function(element) {
-                        if (!element.classList.contains('slidedLeft') && $this.elemInViewport(element)) {
+                    media.forEach(element => {
+                        if (!element.classList.contains('slidedLeft') && this.elemInViewport(element)) {
                             element.classList.add('slidedLeft');
                         }
                     });
@@ -81,13 +81,6 @@
 				return topOfElement + element.clientHeight / 2 > navBarHeight
 				&& bottomOfElement - element.clientHeight / 2 < window.innerHeight
             },
-            loadingProjects() {
-                this.readyProjects++;
-
-                if (this.readyProjects == this.projects.length) {
-                    this.$emit('DBReady');
-                }
-            },
             compare(a, b) {
                 if (a.priority > b.priority)
                     return 1;
@@ -100,6 +93,7 @@
         components: {
             ProjectInfo,
             ProjectMedia,
+            Spinner,
             TextButton
         }
     }
