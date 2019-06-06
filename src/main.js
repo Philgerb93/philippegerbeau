@@ -2,6 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import firebase from './../node_modules/firebase'
 
+Vue.config.productionTip = false
+
 const config = {
 	apiKey: "AIzaSyBLFjgOxDh_71EByeuwfT5wUCR6-31xmic",
 	authDomain: "philippege-cc0d4.firebaseapp.com",
@@ -17,6 +19,5 @@ const settings = {timestampsInSnapshots: true};
 firestore.settings(settings);
 
 new Vue({
-  el: '#app',
-  render: h => h(App)
-})
+	render: h => h(App),
+  }).$mount('#app')
