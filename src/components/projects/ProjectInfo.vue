@@ -1,6 +1,6 @@
 <template>
     <div class="project-info">
-        <h3>{{project.name}}</h3>
+        <h3>{{project.name}}<a v-if="project.githubRepo"  :href="'https://github.com/philgerb93/' + project.githubRepo" class="github-icon"><fa-icon :icon="['fab', 'git-alt']"/></a></h3>
         <p class="project-info-summary">{{project.summary}}</p>
 
         <h5>Points clés :</h5>
@@ -23,6 +23,12 @@
 
         components: {
             Tag
+        },
+
+        computed: {
+            getRepoUrl() {
+                return "https://github.com/philgerb93/" + this.project.repoUrl;
+            }
         }
     }
 </script>
@@ -34,6 +40,18 @@
         @include media-width(1200) {
             opacity: 0;
             flex-basis: 46%;
+        }
+
+        & a.github-icon {
+            color: $color-text-black;
+            margin-left: 8px;
+            padding-top: 2px;
+            cursor: pointer;
+            vertical-align: middle;
+
+            &:hover {
+                color: $color-primary-light;
+            }
         }
 
         &.slidedRight {

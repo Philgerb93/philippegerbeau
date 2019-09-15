@@ -2,6 +2,13 @@ import Vue from 'vue'
 import App from './App.vue'
 import firebase from './../node_modules/firebase'
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faGithub, faGitAlt, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+ 
+library.add(faGithub, faGitAlt, faLinkedin)
+Vue.component('fa-icon', FontAwesomeIcon)
+
 Vue.config.productionTip = false
 
 const config = {
@@ -15,8 +22,6 @@ const config = {
 Vue.prototype.$firebase = firebase.initializeApp(config);
 
 const firestore = firebase.firestore();
-const settings = {timestampsInSnapshots: true};
-firestore.settings(settings);
 
 new Vue({
 	render: h => h(App),

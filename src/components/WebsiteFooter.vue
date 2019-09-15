@@ -5,13 +5,9 @@
             <p>Courrier électronique</p>
             <a href="mailto:philippe.gerbeau.93@gmail.com" class="email">philippe<span>.</span>gerbeau<span>.</span>93@gmail<span>.</span>com</a>
             <br>
-            <a href="https://github.com/philgerb93"><i class="fa fa-github network"> GitHub</i></a>
-            <a href="https://www.linkedin.com/in/philippe-gerbeau-b8b57b141"><i class="fa fa-linkedin-square network"> LinkedIn</i></a>
+            <a href="https://github.com/philgerb93"><span class="network"><fa-icon :icon="['fab', 'github']"/> GitHub</span></a>
+            <a href="https://www.linkedin.com/in/philippe-gerbeau-b8b57b141"><span class="network"><fa-icon :icon="['fab', 'linkedin']"/> LinkedIn</span></a>
         </div>
-
-        <!-- <div class="footer-sub">
-            <p><i class="fa fa-globe"></i> Beloeil, QC, Canada</p>
-        </div> -->
     </footer>
 </template>
 
@@ -77,6 +73,7 @@ export default {
             font-size: 1.6rem;
             background-color: $color-grey;
             padding: .4em .6em;
+            margin: 0 .4em;
             border-radius: 2em;
             transition: all .2s;
             position: relative;
