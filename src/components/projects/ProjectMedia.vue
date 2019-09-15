@@ -1,5 +1,5 @@
 <template>
-    <div class="project-media">
+    <div v-if="project.video || project.images" class="project-media">
         <div class="thumbnail" v-if="project.video" v-on:click="vidClick()">
             <img v-bind:src="thumbnail" class="thumbnail-img"
             v-bind:alt="'Vignette pour la vidéo de ' + project.name">
@@ -51,7 +51,7 @@
                     $this.video = url;
                 }));
 
-            } else {
+            } else if (this.project.images) {
                 for (const image of this.project.images) {
                     imgRef = storage.child(image);
 

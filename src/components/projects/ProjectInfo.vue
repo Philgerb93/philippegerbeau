@@ -14,14 +14,12 @@
             </div>
         </div>
 
-        <h5>Points clés :</h5>
+        <h5 v-if="project.keypoints">Points clés :</h5>
         <ul class="project-info-keypoints">
             <li v-for="keypoint in project.keypoints"
             v-bind:key="keypoint.id">{{keypoint}}</li>
         </ul>
 
-        <div class="project-info-tags">
-        </div>
         <div class="project-info-tags">
             <tag v-for="tag in project.tags" v-bind:key="tag.id" v-bind:name="tag"></tag>
         </div>
@@ -92,6 +90,7 @@
                 margin-left: 32px;
                 border-radius: .5em;
                 transition: all .15s;
+                user-select: none;
                 
                 &:hover {
                     color: $color-primary-light;
