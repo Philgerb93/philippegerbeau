@@ -21,6 +21,7 @@
         padding: .45em 1em;
         position: relative;
         transition: all .15s;
+        user-select: none;
         
         &:hover {
             color: $color-primary-light;

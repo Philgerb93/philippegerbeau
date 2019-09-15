@@ -91,9 +91,14 @@
                 padding: 8px;
                 margin-left: 32px;
                 border-radius: .5em;
+                transition: all .15s;
+                
+                &:hover {
+                    color: $color-primary-light;
+                    border-color: $color-primary-light;
+                }
 
                 & .type-icon {
-                    color: $color-primary-light;
                     margin-right: 8px;
                 }
             }
