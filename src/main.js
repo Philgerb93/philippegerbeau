@@ -4,9 +4,10 @@ import firebase from './../node_modules/firebase'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faGithub, faGitAlt, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faUser, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
  
-library.add(faGithub, faGitAlt, faLinkedin)
+library.add(faGithub, faGitAlt, faLinkedin, faUser, faUsers)
 Vue.component('fa-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false

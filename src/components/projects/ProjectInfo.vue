@@ -1,7 +1,18 @@
 <template>
     <div class="project-info">
         <h3>{{project.name}}<a v-if="project.githubRepo"  :href="'https://github.com/philgerb93/' + project.githubRepo" class="github-icon"><fa-icon :icon="['fab', 'git-alt']"/></a></h3>
-        <p class="project-info-summary">{{project.summary}}</p>
+
+        <div class="project-info-summary">
+            <p>{{project.summary}}</p>
+            <div v-if="project.solo">
+                <fa-icon class="type-icon" :icon="['fas', 'user']"/>
+                <p>Seul</p>
+            </div>
+            <div v-else>
+                <fa-icon class="type-icon" :icon="['fas', 'users']"/>
+                <p>Équipe</p>
+            </div>
+        </div>
 
         <h5>Points clés :</h5>
         <ul class="project-info-keypoints">
@@ -9,6 +20,8 @@
             v-bind:key="keypoint.id">{{keypoint}}</li>
         </ul>
 
+        <div class="project-info-tags">
+        </div>
         <div class="project-info-tags">
             <tag v-for="tag in project.tags" v-bind:key="tag.id" v-bind:name="tag"></tag>
         </div>
@@ -62,6 +75,28 @@
             font-size: 1.6rem;
             line-height: 1.4em;
             margin-bottom: 1.6em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            & div {
+                font-size: 12px;
+                color: $color-primary-dark;
+                width: 100px;
+                height: 32px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid $color-primary-dark;
+                padding: 8px;
+                margin-left: 32px;
+                border-radius: .5em;
+
+                & .type-icon {
+                    color: $color-primary-light;
+                    margin-right: 8px;
+                }
+            }
         }
         
         &-keypoints {
