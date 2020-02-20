@@ -32,7 +32,8 @@
             const storage = this.$firebase.storage().ref();
             var imgRef;
             const $this = this;
-            const promises = []
+            const promises = [];
+            const unsortedImages = [];
 
             if (this.project.video) {
                 imgRef = storage.child(this.project.thumbnail);
@@ -57,7 +58,8 @@
 
                     promises.push(imgRef.getDownloadURL()
                     .then(function(url) {
-                       $this.images.push(url);
+                       unsortedImages.push(url);
+                       console.log(url);
                     })
                     .catch(function(error) {
                         console.log(error);
@@ -66,6 +68,10 @@
             }
 
             Promise.all(promises).then(() => {    
+                if (this.project.images) {
+                    $this.images = this.project.images.map(image => unsortedImages.find(url => url.includes(image)));
+                }
+
                 window.setTimeout(function() {
                     $this.$emit('MediaReady')
                 }, 200);

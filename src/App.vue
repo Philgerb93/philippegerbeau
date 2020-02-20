@@ -82,7 +82,6 @@
 		background-color: $color-footer;
 		box-sizing: border-box;
 		color: $color-text-black;
-		// font-family: 'Roboto', sans-serif;
 		font-family: 'Source Sans Pro', sans-serif;
 		font-size: 1.6rem;
 		font-weight: lighter;
@@ -126,10 +125,6 @@
 		padding-top: .4em;
 		text-align: center;
 		text-transform: uppercase;
-
-		// @include media-width(1200) {
-		// 	font-size: 4rem;
-		// }
 
 		&:before,
 		&:after {
