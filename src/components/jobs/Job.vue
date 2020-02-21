@@ -15,9 +15,9 @@
             <tag v-for="tag in job.tags" v-bind:key="tag.id" v-bind:name="tag"></tag>
         </div>
 
-        <!-- <div class="job-timeline"></div>
-        <div v-if="firstOfYear" class="job-timeline-circle"></div>
-        <div v-if="firstOfYear" class="job-timeline-label">2018</div> -->
+        <div class="job-timeline" v-bind:class="{first: job.firstJob}"></div>
+        <div v-if="job.firstOfYear" class="job-timeline-circle"></div>
+        <div v-if="job.firstOfYear" class="job-timeline-label">{{formattedTimelineDate}}</div>
 	</div>
 </template>
 
@@ -94,10 +94,10 @@
 		margin: 2% auto;
 		transition: box-shadow .3s ease-in-out, transform .3s ease-in-out;
         width: 95%;
+        position: relative;
 
         @include media-width(500) {
-            width: 60%;
-            max-width: 500px;
+            max-width: 700px;
             min-width: 450px;
         }
 
@@ -155,31 +155,50 @@
             padding: .5rem 0;
         }
 
-
         &-timeline {
+            display: none;
             position:absolute;
             top: -10px;
             left: -100px;
-            background-color: $color-grey-dark;
-            width: 4px;
-            height: 156px;
+            background-color: $color-primary;
+            width: 3px;
+            height: 220px;
+
+            @include media-width(1000) {
+                display: block;
+            }
+
+            &.first {
+                top: -30px;
+                height: 100px;
+            }
         }
 
         &-timeline-circle {
+            display: none;
             position: absolute;
-            top: 55px;
-            left: -108px;
-            background-color: $color-grey-dark;
-            width: 20px;
-            height: 20px;
+            top: 58px;
+            left: -106px;
+            background-color: $color-primary;
+            width: 16px;
+            height: 16px;
             border-radius: 1em;
+
+            @include media-width(1000) {
+                display: block;
+            }
         }
 
         &-timeline-label {
+            display: none;
             position: absolute;
             top: 55px;
             left: -80px;
-            color: $color-grey-dark;
+            color: $color-primary;
+
+            @include media-width(1000) {
+                display: block;
+            }
         }
 	}
 </style>

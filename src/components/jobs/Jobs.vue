@@ -37,18 +37,22 @@
                 
                 this.jobs.sort(this.compare);
 
-                // for (var job of this.jobs) {
-                //     const date = new Date(0);
-                //     date.setSeconds(job.startDate.seconds); 
-                //     let startYear = (date.getFullYear());
+                for (var job of this.jobs) {
+                    const date = new Date(0);
+                    date.setSeconds(job.startDate.seconds); 
+                    let startYear = (date.getFullYear());
 
-                //     if (this.timelineYears.indexOf(startYear) > -1) {
-                //         job.firstOfYear = false;
-                //     } else {
-                //         job.firstOfYear = true;
-                //         this.timelineYears.push(startYear);
-                //     }
-                // }
+                    if (this.timelineYears.indexOf(startYear) > -1) {
+                        job.firstOfYear = false;
+                    } else {
+                        job.firstOfYear = true;
+                        this.timelineYears.push(startYear);
+                    }
+
+                    job.firstJob = false;
+                }
+
+                this.jobs[this.jobs.length - 1].firstJob = true;
             })
             .catch(function (error) {
                 console.log(error);
