@@ -59,7 +59,6 @@
                     promises.push(imgRef.getDownloadURL()
                     .then(function(url) {
                        unsortedImages.push(url);
-                       console.log(url);
                     })
                     .catch(function(error) {
                         console.log(error);

@@ -57,7 +57,7 @@ export default {
         z-index: 20;
 
         &-content-holder {
-            animation: zoom .5s;
+            // animation: zoom .5s;
             height: 100%;
             position: fixed;
             width: 100%;
