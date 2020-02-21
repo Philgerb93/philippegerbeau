@@ -7,7 +7,7 @@
 
             <ul class="nav-items">
                 <li><a class="nav-link" href="#jobs-header">Expérience</a></li>
-                <li><a class="nav-link" href="#languages-header">Connaissances</a></li>
+                <!-- <li><a class="nav-link" href="#languages-header">Connaissances</a></li> -->
                 <li><a class="nav-link" href="#projects-header">Projets</a></li>
                 <li><a class="nav-link" href="#end-of-page">Contact</a></li>
             </ul>
@@ -18,7 +18,7 @@
             <ul class="nav-popup-list">
                 <li class="nav-popup-item"><a href="#start-of-page" class="nav-popup-link" v-on:click="togglePopup">Présentation</a></li>
                 <li class="nav-popup-item"><a href="#jobs-header" class="nav-popup-link" v-on:click="togglePopup">Expérience</a></li>
-                <li class="nav-popup-item"><a href="#languages-header" class="nav-popup-link" v-on:click="togglePopup">Connaissances</a></li>
+                <!-- <li class="nav-popup-item"><a href="#languages-header" class="nav-popup-link" v-on:click="togglePopup">Connaissances</a></li> -->
                 <li class="nav-popup-item"><a href="#projects-header" class="nav-popup-link" v-on:click="togglePopup">Projets</a></li>
                 <li class="nav-popup-item"><a href="#end-of-page" class="nav-popup-link" v-on:click="togglePopup">Contact</a></li>
             </ul>

@@ -5,7 +5,7 @@
 		<div id="start-of-page"></div>
 		<div class="main-content" v-bind:style="{marginBottom: footerHeight + 'px'}">
 			<jobs></jobs>
-			<languages></languages>
+			<!-- <languages></languages> -->
 			<projects
 			v-on:OpenImgModal="openImgModal"
 			v-on:OpenVidModal="openVidModal"></projects>
