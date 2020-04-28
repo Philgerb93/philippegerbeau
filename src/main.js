@@ -22,7 +22,7 @@ const config = {
 };
 Vue.prototype.$firebase = firebase.initializeApp(config);
 
-const firestore = firebase.firestore();
+// const firestore = firebase.firestore();
 
 new Vue({
 	render: h => h(App),

@@ -22,7 +22,7 @@
 	import NavBar from './components/NavBar'
 	import WebsiteHeader from './components/WebsiteHeader'
 	import Jobs from './components/jobs/Jobs'
-	import Languages from './components/languages/Languages'
+	// import Languages from './components/languages/Languages'
 	import Projects from './components/projects/Projects'
 	import WebsiteFooter from './components/WebsiteFooter'
 	import Modal from './components/Modal'
@@ -57,7 +57,7 @@
 			NavBar,
 			WebsiteHeader,
 			Jobs,
-			Languages,
+			// Languages,
 			Projects,
 			WebsiteFooter,
 			Modal

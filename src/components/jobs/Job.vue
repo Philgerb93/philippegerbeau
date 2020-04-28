@@ -124,6 +124,7 @@
                 margin: 7%;
                 z-index: 1;
                 border: 2px solid $color-primary;
+                object-fit: contain;
             }
         }
 

@@ -21,7 +21,7 @@
     import ProjectInfo from './ProjectInfo'
     import ProjectMedia from './ProjectMedia'
     import Spinner from '../Spinner'
-    import TextButton from '../shared/TextButton'
+    // import TextButton from '../shared/TextButton'
 
     export default {
         data: function() {
@@ -94,7 +94,7 @@
             ProjectInfo,
             ProjectMedia,
             Spinner,
-            TextButton
+            // TextButton
         }
     }
 </script>
