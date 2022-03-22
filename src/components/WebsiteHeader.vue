@@ -1,13 +1,17 @@
 <template>
     <header id="website-header" class="header">
+        <div class="wrapper">
+            <video autoplay muted loop>
+                <source src="../assets/bg.mp4" type="video/mp4">
+            </video>
+
+        </div>
         <p v-if="singleLetterBG" class="header-bg">P</p>
         <p v-else class="header-bg">PG</p>
 
         <h1 class="header-text">
             <span class="header-name">Philippe Gerbeau</span>
-            <span class="header-profession">Programmeur</span>
-            <span>Étudiant à l'UQAM</span>
-            <span>Baccalauréat en informatique et génie logiciel</span>
+            <span class="header-profession">Full-stack web developer</span>
         </h1>
         <a href="#jobs-header" class="header-arrow"><img src="./../assets/arrow.png" alt="Flèche vers le bas"></a>
     </header>
@@ -73,13 +77,23 @@
             height: 70vh;
         }
 
+        video {
+            opacity: 0.06;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
         & p,
         & span {
             user-select: none;
         }
 
         &-bg {
-            color: rgba($color-text-black, .05);
+            color: rgba($color-text-black, .1);
             font-size: 40rem;
             margin: 0;
             min-height: 460px;
@@ -135,7 +149,9 @@
         
         &-profession {
             font-size: 2.2rem;
-            margin-bottom: 60px;
+            margin-top: 2rem;
+            font-weight: normal;
+            letter-spacing: 0.02em;
 
             @include media-width(500) {
                 font-size: 2.4rem;
