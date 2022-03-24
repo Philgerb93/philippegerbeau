@@ -1,14 +1,15 @@
-import Vue from 'vue'
-import App from './App.vue'
-import firebase from './../node_modules/firebase'
+import Vue from 'vue';
+import App from './App.vue';
+import firebase from './../node_modules/firebase';
 
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faGithub, faGitAlt, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faGithub, faGitAlt, faLinkedin, faVuejs, faHtml5, faJsSquare, faCss3Alt } from '@fortawesome/free-brands-svg-icons';
 import { faUser, faUsers } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
  
-library.add(faGithub, faGitAlt, faLinkedin, faUser, faUsers)
-Vue.component('fa-icon', FontAwesomeIcon)
+library.add(faGithub, faGitAlt, faLinkedin, faUser, faUsers,
+	faVuejs, faHtml5, faJsSquare, faCss3Alt);
+Vue.component('fa-icon', FontAwesomeIcon);
 
 Vue.config.productionTip = false
 

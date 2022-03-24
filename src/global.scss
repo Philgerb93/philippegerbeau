@@ -17,39 +17,62 @@ $color-grey: #DDD;
 $color-grey-light: #EEE;
 $color-grey-dark: #BBB;
 
+$color-light: #FAFBFA;
+$color-accent-light: #91BAD2;
+$color-brand: #4ACCB5;
+$color-accent-dark: #98817B;
+$color-dark: #30436D;
+
 $navbar-height: 48px;
 $header-height: 500px;
 
 @mixin clearfix {
-    &::after {
-        clear: both;
-        content: '';
-        display: table;
-    }
+	&::after {
+		clear: both;
+		content: '';
+		display: table;
+	}
 }
 
 @mixin absCenter {
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: perspective(1px) translateX(-50%) translateY(-50%);
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	transform: perspective(1px) translateX(-50%) translateY(-50%);
 }
 
-@mixin media-width($breakpoint) {
-    @media only screen and (min-width: ($breakpoint/16) * 1em) { @content };
+@mixin screen-above($width) {
+	@media only screen and (min-width: $width) {
+		@content;
+	}
 }
 
-@mixin media-height($breakpoint) {
-    @media only screen and (min-height: ($breakpoint/16) * 1em) { @content };
+@mixin screen-below($width) {
+	@media only screen and (max-width: $width) {
+		@content;
+	}
+}
+
+@mixin screen-between($min-width, $max-width) {
+	@media only screen and (min-width: $min-width) and (max-width: $max-width) {
+		@content;
+	}
 }
 
 @keyframes bounce {
-	0%, 20%, 50%, 80%, 100% {
+
+	0%,
+	20%,
+	50%,
+	80%,
+	100% {
 		transform: perspective(1px) translateX(-50%) translateY(0);
 	}
+
 	40% {
 		transform: perspective(1px) translateX(-50%) translateY(-30px);
 	}
+
 	60% {
 		transform: perspective(1px) translateX(-50%) translateY(-15px);
 	}
@@ -67,6 +90,7 @@ $header-height: 500px;
 		opacity: 0;
 		transform: translateX(20px);
 	}
+
 	to {
 		opacity: 1;
 		transform: translateX(0);
@@ -78,6 +102,7 @@ $header-height: 500px;
 		opacity: 0;
 		transform: translateX(-20px);
 	}
+
 	to {
 		opacity: 1;
 		transform: translateX(0);
@@ -88,17 +113,23 @@ $header-height: 500px;
 	from {
 		transform: scale(0);
 	}
+
 	to {
 		transform: scale(1);
 	}
 }
 
 @keyframes sk-cubeGridScaleDelay {
-	0%, 70%, 100% {
+
+	0%,
+	70%,
+	100% {
 		-webkit-transform: scale3D(1, 1, 1);
-				transform: scale3D(1, 1, 1);
-	} 35% {
+		transform: scale3D(1, 1, 1);
+	}
+
+	35% {
 		-webkit-transform: scale3D(0, 0, 1);
-				transform: scale3D(0, 0, 1);
-	} 
+		transform: scale3D(0, 0, 1);
+	}
 }

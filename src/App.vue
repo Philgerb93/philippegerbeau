@@ -1,43 +1,56 @@
 <template>
   <div id="app">
     <nav-bar></nav-bar>
-    <website-header></website-header>
+    <!-- <website-header></website-header> -->
     <div id="start-of-page"></div>
     <div
       class="main-content"
       v-bind:style="{ marginBottom: footerHeight + 'px' }"
     >
-      <intro></intro>
-      <jobs></jobs>
-      <!-- <languages></languages> -->
+      <Intro></Intro>
+      <Priorities></Priorities>
+      <Toolbox></Toolbox>
+      <!-- <jobs></jobs>
       <projects
         v-on:OpenImgModal="openImgModal"
         v-on:OpenVidModal="openVidModal"
-      ></projects>
+      ></projects> -->
     </div>
     <div id="end-of-page"></div>
     <website-footer v-on:SendHeight="getFooterHeight"></website-footer>
-    <modal
+    <!-- <modal
       v-if="modalIndex >= 0"
       v-bind:video="modalVideo"
       v-bind:images="modalImages"
       v-bind:startingIndex="modalIndex"
       v-on:Close="modalIndex = -1"
-    ></modal>
+    ></modal> -->
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar";
-import WebsiteHeader from "./components/WebsiteHeader";
+// import WebsiteHeader from "./components/WebsiteHeader";
 import Intro from "./components/Intro";
-import Jobs from "./components/jobs/Jobs";
-// import Languages from './components/languages/Languages'
-import Projects from "./components/projects/Projects";
+// import Jobs from "./components/jobs/Jobs";
+// import Projects from "./components/projects/Projects";
 import WebsiteFooter from "./components/WebsiteFooter";
-import Modal from "./components/Modal";
+// import Modal from "./components/Modal";
+import Toolbox from "./components/Toolbox.vue";
+import Priorities from "./components/Priorities.vue";
 
 export default {
+  components: {
+    NavBar,
+    // WebsiteHeader,
+    // Jobs,
+    // Projects,
+    WebsiteFooter,
+    // Modal,
+    Intro,
+    Priorities,
+    Toolbox,
+  },
   data() {
     return {
       modalIndex: -1,
@@ -61,17 +74,6 @@ export default {
     getFooterHeight(height) {
       this.footerHeight = height;
     },
-  },
-
-  components: {
-    NavBar,
-    WebsiteHeader,
-    Intro,
-    Jobs,
-    // Languages,
-    Projects,
-    WebsiteFooter,
-    Modal,
   },
 };
 </script>
@@ -117,7 +119,7 @@ hr {
   margin: 4rem auto 4rem auto;
   width: 80%;
 
-  @include media-width(1200) {
+  @include screen-below(1200) {
     margin: 6.5rem auto;
   }
 }
@@ -145,16 +147,13 @@ h2 {
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 0.2em;
-  margin: 2em 0;
+  margin-bottom: 2em;
 }
 
 h3 {
   font-size: 2.2rem;
-  line-height: 2.4em;
-  margin: 0;
-  text-align: left;
-  margin-bottom: 0.8em;
-  border-bottom: 1px solid $color-grey;
+  text-align: center;
+  margin: 0.8em;
 }
 
 h4 {
@@ -170,6 +169,14 @@ h5 {
   margin: 0.8em 0;
 }
 
+h2.with-subheader {
+  margin-bottom: 0;
+}
+
+p.subheader {
+  margin-bottom: 5em;
+}
+
 .main-content {
   background-color: $color-background;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.2), 0 4px 40px rgba(0, 0, 0, 0.1);
@@ -180,17 +187,17 @@ h5 {
   position: relative;
   z-index: 2;
 
-  @include media-width(560) {
+  @include screen-below(560) {
     margin-bottom: 50rem;
   }
 
-  @include media-width(1200) {
+  @include screen-below(1200) {
     margin-bottom: 54rem;
   }
 
-  @include media-height(800) {
-    margin-top: $navbar-height + $header-height;
-  }
+  // @include media-height(800) {
+  //   margin-top: $navbar-height + $header-height;
+  // }
 }
 
 * {
@@ -207,10 +214,11 @@ h5 {
   }
 }
 
-.page-width {
+.page-section {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 12rem 1.5rem;
+  text-align: center;
 }
 
 @media screen and (min-width: 750px) {

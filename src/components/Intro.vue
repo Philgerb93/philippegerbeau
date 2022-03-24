@@ -1,7 +1,7 @@
 <template>
-  <div class="intro page-width">
-    <h2 class="title">Welcome!</h2>
-    <p class="text">
+  <div class="intro page-section">
+    <h2>Welcome!</h2>
+    <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non mi et
       purus ullamcorper rutrum eget sit amet sem. Duis nunc risus, interdum non
       leo non, facilisis venenatis sem. Proin blandit tempus arcu. Praesent at
