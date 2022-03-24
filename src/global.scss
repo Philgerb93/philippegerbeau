@@ -1,13 +1,14 @@
 $color-primary: #0288D1;
 $color-primary-light: #09A7fD;
 $color-primary-dark: #02679E;
-$color-accent: #EB9532;
+// $color-accent: #EB9532;
+$color-accent: #D7488A;
 
 $color-text-black: #333;
 $color-text-hint: #666;
 $color-text-white: #FFF;
 
-$color-background: #FDFDFD;
+$color-background: #FAFBFA;
 // $color-footer: #F0F0F0;
 $color-footer: #444a54;
 // $color-subfooter: #F5F5F5;
@@ -15,6 +16,9 @@ $color-footer: #444a54;
 $color-grey: #DDD;
 $color-grey-light: #EEE;
 $color-grey-dark: #BBB;
+
+$navbar-height: 48px;
+$header-height: 500px;
 
 @mixin clearfix {
     &::after {

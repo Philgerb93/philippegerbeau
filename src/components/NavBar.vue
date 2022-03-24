@@ -73,7 +73,7 @@
         background-color: $color-primary;
         color: $color-text-white;
         left: 0;
-        line-height: 48px;
+        line-height: $navbar-height;
         position: fixed;
         text-transform: uppercase;
         top: 0;
@@ -125,7 +125,7 @@
             background-color: $color-primary;
             z-index: 11;
             width: 100%;
-            height: 48px;
+            height: $navbar-height;
         }
 
         &-wrapper {

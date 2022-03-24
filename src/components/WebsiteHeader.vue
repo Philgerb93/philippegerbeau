@@ -66,15 +66,16 @@
         background-color: $color-primary;
         color: $color-text-white;
         font-weight: bold;
-        height: 100vh;
+        height: calc(100vh - $navbar-height);
         left: 0;
         position: fixed;
         top: 0;
         transition: height .2s;
         width: 100%;
+        margin-top: $navbar-height;
 
         @include media-height(800) {
-            height: 70vh;
+            height: $header-height;
         }
 
         video {
@@ -94,7 +95,7 @@
 
         &-bg {
             color: rgba($color-text-black, .1);
-            font-size: 40rem;
+            font-size: 30rem;
             margin: 0;
             min-height: 460px;
             text-transform: uppercase;
@@ -103,7 +104,7 @@
             @include absCenter;
 
             @include media-width(1200) {
-                font-size: 60rem;
+                font-size: 50rem;
                 letter-spacing: .5rem;
                 min-height: 620px;
             }
