@@ -10,14 +10,14 @@
       <Intro></Intro>
       <Priorities></Priorities>
       <Toolbox></Toolbox>
-      <!-- <jobs></jobs>
+      <Contact></Contact>
       <projects
         v-on:OpenImgModal="openImgModal"
         v-on:OpenVidModal="openVidModal"
-      ></projects> -->
+      ></projects>
+      -->
     </div>
     <div id="end-of-page"></div>
-    <website-footer v-on:SendHeight="getFooterHeight"></website-footer>
     <!-- <modal
       v-if="modalIndex >= 0"
       v-bind:video="modalVideo"
@@ -32,24 +32,22 @@
 import NavBar from "./components/NavBar";
 // import WebsiteHeader from "./components/WebsiteHeader";
 import Intro from "./components/Intro";
-// import Jobs from "./components/jobs/Jobs";
 // import Projects from "./components/projects/Projects";
-import WebsiteFooter from "./components/WebsiteFooter";
 // import Modal from "./components/Modal";
 import Toolbox from "./components/Toolbox.vue";
 import Priorities from "./components/Priorities.vue";
+import Contact from "./components/Contact.vue";
 
 export default {
   components: {
     NavBar,
     // WebsiteHeader,
-    // Jobs,
     // Projects,
-    WebsiteFooter,
     // Modal,
     Intro,
     Priorities,
     Toolbox,
+    Contact,
   },
   data() {
     return {
@@ -98,6 +96,13 @@ body {
   font-family: "Roboto", sans-serif;
   letter-spacing: 0.06rem;
   font-size: 1.6rem;
+}
+
+input,
+textarea,
+*::placeholder,
+button {
+  font-family: "Roboto", sans-serif;
 }
 
 p {
@@ -169,7 +174,8 @@ h5 {
   margin: 0.8em 0;
 }
 
-h2.with-subheader {
+h2.with-subheader,
+h3.with-subheader {
   margin-bottom: 0;
 }
 
@@ -212,6 +218,10 @@ p.subheader {
   ::-webkit-scrollbar-thumb {
     background-color: $color-grey-dark;
   }
+}
+
+button {
+  cursor: pointer;
 }
 
 .page-section {

@@ -75,7 +75,7 @@ export default {};
 
 <style lang="scss" scoped>
 .toolbox {
-  background-color: rgba($color-accent-dark, 0.05);
+  background-color: rgba($color-accent-dark, 0.03);
 
   .toolbox-section {
     display: flex;

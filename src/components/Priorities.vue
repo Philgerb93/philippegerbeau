@@ -6,7 +6,7 @@
     </p>
     <div class="wrapper">
       <div class="priority">
-        <fa-icon :icon="['fab', 'html5']" size="4x" />
+        <fa-icon :icon="['fa', 'laptop-code']" size="4x" />
         <h3>Responsive design</h3>
         <p>
           With devices of all types and sizes, you need something flexible. By
@@ -15,7 +15,7 @@
         </p>
       </div>
       <div class="priority">
-        <fa-icon :icon="['fab', 'html5']" size="4x" />
+        <fa-icon :icon="['fa', 'stopwatch']" size="4x" />
         <h3>Performance</h3>
         <p>
           Slow load times heavily increase the bounce rate of a website, which
@@ -25,7 +25,7 @@
         </p>
       </div>
       <div class="priority">
-        <fa-icon :icon="['fab', 'html5']" size="4x" />
+        <fa-icon :icon="['fab', 'searchengin']" size="4x" />
         <h3>SEO</h3>
         <p>
           I use best practices to ensure your website passes all performance and
