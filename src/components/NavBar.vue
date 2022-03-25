@@ -169,7 +169,7 @@ export default {
     float: right;
     z-index: 11;
 
-    @include screen-above(820) {
+    @include width-above(820) {
       display: inline-block;
     }
 
@@ -255,7 +255,7 @@ export default {
     height: 4rem;
     text-align: center;
 
-    @include screen-above(820) {
+    @include width-above(820) {
       display: none;
     }
 

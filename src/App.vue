@@ -1,21 +1,19 @@
 <template>
   <div id="app">
     <nav-bar></nav-bar>
-    <!-- <website-header></website-header> -->
     <div id="start-of-page"></div>
+    <Header></Header>
     <div
       class="main-content"
       v-bind:style="{ marginBottom: footerHeight + 'px' }"
     >
-      <Intro></Intro>
       <Priorities></Priorities>
       <Toolbox></Toolbox>
       <Contact></Contact>
-      <projects
+      <!-- <projects
         v-on:OpenImgModal="openImgModal"
         v-on:OpenVidModal="openVidModal"
-      ></projects>
-      -->
+      ></projects> -->
     </div>
     <div id="end-of-page"></div>
     <!-- <modal
@@ -30,8 +28,7 @@
 
 <script>
 import NavBar from "./components/NavBar";
-// import WebsiteHeader from "./components/WebsiteHeader";
-import Intro from "./components/Intro";
+import Header from "./components/Header";
 // import Projects from "./components/projects/Projects";
 // import Modal from "./components/Modal";
 import Toolbox from "./components/Toolbox.vue";
@@ -41,10 +38,9 @@ import Contact from "./components/Contact.vue";
 export default {
   components: {
     NavBar,
-    // WebsiteHeader,
+    Header,
     // Projects,
     // Modal,
-    Intro,
     Priorities,
     Toolbox,
     Contact,
@@ -103,6 +99,12 @@ textarea,
 *::placeholder,
 button {
   font-family: "Roboto", sans-serif;
+  letter-spacing: 0.06rem;
+  font-size: 1.6rem;
+}
+
+button {
+  font-size: 1.4rem;
 }
 
 p {
@@ -124,7 +126,7 @@ hr {
   margin: 4rem auto 4rem auto;
   width: 80%;
 
-  @include screen-below(1200) {
+  @include width-below(1200) {
     margin: 6.5rem auto;
   }
 }
@@ -143,7 +145,8 @@ h5 {
 }
 
 h1 {
-  text-align: center;
+  font-size: 6rem;
+  letter-spacing: 0.08em;
 }
 
 h2 {
@@ -187,23 +190,13 @@ p.subheader {
   background-color: $color-background;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.2), 0 4px 40px rgba(0, 0, 0, 0.1);
   margin-top: 99vh;
-  margin-bottom: 24rem;
   overflow: hidden;
-  padding-bottom: 6rem;
   position: relative;
   z-index: 2;
 
-  @include screen-below(560) {
-    margin-bottom: 50rem;
+  @include height-above(800px) {
+    margin-top: $navbar-height + $header-height;
   }
-
-  @include screen-below(1200) {
-    margin-bottom: 54rem;
-  }
-
-  // @include media-height(800) {
-  //   margin-top: $navbar-height + $header-height;
-  // }
 }
 
 * {
@@ -231,7 +224,7 @@ button {
   text-align: center;
 }
 
-@media screen and (min-width: 750px) {
+@include width-above(750px) {
   .page-width {
     padding: 0 5rem;
   }

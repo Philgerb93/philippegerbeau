@@ -28,6 +28,10 @@
   </div>
 </template>
 
+<script>
+export default {};
+</script>
+
 <style lang="scss" scoped>
 .intro {
   background-color: rgba($color-accent-dark, 0.03);

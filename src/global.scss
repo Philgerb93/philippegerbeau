@@ -19,12 +19,13 @@ $color-grey-dark: #BBB;
 
 $color-light: #FAFBFA;
 $color-accent-light: #91BAD2;
-$color-brand: #4ACCB5;
+$color-brand: #1A8276;
+// $color-brand: #4ACCB5;
 $color-accent-dark: #98817B;
 $color-dark: #292C35;
 
 $navbar-height: 48px;
-$header-height: 500px;
+$header-height: 700px;
 
 @mixin clearfix {
 	&::after {
@@ -41,20 +42,38 @@ $header-height: 500px;
 	transform: perspective(1px) translateX(-50%) translateY(-50%);
 }
 
-@mixin screen-above($width) {
+@mixin width-above($width) {
 	@media only screen and (min-width: $width) {
 		@content;
 	}
 }
 
-@mixin screen-below($width) {
+@mixin width-below($width) {
 	@media only screen and (max-width: $width) {
 		@content;
 	}
 }
 
-@mixin screen-between($min-width, $max-width) {
+@mixin width-between($min-width, $max-width) {
 	@media only screen and (min-width: $min-width) and (max-width: $max-width) {
+		@content;
+	}
+}
+
+@mixin height-above($height) {
+	@media only screen and (min-height: $height) {
+		@content;
+	}
+}
+
+@mixin height-below($height) {
+	@media only screen and (max-height: $height) {
+		@content;
+	}
+}
+
+@mixin height-between($min-height, $max-height) {
+	@media only screen and (min-height: $min-height) and (max-height: $max-height) {
 		@content;
 	}
 }

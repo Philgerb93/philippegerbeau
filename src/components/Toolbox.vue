@@ -1,7 +1,8 @@
 <template>
   <div class="toolbox">
     <div class="page-section">
-      <h2>My Toolbox</h2>
+      <h2 class="with-subheader">My Toolbox</h2>
+      <p class="subheader">I'd be nothing without them!</p>
 
       <h3>Front-end</h3>
       <div class="toolbox-section">

@@ -55,7 +55,7 @@ export default {};
       color: $color-brand;
     }
 
-    @include screen-above(820px) {
+    @include width-above(820px) {
       flex: 1;
     }
   }

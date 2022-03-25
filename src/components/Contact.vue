@@ -1,32 +1,35 @@
 <template>
-  <div class="contact page-section">
-    <h2>Hire me</h2>
-    <form class="box">
-      <div class="info">
-        <h3 class="with-subheader">Let's do it!</h3>
-        <p>I usually answer within a day or two.</p>
-        <div class="field">
-          <label for="name">Name</label>
-          <input type="text" id="name" placeholder="John Doe" />
+  <div class="contact">
+    <div class="page-section">
+      <h2>Hire me</h2>
+
+      <form class="box">
+        <div class="info">
+          <h3 class="with-subheader">Let's do it!</h3>
+          <p>I usually answer within a day or two.</p>
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="John Doe" />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="john.doe@email.com" />
+          </div>
         </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="john.doe@email.com" />
+        <div class="content">
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              rows="4"
+              cols="50"
+              placeholder="Write text here..."
+            ></textarea>
+          </div>
+          <button>SEND MESSAGE</button>
         </div>
-      </div>
-      <div class="content">
-        <div class="field">
-          <label for="email">Message</label>
-          <textarea
-            id="message"
-            rows="4"
-            cols="50"
-            placeholder="Write text here..."
-          ></textarea>
-        </div>
-        <button>SEND MESSAGE</button>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -35,6 +38,9 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
+.contact {
+  background-color: rgba($color-accent-dark, 0.03);
+}
 .box {
   text-align: start;
   background-color: $color-dark;
@@ -47,7 +53,7 @@ export default {};
   box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56),
     0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
 
-  @include screen-above(820px) {
+  @include width-above(820px) {
     flex-direction: row;
     max-width: 1000px;
   }
@@ -57,7 +63,7 @@ export default {};
     padding: 0 60px;
     margin-top: 60px;
 
-    @include screen-above(820px) {
+    @include width-above(820px) {
       flex-direction: row;
       padding-right: 40px;
       margin-bottom: 50px;
@@ -81,7 +87,7 @@ export default {};
     flex-direction: column;
     margin-top: 60px;
 
-    @include screen-above(820px) {
+    @include width-above(820px) {
       border-left: 1px solid rgba($color-light, 0.3);
     }
 
@@ -90,7 +96,7 @@ export default {};
       padding: 0 60px;
       margin-bottom: 16px;
 
-      @include screen-above(820px) {
+      @include width-above(820px) {
         border-left: 1px solid rgba($color-light, 0.3);
         padding: 20px;
         margin-bottom: 0;
