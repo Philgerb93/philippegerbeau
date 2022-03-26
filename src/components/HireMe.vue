@@ -34,7 +34,39 @@
 </template>
 
 <script>
-export default {};
+export default {
+  mounted() {
+    this.watchForAnim();
+    window.addEventListener("scroll", this.watchForAnim);
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.watchForAnim);
+  },
+  methods: {
+    watchForAnim() {
+      let priorities = document.querySelectorAll(".box");
+
+      priorities.forEach((element) => {
+        if (
+          !element.classList.contains("slidedUp") &&
+          this.elemInViewport(element)
+        ) {
+          element.classList.add("slidedUp");
+        }
+      });
+    },
+    elemInViewport(element) {
+      var navBarHeight = document.querySelector(".nav").clientHeight;
+      var topOfElement = element.getBoundingClientRect().top;
+      var bottomOfElement = topOfElement + element.clientHeight;
+
+      return (
+        topOfElement + element.clientHeight / 2 > navBarHeight &&
+        bottomOfElement - element.clientHeight / 2 < window.innerHeight
+      );
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -52,6 +84,11 @@ export default {};
   flex-direction: column;
   box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56),
     0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+
+  &.slidedUp {
+    animation: slideInUp 1s forwards;
+  }
 
   @include width-above(820px) {
     flex-direction: row;

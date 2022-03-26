@@ -9,6 +9,7 @@
     >
       <MyPriorities></MyPriorities>
       <MyToolbox></MyToolbox>
+      <MyServices></MyServices>
       <HireMe></HireMe>
     </div>
     <div id="end-of-page"></div>
@@ -18,8 +19,9 @@
 <script>
 import NavBar from "./components/NavBar";
 import ImageBanner from "./components/ImageBanner";
-import MyToolbox from "./components/MyToolbox.vue";
 import MyPriorities from "./components/MyPriorities.vue";
+import MyToolbox from "./components/MyToolbox.vue";
+import MyServices from "./components/MyServices.vue";
 import HireMe from "./components/HireMe.vue";
 
 export default {
@@ -28,6 +30,7 @@ export default {
     ImageBanner,
     MyPriorities,
     MyToolbox,
+    MyServices,
     HireMe,
   },
   data() {
@@ -174,7 +177,7 @@ p.subheader {
 .main-content {
   background-color: $color-background;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.2), 0 4px 40px rgba(0, 0, 0, 0.1);
-  margin-top: 99vh;
+  margin-top: 100vh;
   overflow: hidden;
   position: relative;
   z-index: 2;

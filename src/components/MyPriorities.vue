@@ -9,9 +9,9 @@
         <fa-icon :icon="['fa', 'laptop-code']" size="4x" />
         <h3>Responsive design</h3>
         <p>
-          With devices of all types and sizes, you need something flexible. By
-          using mobile-first, responsive design, I guarantee you that your
-          website will look good any screen.
+          With devices of all types and sizes, you need something flexible and
+          robust. By using mobile-first, responsive design, I guarantee you that
+          your website will look good on any screen.
         </p>
       </div>
       <div class="priority">
@@ -38,7 +38,39 @@
 </template>
 
 <script>
-export default {};
+export default {
+  mounted() {
+    this.watchForAnim();
+    window.addEventListener("scroll", this.watchForAnim);
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.watchForAnim);
+  },
+  methods: {
+    watchForAnim() {
+      let priorities = document.querySelectorAll(".priority");
+
+      priorities.forEach((element) => {
+        if (
+          !element.classList.contains("slidedUp") &&
+          this.elemInViewport(element)
+        ) {
+          element.classList.add("slidedUp");
+        }
+      });
+    },
+    elemInViewport(element) {
+      var navBarHeight = document.querySelector(".nav").clientHeight;
+      var topOfElement = element.getBoundingClientRect().top;
+      var bottomOfElement = topOfElement + element.clientHeight;
+
+      return (
+        topOfElement + element.clientHeight / 2 > navBarHeight &&
+        bottomOfElement - element.clientHeight / 2 < window.innerHeight
+      );
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -50,6 +82,11 @@ export default {};
   .priority {
     margin: 16px;
     max-width: 400px;
+    opacity: 0;
+
+    &.slidedUp {
+      animation: slideInUp 1s forwards;
+    }
 
     &:hover :not(p):not(h3) {
       color: lighten($color: $color-brand, $amount: 10%);

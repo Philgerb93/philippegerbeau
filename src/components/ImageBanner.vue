@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <video autoplay muted loop>
+    <video width="1920" height="1080" autoplay muted loop>
       <source src="../assets/bg.mp4" type="video/mp4" />
     </video>
     <div class="wrapper">
@@ -11,13 +11,16 @@
         <button @click="scrollTo('#hire-me')" class="outline">Hire me</button>
       </div>
       <div class="social">
-        <a href="https://github.com/philgerb93">
+        <a href="https://github.com/philgerb93" aria-label="Upwork">
           <UpworkLogo />
         </a>
-        <a href="https://www.linkedin.com/in/philippe-gerbeau-b8b57b141">
+        <a
+          href="https://www.linkedin.com/in/philippe-gerbeau-b8b57b141"
+          aria-label="LinkedIn"
+        >
           <LinkedInLogo />
         </a>
-        <a href="https://github.com/philgerb93">
+        <a href="https://github.com/philgerb93" aria-label="Github">
           <GithubLogo />
         </a>
       </div>
@@ -108,7 +111,7 @@ export default {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    margin-left: 12rem;
+    margin-left: 14vw;
 
     .title {
       font-size: 3rem;
@@ -153,6 +156,12 @@ export default {
       margin-top: 32px;
       display: flex;
 
+      @for $i from 1 through 10 {
+        a:nth-child(#{$i}n) {
+          animation-delay: #{$i * 0.2}s;
+        }
+      }
+
       a {
         color: $color-light;
         font-size: 3rem;
@@ -163,6 +172,8 @@ export default {
         width: 30px;
         height: 30px;
         transition: 0.2s all;
+        animation: appear 0.4s forwards;
+        opacity: 0;
 
         &:hover {
           color: lighten($color: $color-brand, $amount: 10%);

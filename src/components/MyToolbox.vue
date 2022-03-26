@@ -124,6 +124,37 @@ export default {
     GitLogo,
     GithubLogo,
   },
+  mounted() {
+    this.watchForAnim();
+    window.addEventListener("scroll", this.watchForAnim);
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.watchForAnim);
+  },
+  methods: {
+    watchForAnim() {
+      let priorities = document.querySelectorAll(".toolbox-section");
+
+      priorities.forEach((element) => {
+        if (
+          !element.classList.contains("slidedRight") &&
+          this.elemInViewport(element)
+        ) {
+          element.classList.add("slidedRight");
+        }
+      });
+    },
+    elemInViewport(element) {
+      var navBarHeight = document.querySelector(".nav").clientHeight;
+      var topOfElement = element.getBoundingClientRect().top;
+      var bottomOfElement = topOfElement + element.clientHeight;
+
+      return (
+        topOfElement + element.clientHeight / 2 > navBarHeight &&
+        bottomOfElement - element.clientHeight / 2 < window.innerHeight
+      );
+    },
+  },
 };
 </script>
 
@@ -136,6 +167,11 @@ export default {
     justify-content: center;
     margin-top: 32px;
     margin-bottom: 60px;
+    opacity: 0;
+
+    &.slidedRight {
+      animation: slideInRight 1s forwards;
+    }
 
     .tool {
       border-radius: 8px;
