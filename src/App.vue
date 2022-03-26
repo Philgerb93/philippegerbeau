@@ -74,7 +74,6 @@ html {
 }
 
 body {
-  background-color: $color-footer;
   box-sizing: border-box;
   color: $color-dark;
   font-family: "Roboto", sans-serif;
@@ -108,7 +107,7 @@ a {
 }
 
 hr {
-  background-color: $color-grey;
+  background-color: $color-light;
   border: 0;
   height: 1.2px;
   margin: 4rem auto 4rem auto;
@@ -175,7 +174,7 @@ p.subheader {
 }
 
 .main-content {
-  background-color: $color-background;
+  background-color: $color-light;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.2), 0 4px 40px rgba(0, 0, 0, 0.1);
   margin-top: 100vh;
   overflow: hidden;
@@ -193,11 +192,11 @@ p.subheader {
   }
 
   ::-webkit-scrollbar-track {
-    background-color: $color-grey-light;
+    background-color: $color-light;
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: $color-grey-dark;
+    background-color: rgba($color-dark, 0.4);
   }
 }
 
@@ -208,13 +207,11 @@ button {
 .page-section {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 12rem 1.5rem;
+  padding: 4rem 1.5rem;
   text-align: center;
-}
 
-@include width-above(750px) {
-  .page-width {
-    padding: 0 5rem;
+  @include width-above(800px) {
+    padding: 12rem 1.5rem;
   }
 }
 </style>

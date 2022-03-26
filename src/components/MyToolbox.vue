@@ -168,6 +168,7 @@ export default {
     margin-top: 32px;
     margin-bottom: 60px;
     opacity: 0;
+    flex-wrap: wrap;
 
     &.slidedRight {
       animation: slideInRight 1s forwards;

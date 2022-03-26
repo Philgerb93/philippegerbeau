@@ -1,7 +1,7 @@
 <template>
   <nav id="nav" class="nav" v-bind:class="{ hidden: !showBar }">
     <div class="nav-wrapper">
-      <a href="#start-of-page" class="nav-name">Philippe Gerbeau</a>
+      <a href="" @click="scrollTop" class="nav-name">Philippe Gerbeau</a>
 
       <label class="nav-btn" v-on:click="togglePopup"
         ><span class="nav-icon" v-bind:class="{ open: showPopup }"></span
@@ -88,6 +88,9 @@ export default {
     togglePopup() {
       this.showPopup = !this.showPopup;
     },
+    scrollTop() {
+      window.scrollBy({ top: 0, left: 0, behavior: "smooth" });
+    },
   },
 };
 </script>
@@ -96,7 +99,7 @@ export default {
 <style lang="scss">
 .nav {
   background-color: $color-dark;
-  color: $color-text-white;
+  color: $color-light;
   left: 0;
   line-height: $navbar-height;
   position: fixed;
@@ -112,7 +115,7 @@ export default {
   }
 
   & a {
-    color: $color-text-white;
+    color: $color-light;
   }
 
   &-name {
@@ -128,7 +131,7 @@ export default {
     font-weight: bold;
 
     &:before {
-      background-color: $color-text-white;
+      background-color: $color-light;
       bottom: -2px;
       content: "";
       height: 1px;
@@ -148,7 +151,7 @@ export default {
 
   &-bg {
     position: fixed;
-    background-color: $color-primary;
+    background-color: $color-dark;
     z-index: 11;
     width: 100%;
     height: $navbar-height;
@@ -194,10 +197,6 @@ export default {
       position: fixed;
       top: -2.5rem;
       right: -2.5rem;
-      background-image: radial-gradient(
-        $color-primary-light,
-        $color-primary-dark
-      );
       z-index: 8;
       transition: transform 0.4s;
     }
@@ -234,7 +233,7 @@ export default {
 
       &:hover {
         background-position: 100%;
-        color: $color-primary;
+        color: $color-dark;
         transform: translateX(1rem);
       }
     }
@@ -272,7 +271,7 @@ export default {
     &::after {
       width: 3rem;
       height: 2px;
-      background-color: $color-text-white;
+      background-color: $color-light;
       display: inline-block;
       z-index: 13;
     }

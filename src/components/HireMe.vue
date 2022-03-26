@@ -122,16 +122,17 @@ export default {
     flex: 3;
     display: flex;
     flex-direction: column;
-    margin-top: 60px;
+    margin-top: 8px;
 
     @include width-above(820px) {
       border-left: 1px solid rgba($color-light, 0.3);
+      margin-top: 60px;
     }
 
     .field {
       height: 100%;
       padding: 0 60px;
-      margin-bottom: 16px;
+      margin-bottom: 64px;
 
       @include width-above(820px) {
         border-left: 1px solid rgba($color-light, 0.3);
@@ -141,8 +142,12 @@ export default {
 
       textarea {
         width: 100%;
-        height: 100%;
+        height: 160px;
         margin-bottom: 0;
+
+        @include width-above(820px) {
+          height: 100%;
+        }
       }
     }
 

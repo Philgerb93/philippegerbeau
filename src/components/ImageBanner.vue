@@ -82,7 +82,7 @@ export default {
 <style lang="scss">
 .header {
   background-color: $color-dark;
-  color: $color-text-white;
+  color: $color-light;
   height: 100vh;
   left: 0;
   position: fixed;
@@ -109,9 +109,18 @@ export default {
 
   .wrapper {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     flex-direction: column;
-    margin-left: 14vw;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+
+    @include width-above(800px) {
+      margin: 0;
+      margin-left: 14vw;
+      text-align: start;
+      align-items: flex-start;
+    }
 
     .title {
       font-size: 3rem;
