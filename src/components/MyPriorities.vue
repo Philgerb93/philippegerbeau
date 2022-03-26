@@ -6,7 +6,7 @@
     </p>
     <div class="wrapper">
       <div class="priority">
-        <fa-icon :icon="['fa', 'laptop-code']" size="4x" />
+        <DisplayLogo />
         <h3>Responsive design</h3>
         <p>
           With devices of all types and sizes, you need something flexible and
@@ -15,7 +15,7 @@
         </p>
       </div>
       <div class="priority">
-        <fa-icon :icon="['fa', 'stopwatch']" size="4x" />
+        <PerformanceLogo />
         <h3>Performance</h3>
         <p>
           Slow load times heavily increase the bounce rate of a website, which
@@ -25,7 +25,7 @@
         </p>
       </div>
       <div class="priority">
-        <fa-icon :icon="['fab', 'searchengin']" size="4x" />
+        <SeoLogo />
         <h3>SEO</h3>
         <p>
           I use best practices to ensure your website passes all performance and
@@ -38,7 +38,16 @@
 </template>
 
 <script>
+import DisplayLogo from "@/assets/icons/display.svg";
+import PerformanceLogo from "@/assets/icons/performance.svg";
+import SeoLogo from "@/assets/icons/seo.svg";
+
 export default {
+  components: {
+    LaptopLogo,
+    PerformanceLogo,
+    SeoLogo,
+  },
   mounted() {
     this.watchForAnim();
     window.addEventListener("scroll", this.watchForAnim);
@@ -94,6 +103,11 @@ export default {
     :not(p):not(h3) {
       color: $color-brand;
       transition: 0.2s all;
+    }
+
+    svg {
+      width: 60px;
+      height: 60px;
     }
 
     @include width-above(820px) {
