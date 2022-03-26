@@ -44,7 +44,7 @@ import SeoLogo from "@/assets/icons/seo.svg";
 
 export default {
   components: {
-    LaptopLogo,
+    DisplayLogo,
     PerformanceLogo,
     SeoLogo,
   },
