@@ -1,5 +1,5 @@
 <template>
-  <div class="priorities page-section">
+  <div class="priorities page-section" id="priorities">
     <h2 class="with-subheader">My priorities</h2>
     <p class="subheader">
       Everytime I build a project, I make sure I keep those in mind.
@@ -48,9 +48,9 @@ export default {
   },
   methods: {
     watchForAnim() {
-      let priorities = document.querySelectorAll(".priority");
+      let elements = document.querySelectorAll(".priority");
 
-      priorities.forEach((element) => {
+      elements.forEach((element) => {
         if (
           !element.classList.contains("slidedUp") &&
           this.elemInViewport(element)
@@ -60,13 +60,12 @@ export default {
       });
     },
     elemInViewport(element) {
-      var navBarHeight = document.querySelector(".nav").clientHeight;
-      var topOfElement = element.getBoundingClientRect().top;
-      var bottomOfElement = topOfElement + element.clientHeight;
+      let navBarHeight = document.querySelector(".nav").clientHeight;
+      let topOfElement = element.getBoundingClientRect().top;
+      let centerOfElement = topOfElement + element.clientHeight / 2;
 
       return (
-        topOfElement + element.clientHeight / 2 > navBarHeight &&
-        bottomOfElement - element.clientHeight / 2 < window.innerHeight
+        centerOfElement > navBarHeight && centerOfElement < window.innerHeight
       );
     },
   },

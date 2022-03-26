@@ -1,17 +1,17 @@
 <template>
   <nav id="nav" class="nav" v-bind:class="{ hidden: !showBar }">
     <div class="nav-wrapper">
-      <a href="" @click="scrollTop" class="nav-name">Philippe Gerbeau</a>
+      <a href="#start-of-page" class="nav-name">Philippe Gerbeau</a>
 
       <label class="nav-btn" v-on:click="togglePopup"
         ><span class="nav-icon" v-bind:class="{ open: showPopup }"></span
       ></label>
 
       <ul class="nav-items">
-        <li><a class="nav-link" href="#jobs-header">Expérience</a></li>
-        <!-- <li><a class="nav-link" href="#languages-header">Connaissances</a></li> -->
-        <li><a class="nav-link" href="#projects-header">Projets</a></li>
-        <li><a class="nav-link" href="#end-of-page">Contact</a></li>
+        <li><a class="nav-link" href="#priorities">Priorities</a></li>
+        <li><a class="nav-link" href="#toolbox">Toolbox</a></li>
+        <li><a class="nav-link" href="#services">Services</a></li>
+        <li><a class="nav-link" href="#hire-me">Hire me</a></li>
       </ul>
     </div>
 
@@ -19,30 +19,23 @@
     <nav class="nav-popup" v-bind:class="{ open: showPopup }">
       <ul class="nav-popup-list">
         <li class="nav-popup-item">
-          <a
-            href="#start-of-page"
-            class="nav-popup-link"
-            v-on:click="togglePopup"
-            >Présentation</a
+          <a href="#priorities" class="nav-popup-link" v-on:click="togglePopup"
+            >Priorities</a
           >
         </li>
         <li class="nav-popup-item">
-          <a href="#jobs-header" class="nav-popup-link" v-on:click="togglePopup"
-            >Expérience</a
-          >
-        </li>
-        <!-- <li class="nav-popup-item"><a href="#languages-header" class="nav-popup-link" v-on:click="togglePopup">Connaissances</a></li> -->
-        <li class="nav-popup-item">
-          <a
-            href="#projects-header"
-            class="nav-popup-link"
-            v-on:click="togglePopup"
-            >Projets</a
+          <a href="#toolbox" class="nav-popup-link" v-on:click="togglePopup"
+            >Toolbox</a
           >
         </li>
         <li class="nav-popup-item">
-          <a href="#end-of-page" class="nav-popup-link" v-on:click="togglePopup"
-            >Contact</a
+          <a href="#services" class="nav-popup-link" v-on:click="togglePopup"
+            >Services</a
+          >
+        </li>
+        <li class="nav-popup-item">
+          <a href="#hire-me" class="nav-popup-link" v-on:click="togglePopup"
+            >Hire me</a
           >
         </li>
       </ul>
@@ -64,13 +57,21 @@ export default {
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener("click", function (e) {
         e.preventDefault();
-        var navHeight = Math.floor(
+
+        const target = this.getAttribute("href");
+        const navHeight = Math.floor(
           document.querySelector(".nav-wrapper").clientHeight
         );
-        var destination = document.querySelector(this.getAttribute("href"));
-        let count = destination.getBoundingClientRect().top - navHeight;
+        let count;
 
-        window.scrollBy({ top: count, left: 0, behavior: "smooth" });
+        if (target == "#header") {
+          count = 20;
+        } else {
+          const destination = document.querySelector(target);
+          count = destination.getBoundingClientRect().top - navHeight;
+        }
+
+        window.scrollBy({ top: count, behavior: "smooth" });
       });
     });
 
@@ -87,9 +88,6 @@ export default {
     },
     togglePopup() {
       this.showPopup = !this.showPopup;
-    },
-    scrollTop() {
-      window.scrollBy({ top: 0, left: 0, behavior: "smooth" });
     },
   },
 };
@@ -108,10 +106,12 @@ export default {
   width: 100%;
   z-index: 10;
   transition: 0.2s all;
+  overflow: hidden;
+  transition: all 0.4s;
+  height: 48px;
 
   &.hidden {
-    opacity: 0;
-    cursor: default;
+    height: 0;
   }
 
   & a {
@@ -167,7 +167,7 @@ export default {
     float: right;
     z-index: 11;
 
-    @include width-above(820) {
+    @include width-above(820px) {
       display: inline-block;
     }
 
@@ -199,6 +199,7 @@ export default {
       right: -2.5rem;
       z-index: 8;
       transition: transform 0.4s;
+      background-color: $color-dark;
     }
 
     &-list {
@@ -249,7 +250,7 @@ export default {
     height: 4rem;
     text-align: center;
 
-    @include width-above(820) {
+    @include width-above(820px) {
       display: none;
     }
 

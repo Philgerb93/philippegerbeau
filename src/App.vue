@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <NavBar></NavBar>
-    <div id="start-of-page"></div>
     <ImageBanner></ImageBanner>
+    <div id="start-of-page"></div>
     <div
       class="main-content"
       v-bind:style="{ marginBottom: footerHeight + 'px' }"
@@ -213,5 +213,9 @@ button {
   @include width-above(800px) {
     padding: 12rem 1.5rem;
   }
+}
+
+#start-of-page {
+  height: 1px;
 }
 </style>

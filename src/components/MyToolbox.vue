@@ -1,5 +1,5 @@
 <template>
-  <div class="toolbox">
+  <div class="toolbox" id="toolbox">
     <div class="page-section">
       <h2 class="with-subheader">My Toolbox</h2>
       <p class="subheader">I'd be nothing without them!</p>
@@ -133,9 +133,9 @@ export default {
   },
   methods: {
     watchForAnim() {
-      let priorities = document.querySelectorAll(".toolbox-section");
+      let elements = document.querySelectorAll(".toolbox-section");
 
-      priorities.forEach((element) => {
+      elements.forEach((element) => {
         if (
           !element.classList.contains("slidedRight") &&
           this.elemInViewport(element)
@@ -145,13 +145,12 @@ export default {
       });
     },
     elemInViewport(element) {
-      var navBarHeight = document.querySelector(".nav").clientHeight;
-      var topOfElement = element.getBoundingClientRect().top;
-      var bottomOfElement = topOfElement + element.clientHeight;
+      let navBarHeight = document.querySelector(".nav").clientHeight;
+      let topOfElement = element.getBoundingClientRect().top;
+      let centerOfElement = topOfElement + element.clientHeight / 2;
 
       return (
-        topOfElement + element.clientHeight / 2 > navBarHeight &&
-        bottomOfElement - element.clientHeight / 2 < window.innerHeight
+        centerOfElement > navBarHeight && centerOfElement < window.innerHeight
       );
     },
   },

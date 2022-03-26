@@ -95,6 +95,16 @@ $header-height: 700px;
 	}
 }
 
+@keyframes videoAppear {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 0.4;
+	}
+}
+
 @keyframes slideInUp {
 	from {
 		opacity: 0;

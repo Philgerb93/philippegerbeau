@@ -1,7 +1,7 @@
 <template>
-  <header class="header">
+  <header class="header" id="header">
     <video width="1920" height="1080" autoplay muted loop>
-      <source src="../assets/bg.mp4" type="video/mp4" />
+      <source src="@/assets/bg.mp4" type="video/mp4" />
     </video>
     <div class="wrapper">
       <h1>Philippe Gerbeau</h1>
@@ -11,7 +11,10 @@
         <button @click="scrollTo('#hire-me')" class="outline">Hire me</button>
       </div>
       <div class="social">
-        <a href="https://github.com/philgerb93" aria-label="Upwork">
+        <a
+          href="https://www.upwork.com/freelancers/~01730f3ec1964535d0"
+          aria-label="Upwork"
+        >
           <UpworkLogo />
         </a>
         <a
@@ -73,7 +76,7 @@ export default {
       var destination = document.querySelector(anchor);
       let count = destination.getBoundingClientRect().top - navHeight;
 
-      window.scrollBy({ top: count, left: 0, behavior: "smooth" });
+      window.scrollBy({ top: count, behavior: "smooth" });
     },
   },
 };
@@ -97,7 +100,7 @@ export default {
   }
 
   video {
-    opacity: 0.4;
+    opacity: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -105,6 +108,7 @@ export default {
     top: 0;
     left: 0;
     z-index: -5;
+    animation: 0.4s videoAppear forwards;
   }
 
   .wrapper {
