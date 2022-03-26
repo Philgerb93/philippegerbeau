@@ -83,7 +83,7 @@ export default {
       message: "",
       isSubmitted: false,
       isLoading: false,
-      messageSent: true,
+      messageSent: false,
     };
   },
   validations: {
