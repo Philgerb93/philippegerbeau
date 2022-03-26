@@ -9,12 +9,15 @@
       <div class="info right">
         <h3 class="only-desktop">Website</h3>
         <p>
-          Maecenas tempus nulla tortor, at tempor orci lobortis ut. Sed et
-          pharetra enim, id porttitor odio. Quisque efficitur felis congue nisl
-          eleifend convallis. Vivamus lobortis libero iaculis ipsum pulvinar,
-          vel ullamcorper eros rhoncus. Proin vitae ligula cursus tortor
-          imperdiet congue et sed eros. Quisque volutpat lorem ac augue iaculis
-          sodales. Mauris a ligula iaculis lectus tincidunt faucibus.
+          I can offer you a completely customized website to make your vision a
+          reality. You can decide if you want a simple, static website, or
+          something more complicated.
+        </p>
+
+        <p>
+          <strong>Wordpress</strong> is also an option if you want a
+          <strong>CMS</strong> that allows you to dynamically modify the content
+          without needing me in the future.
         </p>
         <button>See Wordpress website demo</button>
       </div>
@@ -27,12 +30,14 @@
       <div class="info left">
         <h3 class="only-desktop">E-store</h3>
         <p>
-          Maecenas tempus nulla tortor, at tempor orci lobortis ut. Sed et
-          pharetra enim, id porttitor odio. Quisque efficitur felis congue nisl
-          eleifend convallis. Vivamus lobortis libero iaculis ipsum pulvinar,
-          vel ullamcorper eros rhoncus. Proin vitae ligula cursus tortor
-          imperdiet congue et sed eros. Quisque volutpat lorem ac augue iaculis
-          sodales. Mauris a ligula iaculis lectus tincidunt faucibus.
+          As a <strong>Shopify</strong> partner, I will guide you in the process
+          of creating your own e-store so you can start selling online. You will
+          be able to easily setup and manage your inventory, payments and
+          shipping.
+        </p>
+        <p>
+          I will personalize an existing theme of your choice or create one from
+          scratch so you can get the exact store you have in mind.
         </p>
         <button>See Shopify store demo</button>
       </div>
@@ -48,12 +53,10 @@
       <div class="info right">
         <h3 class="only-desktop">Mobile App</h3>
         <p>
-          Maecenas tempus nulla tortor, at tempor orci lobortis ut. Sed et
-          pharetra enim, id porttitor odio. Quisque efficitur felis congue nisl
-          eleifend convallis. Vivamus lobortis libero iaculis ipsum pulvinar,
-          vel ullamcorper eros rhoncus. Proin vitae ligula cursus tortor
-          imperdiet congue et sed eros. Quisque volutpat lorem ac augue iaculis
-          sodales. Mauris a ligula iaculis lectus tincidunt faucibus.
+          I can also build you a mobile app on <strong>iOS</strong> and
+          <strong>Android</strong> with the <strong>Flutter</strong>
+          framework! Whether it is to offer an alternative to your website, or
+          if you simply want an application and nothing else, I can help.
         </p>
         <button>Watch video example</button>
       </div>

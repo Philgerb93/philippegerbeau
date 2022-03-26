@@ -1,10 +1,10 @@
 <template>
-  <nav id="nav" class="nav" v-bind:class="{ hidden: !showBar }">
+  <nav id="nav" class="nav" :class="{ hidden: !showBar }">
     <div class="nav-wrapper">
       <a href="#start-of-page" class="nav-name">Philippe Gerbeau</a>
 
-      <label class="nav-btn" v-on:click="togglePopup"
-        ><span class="nav-icon" v-bind:class="{ open: showPopup }"></span
+      <label class="nav-btn" @click="togglePopup"
+        ><span class="nav-icon" :class="{ open: showPopup }"></span
       ></label>
 
       <ul class="nav-items">
@@ -15,16 +15,16 @@
       </ul>
     </div>
 
-    <div class="nav-popup-bg" v-bind:class="{ open: showPopup }"></div>
-    <nav class="nav-popup" v-bind:class="{ open: showPopup }">
+    <div class="nav-popup-bg" :class="{ open: showPopup }"></div>
+    <nav class="nav-popup" :class="{ open: showPopup }">
       <ul class="nav-popup-list">
         <li class="nav-popup-item">
-          <a href="#priorities" class="nav-popup-link" v-on:click="togglePopup"
+          <a href="#priorities" class="nav-popup-link" @click="togglePopup"
             >Priorities</a
           >
         </li>
         <li class="nav-popup-item">
-          <a href="#toolbox" class="nav-popup-link" v-on:click="togglePopup"
+          <a href="#toolbox" class="nav-popup-link" @click="togglePopup"
             >Toolbox</a
           >
         </li>
@@ -122,6 +122,7 @@ export default {
     font-size: 1.4rem;
     letter-spacing: 0.2em;
     font-weight: bold;
+    position: relative;
   }
 
   &-link {
@@ -129,7 +130,10 @@ export default {
     position: relative;
     font-size: 1rem;
     font-weight: bold;
+  }
 
+  &-name,
+  &-link {
     &:before {
       background-color: $color-light;
       bottom: -2px;
@@ -221,20 +225,9 @@ export default {
       text-decoration: none;
       text-transform: uppercase;
       text-align: center;
-
-      background-image: linear-gradient(
-        120deg,
-        transparent,
-        transparent 0%,
-        transparent 50%,
-        #fff 50%
-      );
-      background-size: 220%;
       transition: all 0.4s;
 
       &:hover {
-        background-position: 100%;
-        color: $color-dark;
         transform: translateX(1rem);
       }
     }
@@ -249,6 +242,7 @@ export default {
     width: 4rem;
     height: 4rem;
     text-align: center;
+    cursor: pointer;
 
     @include width-above(820px) {
       display: none;
