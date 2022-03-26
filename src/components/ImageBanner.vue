@@ -1,8 +1,8 @@
 <template>
   <header class="header">
-    <video autoplay muted loop>
+    <!-- <video autoplay muted loop>
       <source src="../assets/bg.mp4" type="video/mp4" />
-    </video>
+    </video> -->
     <div class="wrapper">
       <h1>Philippe Gerbeau</h1>
       <p class="title">Full-stack web developer</p>
@@ -12,21 +12,29 @@
       </div>
       <div class="social">
         <a href="https://github.com/philgerb93">
-          <!-- <UpworkLogo /> -->
+          <UpworkLogo />
         </a>
-        <a href="https://www.linkedin.com/in/philippe-gerbeau-b8b57b141"> </a>
-        <a href="https://github.com/philgerb93"> </a>
+        <a href="https://www.linkedin.com/in/philippe-gerbeau-b8b57b141">
+          <LinkedInLogo />
+        </a>
+        <a href="https://github.com/philgerb93">
+          <GithubLogo />
+        </a>
       </div>
     </div>
   </header>
 </template>
 
 <script>
-import UpworkLogo from "@/assets/icons/github.svg";
+import UpworkLogo from "@/assets/icons/upwork.svg";
+import LinkedInLogo from "@/assets/icons/linkedin.svg";
+import GithubLogo from "@/assets/icons/github.svg";
 
 export default {
   components: {
-    // UpworkLogo,
+    UpworkLogo,
+    LinkedInLogo,
+    GithubLogo,
   },
   mounted() {
     this.headerScroll();
@@ -126,11 +134,6 @@ export default {
       margin-top: 32px;
       display: flex;
 
-      img {
-        width: 30px;
-        height: 30px;
-      }
-
       a {
         color: $color-light;
         font-size: 3rem;
@@ -138,11 +141,8 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        color: red;
-
-        svg {
-          color: red;
-        }
+        width: 30px;
+        height: 30px;
       }
     }
 

@@ -7,30 +7,39 @@
       <h3>Front-end</h3>
       <div class="toolbox-section">
         <div class="tool">
-          <fa-icon :icon="['fab', 'html5']" size="2x" />
+          <HtmlLogo />
           <p>HTML</p>
         </div>
         <div class="tool">
-          <fa-icon :icon="['fab', 'js-square']" size="2x" />
+          <JavascriptLogo />
           <p>Javascript</p>
         </div>
         <div class="tool">
-          <fa-icon :icon="['fab', 'css3-alt']" size="2x" />
+          <TypescriptLogo />
+          <p>Typescript</p>
+        </div>
+        <div class="tool">
+          <CssLogo />
           <p>CSS</p>
         </div>
         <div class="tool">
-          <fa-icon :icon="['fab', 'html5']" size="2x" />
+          <SassLogo />
+          <p>Sass</p>
+        </div>
+        <div class="tool">
+          <FlutterLogo />
           <p>Flutter</p>
         </div>
         <div class="tool">
-          <fa-icon :icon="['fab', 'js-square']" size="2x" />
+          <ShopifyLogo />
           <p>Liquid</p>
         </div>
         <div class="tool">
-          <fa-icon :icon="['fab', 'vuejs']" size="2x" />
+          <VueLogo />
           <p>Vue</p>
         </div>
         <div class="tool">
+          <JestLogo />
           <p>Jest</p>
         </div>
       </div>
@@ -38,12 +47,15 @@
       <h3>Back-end</h3>
       <div class="toolbox-section">
         <div class="tool">
+          <DotNetLogo />
           <p>.NET Core</p>
         </div>
         <div class="tool">
+          <SqlLogo />
           <p>SQL</p>
         </div>
         <div class="tool">
+          <FirebaseLogo />
           <p>Firebase</p>
         </div>
       </div>
@@ -51,18 +63,23 @@
       <h3>General</h3>
       <div class="toolbox-section">
         <div class="tool">
+          <WordpressLogo />
           <p>Wordpress</p>
         </div>
         <div class="tool">
+          <ShopifyLogo />
           <p>Shopify</p>
         </div>
         <div class="tool">
+          <VSCodeLogo />
           <p>VS Code</p>
         </div>
         <div class="tool">
+          <GitLogo />
           <p>Git</p>
         </div>
         <div class="tool">
+          <GithubLogo />
           <p>Github</p>
         </div>
       </div>
@@ -71,7 +88,43 @@
 </template>
 
 <script>
-export default {};
+import HtmlLogo from "@/assets/icons/html.svg";
+import JavascriptLogo from "@/assets/icons/javascript.svg";
+import TypescriptLogo from "@/assets/icons/typescript.svg";
+import CssLogo from "@/assets/icons/css.svg";
+import SassLogo from "@/assets/icons/sass.svg";
+import FlutterLogo from "@/assets/icons/flutter.svg";
+import ShopifyLogo from "@/assets/icons/shopify.svg";
+import VueLogo from "@/assets/icons/vue.svg";
+import JestLogo from "@/assets/icons/jest.svg";
+import DotNetLogo from "@/assets/icons/dotnet.svg";
+import SqlLogo from "@/assets/icons/sql.svg";
+import FirebaseLogo from "@/assets/icons/firebase.svg";
+import WordpressLogo from "@/assets/icons/wordpress.svg";
+import VSCodeLogo from "@/assets/icons/vscode.svg";
+import GitLogo from "@/assets/icons/git.svg";
+import GithubLogo from "@/assets/icons/github.svg";
+
+export default {
+  components: {
+    HtmlLogo,
+    JavascriptLogo,
+    TypescriptLogo,
+    CssLogo,
+    SassLogo,
+    FlutterLogo,
+    ShopifyLogo,
+    VueLogo,
+    JestLogo,
+    DotNetLogo,
+    SqlLogo,
+    FirebaseLogo,
+    WordpressLogo,
+    VSCodeLogo,
+    GitLogo,
+    GithubLogo,
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -102,6 +155,11 @@ export default {};
       p {
         margin-top: 4px;
         margin-bottom: 0;
+      }
+
+      svg {
+        width: 30px;
+        height: 30px;
       }
     }
   }

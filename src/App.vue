@@ -1,49 +1,34 @@
 <template>
   <div id="app">
-    <nav-bar></nav-bar>
+    <NavBar></NavBar>
     <div id="start-of-page"></div>
-    <Header></Header>
+    <ImageBanner></ImageBanner>
     <div
       class="main-content"
       v-bind:style="{ marginBottom: footerHeight + 'px' }"
     >
-      <Priorities></Priorities>
-      <Toolbox></Toolbox>
-      <Contact></Contact>
-      <!-- <projects
-        v-on:OpenImgModal="openImgModal"
-        v-on:OpenVidModal="openVidModal"
-      ></projects> -->
+      <MyPriorities></MyPriorities>
+      <MyToolbox></MyToolbox>
+      <HireMe></HireMe>
     </div>
     <div id="end-of-page"></div>
-    <!-- <modal
-      v-if="modalIndex >= 0"
-      v-bind:video="modalVideo"
-      v-bind:images="modalImages"
-      v-bind:startingIndex="modalIndex"
-      v-on:Close="modalIndex = -1"
-    ></modal> -->
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar";
-import Header from "./components/Header";
-// import Projects from "./components/projects/Projects";
-// import Modal from "./components/Modal";
-import Toolbox from "./components/Toolbox.vue";
-import Priorities from "./components/Priorities.vue";
-import Contact from "./components/Contact.vue";
+import ImageBanner from "./components/ImageBanner";
+import MyToolbox from "./components/MyToolbox.vue";
+import MyPriorities from "./components/MyPriorities.vue";
+import HireMe from "./components/HireMe.vue";
 
 export default {
   components: {
     NavBar,
-    Header,
-    // Projects,
-    // Modal,
-    Priorities,
-    Toolbox,
-    Contact,
+    ImageBanner,
+    MyPriorities,
+    MyToolbox,
+    HireMe,
   },
   data() {
     return {
@@ -88,7 +73,7 @@ html {
 body {
   background-color: $color-footer;
   box-sizing: border-box;
-  color: $color-text-black;
+  color: $color-dark;
   font-family: "Roboto", sans-serif;
   letter-spacing: 0.06rem;
   font-size: 1.6rem;
