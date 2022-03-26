@@ -4,7 +4,7 @@
     <div class="service">
       <div class="media left">
         <h3 class="only-mobile">Website</h3>
-        <img src="@/assets/website.jpg" alt="website" />
+        <img src="@/assets/website.webp" alt="website" />
       </div>
       <div class="info right">
         <h3 class="only-desktop">Website</h3>
@@ -25,7 +25,7 @@
     <div class="service">
       <div class="media only-mobile">
         <h3>E-store</h3>
-        <img src="@/assets/estore.jpg" alt="estore" />
+        <img src="@/assets/estore.webp" alt="estore" />
       </div>
       <div class="info left">
         <h3 class="only-desktop">E-store</h3>
@@ -42,13 +42,13 @@
         <button>See Shopify store demo</button>
       </div>
       <div class="media only-desktop right">
-        <img src="@/assets/estore.jpg" alt="estore" />
+        <img src="@/assets/estore.webp" alt="estore" />
       </div>
     </div>
     <div class="service">
       <div class="media left">
         <h3 class="only-mobile">Mobile App</h3>
-        <img src="@/assets/mobile.jpg" alt="mobile" />
+        <img src="@/assets/mobile.webp" alt="mobile" />
       </div>
       <div class="info right">
         <h3 class="only-desktop">Mobile App</h3>
@@ -161,7 +161,7 @@ export default {
       max-width: 550px;
       box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56),
         0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
-      border-radius: 8px;
+      border-radius: 6px;
       object-fit: cover;
 
       @include width-above(800px) {

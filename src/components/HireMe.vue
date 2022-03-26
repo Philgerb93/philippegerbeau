@@ -59,7 +59,7 @@
           </div>
         </template>
         <div v-else class="confirmation">
-          <fa-icon :icon="['fa', 'envelope']" size="4x" />
+          <EmailLogo />
           <p>Your message has been sent!</p>
         </div>
       </form>
@@ -70,8 +70,12 @@
 <script>
 import emailjs from "@emailjs/browser";
 import { required, email } from "vuelidate/lib/validators";
+import EmailLogo from "@/assets/icons/email.svg";
 
 export default {
+  components: {
+    EmailLogo,
+  },
   data() {
     return {
       name: "",
@@ -79,7 +83,7 @@ export default {
       message: "",
       isSubmitted: false,
       isLoading: false,
-      messageSent: false,
+      messageSent: true,
     };
   },
   validations: {
@@ -283,6 +287,11 @@ export default {
   color: lighten($color: $color-brand, $amount: 10%);
   width: 100%;
   height: 500px;
+
+  svg {
+    width: 80px;
+    height: 80px;
+  }
 }
 
 .error {
