@@ -118,11 +118,21 @@ export default {
         font-weight: bold;
         text-transform: uppercase;
         color: $color-dark;
+        transition: 0.2s all;
+
+        &:hover {
+          background-color: lighten($color: $color-brand, $amount: 10%);
+        }
 
         &.outline {
           border: 1px solid $color-light;
           background-color: transparent;
           color: $color-light;
+
+          &:hover {
+            color: lighten($color: $color-brand, $amount: 10%);
+            border-color: lighten($color: $color-brand, $amount: 10%);
+          }
         }
       }
     }
@@ -143,30 +153,13 @@ export default {
         align-items: center;
         width: 30px;
         height: 30px;
+        transition: 0.2s all;
+
+        &:hover {
+          color: lighten($color: $color-brand, $amount: 10%);
+        }
       }
     }
-
-    // .network {
-    //   color: $color-footer;
-    //   font-size: 1.6rem;
-    //   background-color: $color-grey;
-    //   padding: 0.4em 0.6em;
-    //   margin: 0 0.4em;
-    //   border-radius: 2em;
-    //   transition: all 0.2s;
-    //   position: relative;
-
-    //   &:hover {
-    //     transform: translateY(-2px);
-    //     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    //     background-color: #fff;
-    //   }
-
-    //   &:active {
-    //     transform: translateY(-1px);
-    //     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    //   }
-    // }
   }
 }
 </style>

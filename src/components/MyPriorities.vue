@@ -51,8 +51,13 @@ export default {};
     margin: 16px;
     max-width: 400px;
 
+    &:hover :not(p):not(h3) {
+      color: lighten($color: $color-brand, $amount: 10%);
+    }
+
     :not(p):not(h3) {
       color: $color-brand;
+      transition: 0.2s all;
     }
 
     @include width-above(820px) {

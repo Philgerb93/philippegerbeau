@@ -115,9 +115,10 @@ export default {};
       background-color: $color-brand;
       color: $color-light;
       font-weight: bold;
+      transition: 0.2s all;
 
       &:hover {
-        background-color: lighten($color: $color-brand, $amount: 5%);
+        background-color: lighten($color: $color-brand, $amount: 10%);
       }
     }
   }
