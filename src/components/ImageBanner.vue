@@ -1,14 +1,14 @@
 <template>
   <header class="header">
-    <!-- <video autoplay muted loop>
+    <video autoplay muted loop>
       <source src="../assets/bg.mp4" type="video/mp4" />
-    </video> -->
+    </video>
     <div class="wrapper">
       <h1>Philippe Gerbeau</h1>
       <p class="title">Full-stack web developer</p>
       <div class="buttons">
-        <button>My services</button>
-        <button class="outline">Hire me</button>
+        <button @click="scrollTo('#services')">My services</button>
+        <button @click="scrollTo('#hire-me')" class="outline">Hire me</button>
       </div>
       <div class="social">
         <a href="https://github.com/philgerb93">
@@ -63,6 +63,15 @@ export default {
           });
       }
     },
+    scrollTo(anchor) {
+      var navHeight = Math.floor(
+        document.querySelector(".nav-wrapper").clientHeight
+      );
+      var destination = document.querySelector(anchor);
+      let count = destination.getBoundingClientRect().top - navHeight;
+
+      window.scrollBy({ top: count, left: 0, behavior: "smooth" });
+    },
   },
 };
 </script>
@@ -71,13 +80,12 @@ export default {
 .header {
   background-color: $color-dark;
   color: $color-text-white;
-  height: calc(100vh - #{$navbar-height});
+  height: 100vh;
   left: 0;
   position: fixed;
   top: 0;
   transition: height 0.2s;
   width: 100%;
-  margin-top: $navbar-height;
   display: flex;
   align-items: center;
 
@@ -86,13 +94,14 @@ export default {
   }
 
   video {
-    opacity: 0.1;
+    opacity: 0.4;
     width: 100%;
     height: 100%;
     object-fit: cover;
     position: absolute;
     top: 0;
     left: 0;
+    z-index: -5;
   }
 
   .wrapper {

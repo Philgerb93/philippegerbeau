@@ -1,12 +1,7 @@
 <template>
-  <nav id="nav" class="nav">
+  <nav id="nav" class="nav" v-bind:class="{ hidden: !showBar }">
     <div class="nav-wrapper">
-      <a
-        v-bind:class="{ hidden: !showName }"
-        href="#start-of-page"
-        class="nav-name"
-        >Philippe Gerbeau</a
-      >
+      <a href="#start-of-page" class="nav-name">Philippe Gerbeau</a>
 
       <label class="nav-btn" v-on:click="togglePopup"
         ><span class="nav-icon" v-bind:class="{ open: showPopup }"></span
@@ -60,7 +55,7 @@
 export default {
   data() {
     return {
-      showName: false,
+      showBar: false,
       showPopup: false,
     };
   },
@@ -88,10 +83,9 @@ export default {
       var mainContent = document.querySelector(".main-content");
       var topOfDiv = mainContent.getBoundingClientRect().top;
 
-      this.showName = topOfDiv <= 100;
+      this.showBar = topOfDiv <= 100;
     },
     togglePopup() {
-      console.log("ALLO?");
       this.showPopup = !this.showPopup;
     },
   },
@@ -110,6 +104,12 @@ export default {
   top: 0;
   width: 100%;
   z-index: 10;
+  transition: 0.2s all;
+
+  &.hidden {
+    opacity: 0;
+    cursor: default;
+  }
 
   & a {
     color: $color-text-white;
@@ -119,11 +119,6 @@ export default {
     font-size: 1.4rem;
     letter-spacing: 0.2em;
     font-weight: bold;
-
-    &.hidden {
-      opacity: 0;
-      cursor: default;
-    }
   }
 
   &-link {

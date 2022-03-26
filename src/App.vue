@@ -180,7 +180,7 @@ p.subheader {
   z-index: 2;
 
   @include height-above(800px) {
-    margin-top: $navbar-height + $header-height;
+    margin-top: $header-height;
   }
 }
 
