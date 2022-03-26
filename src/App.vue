@@ -92,6 +92,10 @@ button {
 
 button {
   font-size: 1.4rem;
+
+  &:disabled {
+    cursor: unset;
+  }
 }
 
 p {

@@ -3,30 +3,64 @@
     <div class="page-section">
       <h2>Hire me</h2>
 
-      <form class="box">
-        <div class="info">
-          <h3 class="with-subheader">Let's do it!</h3>
-          <p>I usually answer within a day or two.</p>
-          <div class="field">
-            <label for="name">Name</label>
-            <input type="text" id="name" placeholder="John Doe" />
+      <form ref="form" class="box" @submit.prevent="sendEmail">
+        <template v-if="!messageSent">
+          <div class="info">
+            <h3 class="with-subheader">Let's do it!</h3>
+            <p>I usually answer within a day or two.</p>
+            <div class="field">
+              <label for="name">Name</label>
+              <div class="error" v-if="isSubmitted && !$v.name.required">
+                Field is required
+              </div>
+              <input
+                v-model="name"
+                type="text"
+                id="name"
+                name="user_name"
+                placeholder="John Doe"
+              />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <div class="error" v-if="isSubmitted && !$v.email.required">
+                Field is required
+              </div>
+              <div class="error" v-if="isSubmitted && !$v.email.email">
+                Field must be a valid email
+              </div>
+              <input
+                v-model="email"
+                type="text"
+                id="email"
+                name="user_email"
+                placeholder="john.doe@email.com"
+              />
+            </div>
           </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="john.doe@email.com" />
+          <div class="content">
+            <div class="field">
+              <label for="message">Message</label>
+              <div class="error" v-if="isSubmitted && !$v.message.required">
+                Field is required
+              </div>
+              <textarea
+                v-model="message"
+                id="message"
+                name="message"
+                rows="4"
+                cols="50"
+                placeholder="Write text here..."
+              ></textarea>
+            </div>
+            <button type="submit" :disabled="isLoading">
+              <span v-if="!isLoading">SEND MESSAGE</span>
+            </button>
           </div>
-        </div>
-        <div class="content">
-          <div class="field">
-            <label for="message">Message</label>
-            <textarea
-              id="message"
-              rows="4"
-              cols="50"
-              placeholder="Write text here..."
-            ></textarea>
-          </div>
-          <button>SEND MESSAGE</button>
+        </template>
+        <div v-else class="confirmation">
+          <fa-icon :icon="['fa', 'envelope']" size="4x" />
+          <p>Your message has been sent!</p>
         </div>
       </form>
     </div>
@@ -34,7 +68,25 @@
 </template>
 
 <script>
+import emailjs from "@emailjs/browser";
+import { required, email } from "vuelidate/lib/validators";
+
 export default {
+  data() {
+    return {
+      name: "",
+      email: "",
+      message: "",
+      isSubmitted: false,
+      isLoading: false,
+      messageSent: false,
+    };
+  },
+  validations: {
+    name: { required },
+    email: { required, email },
+    message: { required },
+  },
   mounted() {
     this.watchForAnim();
     window.addEventListener("scroll", this.watchForAnim);
@@ -63,6 +115,29 @@ export default {
       return (
         centerOfElement > navBarHeight && centerOfElement < window.innerHeight
       );
+    },
+    sendEmail() {
+      this.isSubmitted = true;
+      this.$v.$touch();
+      if (this.$v.$invalid) return;
+      this.isLoading = true;
+
+      emailjs
+        .sendForm(
+          "service_1jm0wev",
+          "template_lpmj7bp",
+          this.$refs.form,
+          "user_F566qi3f7sd2W3JcQOrgV"
+        )
+        .then(
+          () => {
+            this.messageSent = true;
+            this.loading = false;
+          },
+          (error) => {
+            console.log("FAILED...", error.text);
+          }
+        );
     },
   },
 };
@@ -158,7 +233,7 @@ export default {
       font-weight: bold;
       transition: 0.2s all;
 
-      &:hover {
+      &:not(:disabled):hover {
         background-color: lighten($color: $color-brand, $amount: 10%);
       }
     }
@@ -167,6 +242,7 @@ export default {
   .field {
     display: flex;
     flex-direction: column;
+    margin-bottom: 3rem;
 
     label {
       opacity: 0.6;
@@ -175,13 +251,13 @@ export default {
 
     input,
     textarea {
-      margin-bottom: 3rem;
       caret-color: $color-light;
       border: none;
       background-color: transparent;
       resize: none;
       font-size: 1.6rem;
       color: $color-light;
+      margin-bottom: 4px;
 
       &:focus {
         outline: none;
@@ -197,5 +273,20 @@ export default {
       padding: 8px 0;
     }
   }
+}
+
+.confirmation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: lighten($color: $color-brand, $amount: 10%);
+  width: 100%;
+  height: 500px;
+}
+
+.error {
+  font-size: 1.4rem;
+  color: rgba(red, 0.8);
 }
 </style>

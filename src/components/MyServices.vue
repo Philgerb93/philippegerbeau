@@ -4,7 +4,7 @@
     <div class="service">
       <div class="media left">
         <h3 class="only-mobile">Website</h3>
-        <img src="@/assets/website.jpg" />
+        <img src="@/assets/website.jpg" alt="website" />
       </div>
       <div class="info right">
         <h3 class="only-desktop">Website</h3>
@@ -22,7 +22,7 @@
     <div class="service">
       <div class="media only-mobile">
         <h3>E-store</h3>
-        <img src="@/assets/estore.jpg" />
+        <img src="@/assets/estore.jpg" alt="estore" />
       </div>
       <div class="info left">
         <h3 class="only-desktop">E-store</h3>
@@ -37,13 +37,13 @@
         <button>See Shopify store demo</button>
       </div>
       <div class="media only-desktop right">
-        <img src="@/assets/estore.jpg" />
+        <img src="@/assets/estore.jpg" alt="estore" />
       </div>
     </div>
     <div class="service">
       <div class="media left">
         <h3 class="only-mobile">Mobile App</h3>
-        <img src="@/assets/mobile.jpg" />
+        <img src="@/assets/mobile.jpg" alt="mobile" />
       </div>
       <div class="info right">
         <h3 class="only-desktop">Mobile App</h3>
@@ -80,7 +80,6 @@ export default {
           this.elemInViewport(element)
         ) {
           element.classList.add("slidedRight");
-          console.log("LEFT");
         }
       });
 
@@ -90,7 +89,6 @@ export default {
           this.elemInViewport(element)
         ) {
           element.classList.add("slidedLeft");
-          console.log("RIGHT");
         }
       });
     },
