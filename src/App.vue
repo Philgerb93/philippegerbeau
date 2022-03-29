@@ -78,7 +78,7 @@ body {
   color: $color-dark;
   font-family: "Roboto", sans-serif;
   letter-spacing: 0.06rem;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
 }
 
 input,
@@ -87,7 +87,7 @@ textarea,
 button {
   font-family: "Roboto", sans-serif;
   letter-spacing: 0.06rem;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
 }
 
 button {
@@ -105,7 +105,7 @@ p {
 
 a {
   font-family: "Montserrat", sans-serif;
-  font-weight: normal;
+  font-weight: 500;
   text-decoration: none;
   transition: 0.2s ease-in-out;
 }
@@ -133,6 +133,7 @@ h3,
 h4,
 h5 {
   font-family: "Montserrat", sans-serif;
+  font-weight: 500;
 }
 
 h1 {
@@ -144,13 +145,13 @@ h2 {
   font-size: 4rem;
   text-align: center;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 600;
   letter-spacing: 0.2em;
   margin-bottom: 2em;
 }
 
 h3 {
-  font-size: 2.2rem;
+  font-size: 3rem;
   text-align: center;
   margin: 0.8em;
 }

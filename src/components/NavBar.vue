@@ -119,7 +119,7 @@ export default {
   }
 
   &-name {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     letter-spacing: 0.2em;
     font-weight: bold;
     position: relative;
@@ -128,8 +128,7 @@ export default {
   &-link {
     letter-spacing: 0.08em;
     position: relative;
-    font-size: 1rem;
-    font-weight: bold;
+    font-size: 1.2rem;
   }
 
   &-name,

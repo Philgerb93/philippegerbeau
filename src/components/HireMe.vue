@@ -185,7 +185,6 @@ export default {
     }
 
     h3 {
-      text-transform: uppercase;
       margin-left: 0;
       text-align: start;
       letter-spacing: 0.1em;
@@ -250,7 +249,7 @@ export default {
 
     label {
       opacity: 0.6;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
     }
 
     input,

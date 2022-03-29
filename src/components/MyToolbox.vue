@@ -183,7 +183,7 @@ export default {
       align-items: center;
       background-color: $color-light;
       color: $color-brand;
-      font-weight: 700;
+      font-weight: 400;
       margin: 8px;
       box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
         0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
@@ -194,7 +194,7 @@ export default {
       }
 
       p {
-        margin-top: 4px;
+        margin-top: 8px;
         margin-bottom: 0;
         transition: 0.2s all;
       }

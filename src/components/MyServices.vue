@@ -124,7 +124,7 @@ export default {
     height: 400px;
 
     .left {
-      margin-right: 3rem;
+      margin-right: 5rem;
 
       @include width-above(800px) {
         opacity: 0;
@@ -136,7 +136,7 @@ export default {
     }
 
     .right {
-      margin-left: 3rem;
+      margin-left: 5rem;
 
       @include width-above(800px) {
         opacity: 0;
@@ -198,6 +198,7 @@ button {
   padding: 8px 0;
   transition: all 0.2s;
   font-weight: bold;
+  font-size: 1.8rem;
 
   &:hover {
     color: lighten($color: $color-brand, $amount: 10%);
