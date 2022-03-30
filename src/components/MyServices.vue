@@ -4,7 +4,9 @@
     <div class="service">
       <div class="media left">
         <h3 class="only-mobile">Website</h3>
-        <img src="@/assets/website.webp" alt="website" />
+        <div class="image-wrapper">
+          <img src="@/assets/website.webp" alt="website" />
+        </div>
       </div>
       <div class="info right">
         <h3 class="only-desktop">Website</h3>
@@ -25,7 +27,9 @@
     <div class="service">
       <div class="media only-mobile">
         <h3>E-store</h3>
-        <img src="@/assets/estore.webp" alt="estore" />
+        <div class="image-wrapper">
+          <img src="@/assets/estore.webp" alt="estore" />
+        </div>
       </div>
       <div class="info left">
         <h3 class="only-desktop">E-store</h3>
@@ -42,13 +46,17 @@
         <button>See Shopify store demo</button>
       </div>
       <div class="media only-desktop right">
-        <img src="@/assets/estore.webp" alt="estore" />
+        <div class="image-wrapper">
+          <img src="@/assets/estore.webp" alt="estore" />
+        </div>
       </div>
     </div>
     <div class="service">
       <div class="media left">
         <h3 class="only-mobile">Mobile App</h3>
-        <img src="@/assets/mobile.webp" alt="mobile" />
+        <div class="image-wrapper">
+          <img src="@/assets/mobile.webp" alt="mobile" />
+        </div>
       </div>
       <div class="info right">
         <h3 class="only-desktop">Mobile App</h3>
@@ -124,7 +132,7 @@ export default {
     height: 400px;
 
     .left {
-      margin-right: 5rem;
+      margin-right: 5%;
 
       @include width-above(800px) {
         opacity: 0;
@@ -136,7 +144,7 @@ export default {
     }
 
     .right {
-      margin-left: 5rem;
+      margin-left: 5%;
 
       @include width-above(800px) {
         opacity: 0;
@@ -155,17 +163,29 @@ export default {
   .media {
     flex: 1;
 
-    img {
+    .image-wrapper {
       width: 100%;
       height: 200px;
       max-width: 550px;
+      overflow: hidden;
+      border-radius: 6px;
+      margin: 0 auto;
       box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56),
         0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
-      border-radius: 6px;
-      object-fit: cover;
 
       @include width-above(800px) {
         height: 400px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.5s all;
+
+        &:hover {
+          transform: scale(1.1);
+        }
       }
     }
   }
@@ -175,11 +195,11 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 4rem;
     margin-top: 1.6rem;
 
     @include width-above(800px) {
       margin-top: 0;
+      padding: 0 4rem;
     }
 
     h3,
