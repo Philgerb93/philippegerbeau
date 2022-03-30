@@ -2,6 +2,7 @@ module.exports = {
     css: {
       loaderOptions: {
         sass: {
+          implementation: require('sass'),
           data: `@import "@/global.scss";`
         }
       }
