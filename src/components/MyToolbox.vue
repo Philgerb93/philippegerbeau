@@ -158,9 +158,12 @@ export default {
       let navBarHeight = document.querySelector(".nav").clientHeight;
       let topOfElement = element.getBoundingClientRect().top;
       let centerOfElement = topOfElement + element.clientHeight / 2;
+      let topSection = centerOfElement - element.clientHeight / 2;
+      let botSection = centerOfElement + element.clientHeight / 2;
 
       return (
-        centerOfElement > navBarHeight && centerOfElement < window.innerHeight
+        (topSection > navBarHeight && topSection < window.innerHeight) ||
+        (botSection > navBarHeight && botSection < window.innerHeight)
       );
     },
   },
