@@ -237,6 +237,7 @@ export default {
         width: 30px;
         height: 30px;
         transition: 0.2s all;
+        opacity: 0.9;
       }
     }
   }
