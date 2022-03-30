@@ -15,10 +15,6 @@
           <p>Javascript</p>
         </div>
         <div class="tool">
-          <TypescriptLogo />
-          <p>Typescript</p>
-        </div>
-        <div class="tool">
           <CssLogo />
           <p>CSS</p>
         </div>
@@ -27,28 +23,24 @@
           <p>Sass</p>
         </div>
         <div class="tool">
-          <VueLogo />
-          <p>Vue</p>
-        </div>
-        <div class="tool">
-          <FlutterLogo />
-          <p>Flutter</p>
+          <ReactLogo />
+          <p>React</p>
         </div>
         <div class="tool">
           <ShopifyLogo />
           <p>Liquid</p>
-        </div>
-        <div class="tool">
-          <JestLogo />
-          <p>Jest</p>
         </div>
       </div>
 
       <h3>Back-end</h3>
       <div class="toolbox-section">
         <div class="tool">
-          <DotNetLogo />
-          <p>.NET Core</p>
+          <GatsbyLogo />
+          <p>Gatsby</p>
+        </div>
+        <div class="tool">
+          <StrapiLogo />
+          <p>Strapi</p>
         </div>
         <div class="tool">
           <GraphQlLogo />
@@ -62,30 +54,43 @@
           <FirebaseLogo />
           <p>Firebase</p>
         </div>
+        <div class="tool">
+          <DotNetLogo />
+          <p>.NET Core</p>
+        </div>
+        <div class="tool">
+          <CSharpLogo />
+          <p>C#</p>
+        </div>
+      </div>
+
+      <h3>Testing</h3>
+      <div class="toolbox-section">
+        <div class="tool">
+          <JestLogo />
+          <p>Jest</p>
+        </div>
+        <div class="tool">
+          <StorybookLogo />
+          <p>Storybook</p>
+        </div>
       </div>
 
       <h3>General</h3>
       <div class="toolbox-section">
-        <!-- <div class="tool">
-          <WordpressLogo />
-          <p>Wordpress</p>
-        </div> -->
-        <div class="tool">
-          <StrapiLogo />
-          <p>Strapi</p>
-        </div>
         <div class="tool">
           <ShopifyLogo />
           <p>Shopify</p>
         </div>
         <div class="tool">
-          <DotNetLogo />
-          <p>Visual Studio</p>
-        </div>
-        <div class="tool">
           <VSCodeLogo />
           <p>VS Code</p>
         </div>
+        <div class="tool">
+          <DotNetLogo />
+          <p>Visual Studio</p>
+        </div>
+
         <div class="tool">
           <NetlifyLogo />
           <p>Netlify</p>
@@ -106,45 +111,45 @@
 <script>
 import HtmlLogo from "@/assets/icons/html.svg";
 import JavascriptLogo from "@/assets/icons/javascript.svg";
-import TypescriptLogo from "@/assets/icons/typescript.svg";
 import CssLogo from "@/assets/icons/css.svg";
 import SassLogo from "@/assets/icons/sass.svg";
-import FlutterLogo from "@/assets/icons/flutter.svg";
 import ShopifyLogo from "@/assets/icons/shopify.svg";
-import VueLogo from "@/assets/icons/vue.svg";
 import JestLogo from "@/assets/icons/jest.svg";
 import DotNetLogo from "@/assets/icons/dotnet.svg";
 import SqlLogo from "@/assets/icons/sql.svg";
 import FirebaseLogo from "@/assets/icons/firebase.svg";
-// import WordpressLogo from "@/assets/icons/wordpress.svg";
 import VSCodeLogo from "@/assets/icons/vscode.svg";
 import GitLogo from "@/assets/icons/git.svg";
 import GithubLogo from "@/assets/icons/github.svg";
 import NetlifyLogo from "@/assets/icons/netlify.svg";
 import StrapiLogo from "@/assets/icons/strapi.svg";
 import GraphQlLogo from "@/assets/icons/graphql.svg";
+import ReactLogo from "@/assets/icons/react.svg";
+import CSharpLogo from "@/assets/icons/csharp.svg";
+import GatsbyLogo from "@/assets/icons/gatsby.svg";
+import StorybookLogo from "@/assets/icons/storybook.svg";
 
 export default {
   components: {
     HtmlLogo,
     JavascriptLogo,
-    TypescriptLogo,
     CssLogo,
     SassLogo,
-    FlutterLogo,
     ShopifyLogo,
-    VueLogo,
     JestLogo,
     DotNetLogo,
     SqlLogo,
     FirebaseLogo,
-    // WordpressLogo,
     VSCodeLogo,
     GitLogo,
     GithubLogo,
     NetlifyLogo,
     StrapiLogo,
     GraphQlLogo,
+    ReactLogo,
+    GatsbyLogo,
+    CSharpLogo,
+    StorybookLogo,
   },
   mounted() {
     this.watchForAnim();

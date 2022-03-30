@@ -34,7 +34,7 @@
       <div class="info left">
         <h3 class="only-desktop">E-store</h3>
         <p>
-          As a <strong>Shopify</strong> partner, I will guide you in the process
+          As a <strong>Shopify partner</strong>, I will guide you in the process
           of creating your own e-store so you can start selling online. You will
           be able to easily setup and manage your inventory, payments and
           shipping.
