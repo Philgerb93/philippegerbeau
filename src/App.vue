@@ -77,6 +77,7 @@ body {
   box-sizing: border-box;
   color: $color-dark;
   font-family: "Roboto", sans-serif;
+  font-weight: 300;
   letter-spacing: 0.06rem;
   font-size: 1.8rem;
 }
