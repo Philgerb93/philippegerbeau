@@ -147,10 +147,10 @@ export default {
 
       elements.forEach((element) => {
         if (
-          !element.classList.contains("slidedRight") &&
+          !element.classList.contains("slided") &&
           this.elemInViewport(element)
         ) {
-          element.classList.add("slidedRight");
+          element.classList.add("slided");
         }
       });
     },
@@ -179,7 +179,7 @@ export default {
     opacity: 0;
     flex-wrap: wrap;
 
-    &.slidedRight {
+    &.slided {
       animation: slideInRight 1s forwards;
     }
 

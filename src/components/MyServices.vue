@@ -25,7 +25,7 @@
       </div>
     </div>
     <div class="service">
-      <div class="media only-mobile">
+      <div class="media only-mobile left">
         <h3>E-store</h3>
         <div class="image-wrapper">
           <img src="@/assets/estore.webp" alt="estore" />
@@ -87,19 +87,19 @@ export default {
 
       leftElements.forEach((element) => {
         if (
-          !element.classList.contains("slidedRight") &&
+          !element.classList.contains("slided") &&
           this.elemInViewport(element)
         ) {
-          element.classList.add("slidedRight");
+          element.classList.add("slided");
         }
       });
 
       rightElements.forEach((element) => {
         if (
-          !element.classList.contains("slidedLeft") &&
+          !element.classList.contains("slided") &&
           this.elemInViewport(element)
         ) {
-          element.classList.add("slidedLeft");
+          element.classList.add("slided");
         }
       });
     },
@@ -131,32 +131,40 @@ export default {
     flex-direction: row;
     height: 400px;
 
-    .left {
-      margin-right: 5%;
-
-      @include width-above(800px) {
-        opacity: 0;
-
-        &.slidedRight {
-          animation: 1s slideInRight forwards;
-        }
-      }
-    }
-
-    .right {
-      margin-left: 5%;
-
-      @include width-above(800px) {
-        opacity: 0;
-
-        &.slidedLeft {
-          animation: 1s slideInLeft forwards;
-        }
-      }
-    }
-
     &:not(:last-of-type) {
       margin-bottom: 20rem;
+    }
+  }
+
+  .left {
+    opacity: 0;
+
+    &.slided {
+      animation: 1s slideInUp forwards;
+    }
+
+    @include width-above(800px) {
+      margin-right: 5%;
+
+      &.slided {
+        animation: 1s slideInRight forwards;
+      }
+    }
+  }
+
+  .right {
+    opacity: 0;
+
+    &.slided {
+      animation: 1s slideInUp forwards;
+    }
+
+    @include width-above(800px) {
+      margin-left: 5%;
+
+      &.slided {
+        animation: 1s slideInLeft forwards;
+      }
     }
   }
 
@@ -197,6 +205,11 @@ export default {
     justify-content: center;
     margin-top: 1.6rem;
 
+    @include width-below(800px) {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
     @include width-above(800px) {
       margin-top: 0;
       padding: 0 4rem;
@@ -206,6 +219,12 @@ export default {
     p {
       text-align: start;
       margin-left: 0;
+    }
+
+    @include width-below(800px) {
+      p {
+        margin-top: 3rem;
+      }
     }
   }
 }

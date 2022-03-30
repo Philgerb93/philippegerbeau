@@ -104,10 +104,10 @@ export default {
 
       elements.forEach((element) => {
         if (
-          !element.classList.contains("slidedUp") &&
+          !element.classList.contains("slided") &&
           this.elemInViewport(element)
         ) {
-          element.classList.add("slidedUp");
+          element.classList.add("slided");
         }
       });
     },
@@ -164,7 +164,7 @@ export default {
     0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
   opacity: 0;
 
-  &.slidedUp {
+  &.slided {
     animation: slideInUp 1s forwards;
   }
 

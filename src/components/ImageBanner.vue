@@ -1,6 +1,6 @@
 <template>
   <header class="header" id="header">
-    <video width="1920" height="1080" autoplay muted loop>
+    <video width="1920" height="1080" autoplay muted loop playsinline>
       <source src="@/assets/bg.mp4" type="video/mp4" />
     </video>
     <div class="wrapper">

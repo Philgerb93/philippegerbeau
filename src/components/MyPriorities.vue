@@ -61,10 +61,10 @@ export default {
 
       elements.forEach((element) => {
         if (
-          !element.classList.contains("slidedUp") &&
+          !element.classList.contains("slided") &&
           this.elemInViewport(element)
         ) {
-          element.classList.add("slidedUp");
+          element.classList.add("slided");
         }
       });
     },
@@ -92,7 +92,7 @@ export default {
     max-width: 400px;
     opacity: 0;
 
-    &.slidedUp {
+    &.slided {
       animation: slideInUp 1s forwards;
     }
 
