@@ -27,16 +27,16 @@
           <p>Sass</p>
         </div>
         <div class="tool">
+          <VueLogo />
+          <p>Vue</p>
+        </div>
+        <div class="tool">
           <FlutterLogo />
           <p>Flutter</p>
         </div>
         <div class="tool">
           <ShopifyLogo />
           <p>Liquid</p>
-        </div>
-        <div class="tool">
-          <VueLogo />
-          <p>Vue</p>
         </div>
         <div class="tool">
           <JestLogo />
@@ -71,16 +71,24 @@
           <p>Shopify</p>
         </div>
         <div class="tool">
+          <DotNetLogo />
+          <p>Visual Studio</p>
+        </div>
+        <div class="tool">
           <VSCodeLogo />
           <p>VS Code</p>
         </div>
         <div class="tool">
-          <GitLogo />
-          <p>Git</p>
+          <NetlifyLogo />
+          <p>Netlify</p>
         </div>
         <div class="tool">
           <GithubLogo />
           <p>Github</p>
+        </div>
+        <div class="tool">
+          <GitLogo />
+          <p>Git</p>
         </div>
       </div>
     </div>
@@ -104,6 +112,7 @@ import WordpressLogo from "@/assets/icons/wordpress.svg";
 import VSCodeLogo from "@/assets/icons/vscode.svg";
 import GitLogo from "@/assets/icons/git.svg";
 import GithubLogo from "@/assets/icons/github.svg";
+import NetlifyLogo from "@/assets/icons/netlify.svg";
 
 export default {
   components: {
@@ -123,6 +132,7 @@ export default {
     VSCodeLogo,
     GitLogo,
     GithubLogo,
+    NetlifyLogo,
   },
   mounted() {
     this.watchForAnim();
@@ -175,8 +185,8 @@ export default {
 
     .tool {
       border-radius: 8px;
-      width: 100px;
-      height: 100px;
+      width: 110px;
+      height: 110px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -194,6 +204,7 @@ export default {
       }
 
       p {
+        font-size: 1.5rem;
         margin-top: 8px;
         margin-bottom: 0;
         transition: 0.2s all;
