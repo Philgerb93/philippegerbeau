@@ -34,7 +34,7 @@
 <script>
 import UpworkLogo from "@/assets/icons/upwork.svg";
 import LinkedInLogo from "@/assets/icons/linkedin.svg";
-import GithubLogo from "@/assets/icons/github.svg";
+import GithubLogo from "@/assets/icons/githublink.svg";
 
 export default {
   components: {

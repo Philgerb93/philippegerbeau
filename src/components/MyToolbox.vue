@@ -51,6 +51,10 @@
           <p>.NET Core</p>
         </div>
         <div class="tool">
+          <GraphQlLogo />
+          <p>GraphQL</p>
+        </div>
+        <div class="tool">
           <SqlLogo />
           <p>SQL</p>
         </div>
@@ -62,9 +66,13 @@
 
       <h3>General</h3>
       <div class="toolbox-section">
-        <div class="tool">
+        <!-- <div class="tool">
           <WordpressLogo />
           <p>Wordpress</p>
+        </div> -->
+        <div class="tool">
+          <StrapiLogo />
+          <p>Strapi</p>
         </div>
         <div class="tool">
           <ShopifyLogo />
@@ -108,11 +116,13 @@ import JestLogo from "@/assets/icons/jest.svg";
 import DotNetLogo from "@/assets/icons/dotnet.svg";
 import SqlLogo from "@/assets/icons/sql.svg";
 import FirebaseLogo from "@/assets/icons/firebase.svg";
-import WordpressLogo from "@/assets/icons/wordpress.svg";
+// import WordpressLogo from "@/assets/icons/wordpress.svg";
 import VSCodeLogo from "@/assets/icons/vscode.svg";
 import GitLogo from "@/assets/icons/git.svg";
 import GithubLogo from "@/assets/icons/github.svg";
 import NetlifyLogo from "@/assets/icons/netlify.svg";
+import StrapiLogo from "@/assets/icons/strapi.svg";
+import GraphQlLogo from "@/assets/icons/graphql.svg";
 
 export default {
   components: {
@@ -128,11 +138,13 @@ export default {
     DotNetLogo,
     SqlLogo,
     FirebaseLogo,
-    WordpressLogo,
+    // WordpressLogo,
     VSCodeLogo,
     GitLogo,
     GithubLogo,
     NetlifyLogo,
+    StrapiLogo,
+    GraphQlLogo,
   },
   mounted() {
     this.watchForAnim();
@@ -200,10 +212,18 @@ export default {
       margin: 8px;
       box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
         0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      transition: 0.3s all;
 
-      &:hover p,
-      &:hover svg {
+      &:hover {
+        transform: translateY(-2px);
+      }
+
+      &:hover p {
         color: lighten($color: $color-brand, $amount: 10%);
+      }
+
+      &:hover svg {
+        opacity: 0.7;
       }
 
       p {
